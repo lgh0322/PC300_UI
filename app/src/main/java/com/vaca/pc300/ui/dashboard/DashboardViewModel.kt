@@ -13,7 +13,7 @@ class DashboardViewModel : ViewModel() {
 
 
     fun changeText(a:String){
-        _text.postValue("gaga")
+        _text.postValue(a)
 
     }
 }

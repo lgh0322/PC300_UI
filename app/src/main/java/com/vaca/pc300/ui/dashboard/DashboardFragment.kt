@@ -33,7 +33,7 @@ class DashboardFragment : Fragment() {
             textView.text = it
         }
 
-        dashboardViewModel.changeText("gagaxxx")
+        dashboardViewModel.changeText("Divice is offline")
         return root
     }
 
