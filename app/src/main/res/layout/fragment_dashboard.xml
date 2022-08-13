@@ -48,6 +48,10 @@
             android:background="@drawable/data_bg"
             android:layout_height="320dp">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/pc300_data_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

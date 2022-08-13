@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.vaca.pc300.databinding.FragmentDashboardBinding
+import com.vaca.pc300.ui.dashboard.adapter.PC300DataDetailAdapter
+import com.vaca.pc300.ui.dashboard.adapter.SpaceItemDecoration3
 
 class DashboardFragment : Fragment() {
 
@@ -16,6 +19,8 @@ class DashboardFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private lateinit var dataAdapter: PC300DataDetailAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,6 +39,23 @@ class DashboardFragment : Fragment() {
         }
 
         dashboardViewModel.changeText("Divice is offline")
+
+
+
+        dataAdapter= PC300DataDetailAdapter(requireContext())
+
+
+        binding.pc300DataView.layoutManager = object : GridLayoutManager(requireContext(), 2) {
+            override fun canScrollVertically(): Boolean {
+                return false
+            }
+        }
+        binding.pc300DataView.adapter =dataAdapter
+        binding.pc300DataView.addItemDecoration(SpaceItemDecoration3(16))
+
+
+
+
         return root
     }
 
