@@ -51,7 +51,7 @@ class DashboardFragment : Fragment() {
             }
         }
         binding.pc300DataView.adapter =dataAdapter
-        binding.pc300DataView.addItemDecoration(SpaceItemDecoration3(16))
+        binding.pc300DataView.addItemDecoration(SpaceItemDecoration3(30))
 
 
 

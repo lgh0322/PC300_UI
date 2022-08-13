@@ -16,6 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="Dashboard"
+        android:fontFamily="@font/pingfang_sc_bold"
         android:layout_marginTop="54dp"
         android:textColor="@color/white"
         android:textSize="18sp"
@@ -30,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
+            android:fontFamily="@font/pingfang_sc_bold"
             android:id="@+id/text_home"
             android:textColor="#FF2727"
             android:layout_width="match_parent"
