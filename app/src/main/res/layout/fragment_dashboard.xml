@@ -26,6 +26,7 @@
 
 
     <LinearLayout
+        android:visibility="gone"
         android:orientation="vertical"
         android:gravity="top|center_horizontal"
         android:layout_width="match_parent"
@@ -59,12 +60,16 @@
             android:paddingEnd="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-
-
-
-
-
     </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/left_view"
+        android:layout_marginTop="88dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
 
     
 </androidx.constraintlayout.widget.ConstraintLayout>
