@@ -22,7 +22,7 @@ class PC300HistoryTempAdapter(var context: Context) : RecyclerView.Adapter<PC300
     val name= listOf<String>("BP","SpO₂","Temp","GLU","ECG")
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = mInflater.inflate(R.layout.item_pc300_history_bp, parent, false)
+        val view = mInflater.inflate(R.layout.item_pc300_history_temp, parent, false)
         return ViewHolder(view)
     }
 
@@ -52,7 +52,7 @@ class PC300HistoryTempAdapter(var context: Context) : RecyclerView.Adapter<PC300
     }
 
     inner class ViewHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val sys:TextView=itemView.findViewById(R.id.sys)
+//        val sys:TextView=itemView.findViewById(R.id.sys)
 
         init {
 

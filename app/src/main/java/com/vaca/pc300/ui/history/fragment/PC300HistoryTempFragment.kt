@@ -15,6 +15,7 @@ import com.vaca.pc300.ui.dashboard.adapter.PC300DataDetailAdapter
 import com.vaca.pc300.ui.dashboard.adapter.SpaceItemDecoration3
 import com.vaca.pc300.ui.history.HistoryViewModel
 import com.vaca.pc300.ui.history.adapter.PC300HistoryLeftAdapter
+import com.vaca.pc300.ui.history.adapter.PC300HistoryTempAdapter
 
 class PC300HistoryTempFragment : Fragment() {
 
@@ -23,7 +24,7 @@ class PC300HistoryTempFragment : Fragment() {
 
     private val binding get() = _binding!!
 
-    private lateinit var leftAdapter: PC300HistoryLeftAdapter
+    private lateinit var leftAdapter: PC300HistoryTempAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,7 +35,7 @@ class PC300HistoryTempFragment : Fragment() {
         _binding = FragmentHistoryTempBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        leftAdapter= PC300HistoryLeftAdapter(requireContext())
+        leftAdapter= PC300HistoryTempAdapter(requireContext())
 
         binding.listView.layoutManager = object :  LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false) {
             override fun canScrollVertically(): Boolean {
