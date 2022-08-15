@@ -30,7 +30,7 @@
         android:gravity="top|center_horizontal"
         android:layout_height="match_parent">
         <TextView
-            android:text="PC_300SNT"
+            android:text="LPM311 8921"
             android:fontFamily="@font/pingfang_sc_bold"
             android:layout_marginTop="8dp"
             android:textColor="#6B7280"
