@@ -26,7 +26,6 @@
 
 
     <LinearLayout
-        android:visibility="gone"
         android:orientation="vertical"
         android:gravity="top|center_horizontal"
         android:layout_width="match_parent"
@@ -46,14 +45,13 @@
 
         <ImageView
             android:layout_marginTop="16dp"
-            android:src="@drawable/lpm_dashboard_graph"
+            android:src="@drawable/poctor_dashboard_icon"
             android:layout_width="match_parent"
             android:layout_height="204dp"/>
 
         <TextView
             android:layout_marginTop="24dp"
-            android:text="Prepare cotton swabs, alcohol wipes, blood collection needles, test strips, blood collection devices, Code cards, blood lipid detectors."
-            android:textSize="14sp"
+            android:text="Prepare cotton swabs, alcohol wipes, blood collection needles, test strips, blood glucose detectors."   android:textSize="14sp"
             android:textColor="#6B7280"
             android:fontFamily="@font/pingfang_sc_bold"
             android:paddingStart="20dp"
@@ -62,12 +60,6 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/left_view"
-        android:layout_marginTop="88dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 
 

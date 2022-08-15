@@ -44,7 +44,7 @@ class DashboardFragment : Fragment() {
 
 
 
-        dataAdapter= LPMRealTimeDataAdapter(requireContext())
+      /*  dataAdapter= LPMRealTimeDataAdapter(requireContext())
 
 
         binding.leftView.layoutManager = object : GridLayoutManager(requireContext(), 2) {
@@ -53,7 +53,7 @@ class DashboardFragment : Fragment() {
             }
         }
         binding.leftView.adapter =dataAdapter
-        binding.leftView.addItemDecoration(SpaceItemDecorationLPM(50))
+        binding.leftView.addItemDecoration(SpaceItemDecorationLPM(50))*/
 
         return root
     }
