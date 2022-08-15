@@ -4,6 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.vaca.pc300.R
 
@@ -23,7 +25,7 @@ class PoctorTopAdapter(var context: Context) :
     private val mData: MutableList<String> = ArrayList()
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
 
-    val name = listOf<String>("BP", "SpO₂", "Temp", "GLU", "ECG")
+    val name = listOf<String>("Blood Glucose", "Ketone Bodies", "Uric Acid", "GLU", "ECG")
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = mInflater.inflate(R.layout.item_poctor_top, parent, false)
@@ -40,11 +42,13 @@ class PoctorTopAdapter(var context: Context) :
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        // holder.sys.text=name[position]
+         holder.buttonText.text=name[position]
         if (position == currentSelect) {
+            holder.buttonText.background = ContextCompat.getDrawable(context, R.drawable.poctor_top_bg)
             //holder.sys.setTextColor(ContextCompat.getColor(context,R.color.color_111827))
 
         } else {
+            holder.buttonText.background=null
             // holder.sys.setTextColor(ContextCompat.getColor(context,R.color.color_9CA3AF))
 
         }
@@ -57,11 +61,12 @@ class PoctorTopAdapter(var context: Context) :
 
     inner class ViewHolder internal constructor(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
-//        val sys:TextView=itemView.findViewById(R.id.sys)
+        val buttonText: TextView =itemView.findViewById(R.id.button_text)
 
         init {
 
             itemView.setOnClickListener {
+                currentSelect=layoutPosition
                 click?.clickItem(layoutPosition)
             }
         }
