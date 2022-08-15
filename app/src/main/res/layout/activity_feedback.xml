@@ -89,19 +89,57 @@
                     android:text="Usage problem"
                     android:textSize="12sp"
                     android:textColor="#4B5563" />
-
-
-
             </RadioGroup>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="343dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="0dp"
+            android:background="@drawable/data_bg"
+            android:layout_height="130dp">
 
+            <TextView
+                android:text="*  Problem description or suggestion"
+                android:textSize="14sp"
+                android:textColor="#1C2431"
+                android:fontFamily="@font/pingfang_sc_bold"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="343dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="0dp"
+            android:background="@drawable/data_bg"
+            android:layout_height="130dp">
+
+            <TextView
+                android:text="* Email"
+                android:textSize="14sp"
+                android:textColor="#1C2431"
+                android:fontFamily="@font/pingfang_sc_bold"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
