@@ -40,8 +40,10 @@ class PC300HistoryLeftAdapter(var context: Context) : RecyclerView.Adapter<PC300
         holder.name.text=name[position]
         if(position== currentSelect){
             holder.name.setTextColor(ContextCompat.getColor(context,R.color.color_111827))
+            holder.main.setBackgroundColor(ContextCompat.getColor(context,R.color.color_FCFCFC))
         }else{
             holder.name.setTextColor(ContextCompat.getColor(context,R.color.color_9CA3AF))
+            holder.main.setBackgroundColor(ContextCompat.getColor(context,R.color.color_F3F4F6))
         }
     }
 
