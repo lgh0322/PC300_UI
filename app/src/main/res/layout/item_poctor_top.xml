@@ -8,6 +8,7 @@
         android:id="@+id/main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="113dp"
         android:layout_height="28dp"
         app:layout_constraintStart_toStartOf="parent">

@@ -16,9 +16,7 @@ import com.vaca.pc300.ui.history.adapter.PoctorTopAdapter
 class HistoryFragment : Fragment() {
 
     private var _binding: FragmentHistoryBinding? = null
-    companion object {
-        val initJump = MutableLiveData<Int>()
-    }
+
 
     private val binding get() = _binding!!
     var currentIndex = 0
@@ -41,8 +39,10 @@ class HistoryFragment : Fragment() {
 
 
         binding.topView.layoutManager = object :   LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false) {
-            override fun canScrollVertically(): Boolean {
-                return true
+
+
+            override fun canScrollHorizontally(): Boolean {
+                return false
             }
         }
         binding.topView.adapter =topAdapter

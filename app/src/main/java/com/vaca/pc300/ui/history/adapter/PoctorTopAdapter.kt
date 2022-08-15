@@ -56,7 +56,7 @@ class PoctorTopAdapter(var context: Context) :
 
 
     override fun getItemCount(): Int {
-        return 25
+        return 3
     }
 
     inner class ViewHolder internal constructor(itemView: View) :
@@ -68,6 +68,7 @@ class PoctorTopAdapter(var context: Context) :
             itemView.setOnClickListener {
                 currentSelect=layoutPosition
                 click?.clickItem(layoutPosition)
+                notifyDataSetChanged()
             }
         }
     }
