@@ -40,4 +40,14 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_width="80dp"
         android:layout_height="255dp"/>
+
+    <fragment
+        android:id="@+id/bx"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="88dp"
+        android:layout_marginStart="80dp"
+        android:elevation="0dp"
+        app:defaultNavHost="false" />
 </androidx.constraintlayout.widget.ConstraintLayout>
