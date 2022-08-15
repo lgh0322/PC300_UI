@@ -32,4 +32,61 @@
         android:padding="7dp"
         android:layout_height="27dp"/>
 
+    <LinearLayout
+        android:layout_marginTop="88dp"
+        android:orientation="vertical"
+        android:gravity="top|center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="343dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/data_bg"
+            android:layout_height="139dp">
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.vaca.pc300.view.BeBpResultView
+            android:layout_marginTop="22dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="343dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/data_bg"
+            android:layout_height="145dp">
+            <TextView
+                android:hint="Add Note"
+                android:textSize="18sp"
+                android:textColor="#022964"
+                android:fontFamily="@font/pingfang_sc_bold"
+                android:padding="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+            <TextView
+                android:text="0/200"
+                android:textSize="12sp"
+                android:textColor="#6B7280"
+                android:fontFamily="@font/pingfang_sc_bold"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

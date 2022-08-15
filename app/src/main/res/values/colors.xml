@@ -14,4 +14,18 @@
 
     <color name="color_FCFCFC">#FCFCFC</color>
     <color name="color_F3F4F6">#F3F4F6</color>
+
+
+    <color name="r_blue">#A0C4E4</color>
+    <color name="r_green">#C0D7A9</color>
+    <color name="r_yellow">#EBEBAD</color>
+    <color name="r_orange">#E9C497</color>
+    <color name="r_red">#D99999</color>
+    <color name="r_dark_red">#BE4951</color>
+    <color name="gray_vaca">#4E596F</color>
+
+
+    <color name="beColorPrimary">#FF37a5db</color>
+    <color name="beColorPrimaryDark">#FF0081B7</color>
+    <color name="beColorAccent">#FFFF4081</color>
 </resources>
