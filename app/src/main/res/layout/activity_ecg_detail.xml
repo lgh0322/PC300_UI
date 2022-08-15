@@ -215,7 +215,29 @@
                 <TextView
                     android:text="1.Due to the sporadic and transient nature of ECG events, it is normal for each measurement result to be different. It is recommended that you increase the frequency of monitoring and capture incidents in a timely manner.\n2.The results of this analysis are only for reference in daily heart health monitoring, they cannot replace the medical diagnosis results, and cannot used for clinical diagnosis and treatment."
                     android:layout_width="wrap_content"
+                    android:textColor="#6B7280"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/pingfang_sc_bold"
                     android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:layout_marginTop="8dp"
+                    android:gravity="end"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp">
+                    <ImageView
+                        android:src="@drawable/ecg_detail_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"/>
+                    <ImageView
+                        android:layout_marginStart="12dp"
+                        android:src="@drawable/ecg_scale_icon"
+                        android:layout_width="66dp"
+                        android:layout_height="30dp"/>
+
+                </LinearLayout>
+
+
 
             </LinearLayout>
 
