@@ -24,6 +24,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".PC300BPDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
+        <activity android:name=".PC300Spo2DetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
+        <activity android:name=".PC300TempDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
+        <activity android:name=".PC300GluDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
+        <activity android:name=".PC300EcgDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
     </application>
 
 </manifest>
