@@ -21,4 +21,13 @@
         android:textSize="18sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+    
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/left_view"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="88dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="80dp"
+        android:layout_height="255dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
