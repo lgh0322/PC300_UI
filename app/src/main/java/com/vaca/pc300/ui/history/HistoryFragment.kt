@@ -1,25 +1,17 @@
 package com.vaca.pc300.ui.history
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.vaca.pc300.LPM311HistoryDetailActivity
-import com.vaca.pc300.R
 import com.vaca.pc300.databinding.FragmentHistoryBinding
-import com.vaca.pc300.ui.dashboard.adapter.PC300DataDetailAdapter
-import com.vaca.pc300.ui.dashboard.adapter.SpaceItemDecoration3
 import com.vaca.pc300.ui.history.adapter.LPM311HistoryAdapter
-import com.vaca.pc300.ui.history.adapter.PC300HistoryLeftAdapter
+import com.vaca.pc300.ui.history.adapter.PoctorTopAdapter
 
 class HistoryFragment : Fragment() {
 
@@ -31,7 +23,7 @@ class HistoryFragment : Fragment() {
     private val binding get() = _binding!!
     var currentIndex = 0
     lateinit var navController: NavController
-    private lateinit var leftAdapter: LPM311HistoryAdapter
+    private lateinit var topAdapter: PoctorTopAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,25 +36,20 @@ class HistoryFragment : Fragment() {
         _binding = FragmentHistoryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        leftAdapter=LPM311HistoryAdapter(requireContext())
+        topAdapter= PoctorTopAdapter(requireContext())
 
 
 
-        binding.leftView.layoutManager = object :  LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false) {
+        binding.topView.layoutManager = object :   LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false) {
             override fun canScrollVertically(): Boolean {
-                return false
+                return true
             }
         }
-        binding.leftView.adapter =leftAdapter
-        leftAdapter.click=object:LPM311HistoryAdapter.Click{
-            override fun clickItem(position: Int) {
-                startActivity(Intent(requireActivity(),LPM311HistoryDetailActivity::class.java))
-            }
-
-        }
+        binding.topView.adapter =topAdapter
 
 
-        initJump.postValue(0)
+
+
 
 
 
