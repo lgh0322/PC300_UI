@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vaca.pc300.databinding.FragmentHistoryBinding
+import com.vaca.pc300.ui.history.adapter.PoctorHistoryAdapter
 import com.vaca.pc300.ui.history.adapter.PoctorTopAdapter
 
 class HistoryFragment : Fragment() {
@@ -19,6 +20,8 @@ class HistoryFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var topAdapter: PoctorTopAdapter
+
+    private lateinit var dataAdapter: PoctorHistoryAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,7 +35,7 @@ class HistoryFragment : Fragment() {
         val root: View = binding.root
 
         topAdapter = PoctorTopAdapter(requireContext())
-
+        dataAdapter = PoctorHistoryAdapter(requireContext())
 
 
         binding.topView.layoutManager =
@@ -45,6 +48,14 @@ class HistoryFragment : Fragment() {
             }
         binding.topView.adapter = topAdapter
 
+        binding.dataView.layoutManager =
+            object : LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false) {
+                override fun canScrollVertically(): Boolean {
+                    return true
+                }
+
+            }
+        binding.dataView.adapter = dataAdapter
 
 
 
