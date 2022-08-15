@@ -7,19 +7,16 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.vaca.pc300.databinding.ActivityLpm311AboutBinding
-import com.vaca.pc300.databinding.ActivityLpm311HistoryDetailBinding
-import com.vaca.pc300.databinding.ActivityMainBinding
-import com.vaca.pc300.databinding.ActivityTempDetailBinding
+import com.vaca.pc300.databinding.*
 
 class FeedbackActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityLpm311AboutBinding
+    private lateinit var binding: ActivityFeedbackBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding =ActivityLpm311AboutBinding.inflate(layoutInflater)
+        binding =ActivityFeedbackBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.back.setOnClickListener {
             onBackPressed()
