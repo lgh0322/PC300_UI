@@ -1,5 +1,6 @@
 package com.vaca.pc300.ui.history
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.vaca.pc300.LPM311HistoryDetailActivity
 import com.vaca.pc300.R
 import com.vaca.pc300.databinding.FragmentHistoryBinding
 import com.vaca.pc300.ui.dashboard.adapter.PC300DataDetailAdapter
@@ -52,6 +54,12 @@ class HistoryFragment : Fragment() {
             }
         }
         binding.leftView.adapter =leftAdapter
+        leftAdapter.click=object:LPM311HistoryAdapter.Click{
+            override fun clickItem(position: Int) {
+                startActivity(Intent(requireActivity(),LPM311HistoryDetailActivity::class.java))
+            }
+
+        }
 
 
         initJump.postValue(0)
