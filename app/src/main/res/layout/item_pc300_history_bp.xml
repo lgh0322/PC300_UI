@@ -19,6 +19,14 @@
             android:layout_height="match_parent"
             android:background="@drawable/bg_bpm_item_title"
             app:layout_constraintStart_toStartOf="parent" />
+        <ImageView
+            android:layout_width="5.25dp"
+            android:layout_height="9.32dp"
+            android:layout_marginEnd="10.49dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/small_right"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:text="10:28:44 AM Apr 19, 2022"

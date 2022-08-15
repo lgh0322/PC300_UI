@@ -49,6 +49,19 @@ class HistoryFragment : Fragment() {
 
         leftAdapter= PC300HistoryLeftAdapter(requireContext())
 
+        leftAdapter.click=object :PC300HistoryLeftAdapter.Click{
+            override fun clickItem(position: Int) {
+                if (!navController.popBackStack(topId[position], false)) {
+                    try {
+                        navController.navigate(topId[position])
+                    } catch (e: java.lang.Exception) {
+
+                    }
+                }
+            }
+
+        }
+
         binding.leftView.layoutManager = object :  LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false) {
             override fun canScrollVertically(): Boolean {
                 return false
@@ -68,6 +81,8 @@ class HistoryFragment : Fragment() {
             graph.setStartDestination(topId[it])
             navController.graph = graph
         }
+
+
 
 
         return root

@@ -9,13 +9,20 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.vaca.pc300.R
+import com.vaca.pc300.ui.history.HistoryFragment
+import com.vaca.pc300.ui.history.adapter.PC300HistoryBpAdapter.Companion.currentSelect
 
 
 class PC300HistoryLeftAdapter(var context: Context) : RecyclerView.Adapter<PC300HistoryLeftAdapter.ViewHolder>() {
 
-    companion object{
-        var currentSelect=0;
+    interface Click{
+        fun clickItem(position: Int);
     }
+
+    var click:Click?=null
+
+    var currentSelect=0;
+
 
     private val mData: MutableList<String> = ArrayList()
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
@@ -58,7 +65,11 @@ class PC300HistoryLeftAdapter(var context: Context) : RecyclerView.Adapter<PC300
         init {
 
             itemView.setOnClickListener {
+                if(currentSelect==layoutPosition){
+                    return@setOnClickListener
+                }
                 currentSelect=layoutPosition
+                click?.clickItem(position =layoutPosition)
                 notifyDataSetChanged()
             }
         }
