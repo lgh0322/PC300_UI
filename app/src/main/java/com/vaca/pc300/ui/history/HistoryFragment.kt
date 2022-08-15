@@ -17,8 +17,7 @@ class HistoryFragment : Fragment() {
 
 
     private val binding get() = _binding!!
-    var currentIndex = 0
-    lateinit var navController: NavController
+
     private lateinit var topAdapter: PoctorTopAdapter
 
     override fun onCreateView(
