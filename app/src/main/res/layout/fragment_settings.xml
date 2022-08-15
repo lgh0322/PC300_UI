@@ -22,4 +22,39 @@
         android:textSize="18sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="88dp"
+        android:layout_width="match_parent"
+        android:gravity="top|center_horizontal"
+        android:layout_height="match_parent">
+        <TextView
+            android:text="PC_300SNT"
+            android:fontFamily="@font/pingfang_sc_bold"
+            android:layout_marginTop="8dp"
+            android:textColor="#6B7280"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="GENERAL"
+            android:fontFamily="@font/pingfang_sc_bold"
+            android:layout_marginTop="9dp"
+            android:textColor="#9CA3AF"
+            android:textSize="14sp"
+            android:paddingStart="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <View
+            android:layout_marginTop="8dp"
+            android:background="#E5E7EB"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+    </LinearLayout>
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
