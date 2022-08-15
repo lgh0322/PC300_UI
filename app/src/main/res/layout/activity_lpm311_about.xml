@@ -60,14 +60,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"/>
-            <ImageView
+            <TextView
+                android:id="@+id/firmware_version"
+                android:text="1.70"
+                android:textColor="#9CA3AF"
+                android:textSize="14sp"
+                android:fontFamily="@font/pingfang_sc_bold"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_width="5dp"
-                android:src="@drawable/small_right"
-                android:layout_height="9dp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <View
             android:background="#E5E7EB"
@@ -119,14 +123,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"/>
-            <ImageView
+            <TextView
+                android:id="@+id/version"
+                android:text="2.30.24"
+                android:textColor="#9CA3AF"
+                android:textSize="14sp"
+                android:fontFamily="@font/pingfang_sc_bold"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_width="5dp"
-                android:src="@drawable/small_right"
-                android:layout_height="9dp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <View
             android:background="#E5E7EB"
