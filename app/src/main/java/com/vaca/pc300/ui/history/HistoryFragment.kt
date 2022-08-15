@@ -16,6 +16,7 @@ import com.vaca.pc300.R
 import com.vaca.pc300.databinding.FragmentHistoryBinding
 import com.vaca.pc300.ui.dashboard.adapter.PC300DataDetailAdapter
 import com.vaca.pc300.ui.dashboard.adapter.SpaceItemDecoration3
+import com.vaca.pc300.ui.history.adapter.LPM311HistoryAdapter
 import com.vaca.pc300.ui.history.adapter.PC300HistoryLeftAdapter
 
 class HistoryFragment : Fragment() {
@@ -28,14 +29,8 @@ class HistoryFragment : Fragment() {
     private val binding get() = _binding!!
     var currentIndex = 0
     lateinit var navController: NavController
-    private lateinit var leftAdapter: PC300HistoryLeftAdapter
-    val topId = arrayOf(
-        R.id.PC300HistoryBPFragment,
-        R.id.PC300HistorySPO2Fragment,
-        R.id.PC300HistoryTempFragment,
-        R.id.PC300HistoryGluFragment,
-        R.id.PC300HistoryECGFragment,
-    )
+    private lateinit var leftAdapter: LPM311HistoryAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -47,19 +42,9 @@ class HistoryFragment : Fragment() {
         _binding = FragmentHistoryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        leftAdapter= PC300HistoryLeftAdapter(requireContext())
+        leftAdapter=LPM311HistoryAdapter(requireContext())
 
-        leftAdapter.click=object :PC300HistoryLeftAdapter.Click{
-            override fun clickItem(position: Int) {
-                if (!navController.popBackStack(topId[position], false)) {
-                    try {
-                        navController.navigate(topId[position])
-                    } catch (e: java.lang.Exception) {
 
-                    }
-                }
-            }
-        }
 
         binding.leftView.layoutManager = object :  LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false) {
             override fun canScrollVertically(): Boolean {
@@ -70,17 +55,6 @@ class HistoryFragment : Fragment() {
 
 
         initJump.postValue(0)
-
-
-        val fm = childFragmentManager.findFragmentById(R.id.bx) as NavHostFragment
-        navController = fm.navController
-        val graph = navController.navInflater.inflate(R.navigation.pc300_history_navigation)
-        initJump.observe(viewLifecycleOwner) {
-            currentIndex = it
-            graph.setStartDestination(topId[it])
-            navController.graph = graph
-        }
-
 
 
 

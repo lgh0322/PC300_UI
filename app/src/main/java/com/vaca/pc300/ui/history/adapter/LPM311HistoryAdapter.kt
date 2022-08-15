@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vaca.pc300.R
 
 
-class PC300HistoryTempAdapter(var context: Context) :
-    RecyclerView.Adapter<PC300HistoryTempAdapter.ViewHolder>() {
+class LPM311HistoryAdapter(var context: Context) :
+    RecyclerView.Adapter<LPM311HistoryAdapter.ViewHolder>() {
 
 
-    var currentSelect = 0
+    var currentSelect = 0;
 
     interface Click {
         fun clickItem(position: Int)
@@ -26,7 +26,7 @@ class PC300HistoryTempAdapter(var context: Context) :
     val name = listOf<String>("BP", "SpO₂", "Temp", "GLU", "ECG")
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = mInflater.inflate(R.layout.item_pc300_history_temp, parent, false)
+        val view = mInflater.inflate(R.layout.item_lpm311_history, parent, false)
         return ViewHolder(view)
     }
 
