@@ -45,13 +45,6 @@ class DashboardFragment : Fragment() {
         dataAdapter= PC300DataDetailAdapter(requireContext())
 
 
-        binding.pc300DataView.layoutManager = object : GridLayoutManager(requireContext(), 2) {
-            override fun canScrollVertically(): Boolean {
-                return false
-            }
-        }
-        binding.pc300DataView.adapter =dataAdapter
-        binding.pc300DataView.addItemDecoration(SpaceItemDecoration3(30))
 
 
 
