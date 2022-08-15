@@ -26,6 +26,7 @@
 
 
     <LinearLayout
+        android:visibility="gone"
         android:orientation="vertical"
         android:gravity="top|center_horizontal"
         android:layout_width="match_parent"
@@ -62,6 +63,180 @@
 
 
 
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="343dp"
+        android:id="@+id/main_view"
+        android:layout_marginTop="104dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/data_bg"
+        android:layout_height="157dp">
+
+        <TextView
+            android:text="Blood Glucose"
+            android:textSize="16sp"
+            android:textColor="#1C2431"
+            android:fontFamily="@font/pingfang_sc_bold"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/blood_glucose"
+            android:text="90"
+            android:textSize="24sp"
+            android:textColor="#022964"
+            android:fontFamily="@font/sf_pro_rounded_bold"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="33dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:text="mmol/L"
+            android:textSize="12sp"
+            android:textColor="#6B7280"
+            android:fontFamily="@font/pingfang_sc_bold"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="52dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/blood_glucose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:background="#F3F3F3"
+            android:layout_marginTop="79dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="311dp"
+            android:layout_height="1dp"/>
+
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="#1C2431"
+            android:text="Measurement"
+            android:layout_marginTop="91dp"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/pingfang_sc_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="164dp"
+        android:layout_marginTop="277dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="0dp"
+        app:layout_constraintStart_toStartOf="@+id/main_view"
+        android:background="@drawable/data_bg"
+        android:layout_height="91dp">
+
+        <TextView
+            android:text="Ketone Bodies"
+            android:textSize="16sp"
+            android:textColor="#1C2431"
+            android:fontFamily="@font/pingfang_sc_bold"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/ketone_bodies"
+            android:text="7.1"
+            android:textSize="24sp"
+            android:textColor="#022964"
+            android:fontFamily="@font/sf_pro_rounded_bold"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="33dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:text="mmol/L"
+            android:textSize="12sp"
+            android:textColor="#6B7280"
+            android:fontFamily="@font/pingfang_sc_bold"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="52dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ketone_bodies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="164dp"
+        android:layout_marginTop="277dp"
+        android:layout_marginEnd="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/main_view"
+        android:background="@drawable/data_bg"
+        android:layout_height="91dp">
+
+        <TextView
+            android:text="Blood Glucose"
+            android:textSize="16sp"
+            android:textColor="#1C2431"
+            android:fontFamily="@font/pingfang_sc_bold"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/blood_glucosex"
+            android:text="90"
+            android:textSize="24sp"
+            android:textColor="#022964"
+            android:fontFamily="@font/sf_pro_rounded_bold"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="33dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:text="mmol/L"
+            android:textSize="12sp"
+            android:textColor="#6B7280"
+            android:fontFamily="@font/pingfang_sc_bold"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="52dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/blood_glucosex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     
 </androidx.constraintlayout.widget.ConstraintLayout>
