@@ -19,6 +19,8 @@ class PC300TempDetailActivity : AppCompatActivity() {
 
         binding = ActivityTempDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        binding.back.setOnClickListener {
+            onBackPressed()
+        }
     }
 }

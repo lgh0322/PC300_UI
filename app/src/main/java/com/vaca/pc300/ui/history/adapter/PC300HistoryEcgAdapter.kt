@@ -12,9 +12,13 @@ import com.vaca.pc300.R
 
 class PC300HistoryEcgAdapter(var context: Context) : RecyclerView.Adapter<PC300HistoryEcgAdapter.ViewHolder>() {
 
-    companion object{
-        var currentSelect=0;
+
+    var currentSelect=0;
+    interface Click{
+        fun clickItem(position: Int)
     }
+
+    var click:Click?=null
 
     private val mData: MutableList<String> = ArrayList()
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
@@ -57,7 +61,7 @@ class PC300HistoryEcgAdapter(var context: Context) : RecyclerView.Adapter<PC300H
         init {
 
             itemView.setOnClickListener {
-
+                click?.clickItem(layoutPosition)
             }
         }
     }

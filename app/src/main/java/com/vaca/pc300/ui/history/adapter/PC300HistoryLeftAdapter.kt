@@ -9,8 +9,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.vaca.pc300.R
-import com.vaca.pc300.ui.history.HistoryFragment
-import com.vaca.pc300.ui.history.adapter.PC300HistoryBpAdapter.Companion.currentSelect
 
 
 class PC300HistoryLeftAdapter(var context: Context) : RecyclerView.Adapter<PC300HistoryLeftAdapter.ViewHolder>() {

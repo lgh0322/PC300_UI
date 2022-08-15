@@ -24,6 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/back"
         android:layout_width="21dp"
         android:layout_height="27dp"
         android:layout_marginStart="17dp"

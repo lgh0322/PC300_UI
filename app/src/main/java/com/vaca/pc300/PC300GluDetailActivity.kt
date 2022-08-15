@@ -20,6 +20,8 @@ class PC300GluDetailActivity : AppCompatActivity() {
         binding = ActivityGluDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        binding.back.setOnClickListener {
+            onBackPressed()
+        }
     }
 }

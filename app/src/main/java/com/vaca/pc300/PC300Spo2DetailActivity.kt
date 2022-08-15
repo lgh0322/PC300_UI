@@ -19,7 +19,9 @@ class PC300Spo2DetailActivity : AppCompatActivity() {
 
         binding = ActivitySpo2DetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        binding.back.setOnClickListener {
+            onBackPressed()
+        }
 
     }
 }

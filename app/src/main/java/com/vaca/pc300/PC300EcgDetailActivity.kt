@@ -19,6 +19,8 @@ class PC300EcgDetailActivity : AppCompatActivity() {
 
         binding =ActivityEcgDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        binding.back.setOnClickListener {
+            onBackPressed()
+        }
     }
 }

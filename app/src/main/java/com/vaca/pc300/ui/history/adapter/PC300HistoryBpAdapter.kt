@@ -5,21 +5,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.vaca.pc300.R
 
 
-class PC300HistoryBpAdapter(var context: Context) : RecyclerView.Adapter<PC300HistoryBpAdapter.ViewHolder>() {
+class PC300HistoryBpAdapter(var context: Context) :
+    RecyclerView.Adapter<PC300HistoryBpAdapter.ViewHolder>() {
 
-    companion object{
-        var currentSelect=0;
+    interface Click{
+        fun clickItem(position: Int)
     }
+
+    var click:Click?=null
+
+    var currentSelect = 0;
+
 
     private val mData: MutableList<String> = ArrayList()
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
 
-    val name= listOf<String>("BP","SpO₂","Temp","GLU","ECG")
+    val name = listOf<String>("BP", "SpO₂", "Temp", "GLU", "ECG")
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = mInflater.inflate(R.layout.item_pc300_history_bp, parent, false)
@@ -36,12 +41,12 @@ class PC300HistoryBpAdapter(var context: Context) : RecyclerView.Adapter<PC300Hi
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-       // holder.sys.text=name[position]
-        if(position== currentSelect){
+        // holder.sys.text=name[position]
+        if (position == currentSelect) {
             //holder.sys.setTextColor(ContextCompat.getColor(context,R.color.color_111827))
 
-        }else{
-           // holder.sys.setTextColor(ContextCompat.getColor(context,R.color.color_9CA3AF))
+        } else {
+            // holder.sys.setTextColor(ContextCompat.getColor(context,R.color.color_9CA3AF))
 
         }
     }
@@ -51,19 +56,17 @@ class PC300HistoryBpAdapter(var context: Context) : RecyclerView.Adapter<PC300Hi
         return 25
     }
 
-    inner class ViewHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val sys:TextView=itemView.findViewById(R.id.sys)
+    inner class ViewHolder internal constructor(itemView: View) :
+        RecyclerView.ViewHolder(itemView) {
+        val sys: TextView = itemView.findViewById(R.id.sys)
 
         init {
 
             itemView.setOnClickListener {
-
+                click?.clickItem(layoutPosition)
             }
         }
     }
-
-
-
 
 
 }

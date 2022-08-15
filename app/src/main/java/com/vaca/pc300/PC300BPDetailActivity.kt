@@ -20,6 +20,8 @@ class PC300BPDetailActivity : AppCompatActivity() {
         binding = ActivityBpDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        binding.back.setOnClickListener {
+            onBackPressed()
+        }
     }
 }
