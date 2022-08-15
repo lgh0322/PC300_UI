@@ -39,7 +39,7 @@ class PC300HistoryTempFragment : Fragment() {
 
         binding.listView.layoutManager = object :  LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false) {
             override fun canScrollVertically(): Boolean {
-                return false
+                return true
             }
         }
         binding.listView.adapter =leftAdapter
