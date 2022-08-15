@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item>
+        <level-list>
+            <item android:maxLevel="1">
+                <layer-list>
+                    <item>
+                        <shape android:shape="rectangle">
+                            <solid android:color="#FF63B3EA" />
+                            <corners android:bottomLeftRadius="10dp"  android:topLeftRadius="10dp"/>
+                        </shape>
+                    </item>
+                </layer-list>
+            </item>
+
+            <item android:maxLevel="2">
+                <layer-list>
+                    <item>
+                        <shape android:shape="rectangle">
+                            <solid android:color="#FF93D150" />
+                            <corners android:bottomLeftRadius="10dp"   android:topLeftRadius="10dp"/>
+                        </shape>
+                    </item>
+                </layer-list>
+            </item>
+
+            <item android:maxLevel="3">
+                <layer-list>
+                    <item>
+                        <shape android:shape="rectangle">
+                            <solid android:color="#FFFFFE37" />
+                            <corners android:bottomLeftRadius="10dp"   android:topLeftRadius="10dp"/>
+                        </shape>
+                    </item>
+                </layer-list>
+            </item>
+
+            <item android:maxLevel="4">
+                <layer-list>
+                    <item>
+                        <shape android:shape="rectangle">
+                            <solid android:color="#FFFEC12D" />
+                            <corners android:bottomLeftRadius="10dp"   android:topLeftRadius="10dp"/>
+                        </shape>
+                    </item>
+                </layer-list>
+            </item>
+
+            <item android:maxLevel="5">
+                <layer-list>
+                    <item>
+                        <shape android:shape="rectangle">
+                            <solid android:color="#FFC4610B" />
+                            <corners android:bottomLeftRadius="10dp"   android:topLeftRadius="10dp"/>
+                        </shape>
+                    </item>
+                </layer-list>
+            </item>
+
+            <item android:maxLevel="6">
+                <layer-list>
+                    <item>
+                        <shape android:shape="rectangle">
+                            <solid android:color="#FFE23534" />
+                            <corners android:bottomLeftRadius="10dp"   android:topLeftRadius="10dp"/>
+                        </shape>
+                    </item>
+                </layer-list>
+            </item>
+
+        </level-list>
+    </item>
+</selector>
+

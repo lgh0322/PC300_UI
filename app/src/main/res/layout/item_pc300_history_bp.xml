@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="108dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/data_bg"
+        android:layout_width="263dp"
+        android:layout_height="76dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/be_bp_mark"
+            android:layout_width="9dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_bpm_item_title"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:text="10:28:44 AM Apr 19, 2022"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="12sp"
+            android:textColor="#6B7280"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="18dp"
+            android:fontFamily="@font/pingfang_sc_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/sys"
+            android:text="87/67"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:textColor="#1C2431"
+            android:layout_marginTop="28dp"
+            android:layout_marginStart="18dp"
+            android:fontFamily="@font/sf_pro_rounded_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+
+            android:text="mmHg"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sys"
+            android:textSize="12sp"
+            android:textColor="#6B7280"
+            android:layout_marginTop="46dp"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/pingfang_sc_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/bpm"
+            android:text="94"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="24sp"
+            android:textColor="#1C2431"
+            android:layout_marginTop="28dp"
+            android:layout_marginStart="150dp"
+            android:fontFamily="@font/sf_pro_rounded_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:text="bpm"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/bpm"
+            android:textSize="12sp"
+            android:textColor="#6B7280"
+            android:layout_marginTop="46dp"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/pingfang_sc_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

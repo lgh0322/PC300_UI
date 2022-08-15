@@ -3,23 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/pc300_history_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/PC300HistoryBPFragment">
+
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.vaca.pc300.ui.dashboard.DashboardFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_dashboard" />
-
+        android:id="@+id/PC300HistoryBPFragment"
+        android:name="com.vaca.pc300.ui.history.fragment.PC300HistoryBPFragment"
+        android:label="PC300HistoryBPFragment" />
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.vaca.pc300.ui.history.HistoryFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_history" />
-
+        android:id="@+id/PC300HistorySPO2Fragment"
+        android:name="com.vaca.pc300.ui.history.fragment.PC300HistorySPO2Fragment"
+        android:label="PC300HistorySPO2Fragment" />
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.vaca.pc300.ui.setttings.SettingsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_settings" />
+        android:id="@+id/PC300HistoryTempFragment"
+        android:name="com.vaca.pc300.ui.history.fragment.PC300HistoryTempFragment"
+        android:label="PC300HistoryTempFragment" />
+    <fragment
+        android:id="@+id/PC300HistoryGluFragment"
+        android:name="com.vaca.pc300.ui.history.fragment.PC300HistoryGluFragment"
+        android:label="PC300HistoryGluFragment" />
+    <fragment
+        android:id="@+id/PC300HistoryECGFragment"
+        android:name="com.vaca.pc300.ui.history.fragment.PC300HistoryECGFragment"
+        android:label="PC300HistoryECGFragment" />
 </navigation>
