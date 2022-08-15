@@ -6,6 +6,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
+        android:background="#FCFCFC"
         android:layout_width="80dp"
         android:layout_height="51dp"
         app:layout_constraintStart_toStartOf="parent"
