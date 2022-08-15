@@ -59,7 +59,6 @@ class HistoryFragment : Fragment() {
                     }
                 }
             }
-
         }
 
         binding.leftView.layoutManager = object :  LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false) {
