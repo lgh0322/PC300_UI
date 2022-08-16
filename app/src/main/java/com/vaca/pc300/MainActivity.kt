@@ -17,6 +17,8 @@ import com.lepu.blepro.objs.Bluetooth
 import com.lepu.blepro.objs.Bluetooth.MODEL_PC300
 import com.lepu.blepro.utils.LepuBleLog
 import com.vaca.pc300.databinding.ActivityMainBinding
+import com.vaca.pc300.room.PCdata
+import com.vaca.pc300.room.PcAppDatabase
 import com.vaca.pc300.utils.DateStringUtil
 
 
@@ -79,6 +81,10 @@ class MainActivity : AppCompatActivity() {
             Observer { o ->
                 val a = o.data as Pc300BleResponse.BpResult
                 Log.e("EventEr1RtData", "gagaxxxxaaaaaa  " + a.dia + "  " + a.sys + "   " + a.plus+"   ")
+                val tsMother = System.currentTimeMillis()
+                val ts = DateStringUtil.timeConvertEnglish(tsMother)
+                val pcData=PCdata(tsMother,ts,"",a.sys,a.dia,a.plus,"")
+                PcAppDatabase.pc300db.pcDao().insert(pcData)
             })
 
 
