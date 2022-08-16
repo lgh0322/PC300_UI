@@ -86,6 +86,15 @@ class DashboardFragment : Fragment() {
                 val a = o.data as Pc300BleResponse.GluResult
                 dataAdapter.changeGlu(a.data)
             })
+
+
+        LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300BpResult).observe(this,
+            Observer { o ->
+                val a = o.data as Pc300BleResponse.BpResult
+                dataAdapter.changeSys(a.sys)
+                dataAdapter.changeDia(a.dia)
+                dataAdapter.changePr(a.plus)
+            })
         return root
     }
 
