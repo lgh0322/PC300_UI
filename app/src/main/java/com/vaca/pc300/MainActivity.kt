@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300BpResult).observe(this,
             Observer { o ->
                 val a = o.data as Pc300BleResponse.BpResult
-                Log.e("EventEr1RtData", "gagaxxxxaaaaaa  " + a.dia + "  " + a.sys + "   " + a.plus)
+                Log.e("EventEr1RtData", "gagaxxxxaaaaaa  " + a.dia + "  " + a.sys + "   " + a.plus+"   ")
             })
 
 

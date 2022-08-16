@@ -1,4 +1,4 @@
-package com.viatom.littlePu.pc100.pc100room
+package com.vaca.pc300.room
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
