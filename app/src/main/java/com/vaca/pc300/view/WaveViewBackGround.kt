@@ -9,7 +9,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
 import com.vaca.pc300.R
-
+import com.vaca.pc300.view.WaveParaX.co
 
 
 class WaveViewBackGround : View {
@@ -23,7 +23,8 @@ class WaveViewBackGround : View {
     }
     private val x1Paint = Paint()
     private val x2Paint = Paint()
-
+    private val timePaint = Paint()
+    private val linePaint = Paint()
 
     var ga: Ga? = null
     var canvas: Canvas? = null
@@ -97,7 +98,18 @@ class WaveViewBackGround : View {
             strokeWidth = 1f
         }
 
+        timePaint.apply {
+            color = getColor(R.color.report_wave_time)
+            textSize = 24f
+            style = Paint.Style.STROKE
+            isAntiAlias = true
+        }
 
+        linePaint.apply {
+            color = getColor(R.color.report_wave_hint_line)
+            style = Paint.Style.STROKE
+            strokeWidth = 3.0f
+        }
 
 
 
@@ -170,6 +182,19 @@ class WaveViewBackGround : View {
             km+=5
         }while (nn<=height)
 
+
+        val p = Path()
+        val baseY = 1.5f * co
+        val x1 = 25f
+        val x2 = 30f
+        p.moveTo(0f, baseY)
+        p.lineTo(x1, baseY)
+        p.lineTo(x1, baseY - co)
+        p.lineTo(x1 + x2, baseY - co)
+        p.lineTo(x1 + x2, baseY)
+        p.lineTo(x1 * 2 + x2, baseY)
+        canvas.drawPath(p, linePaint)
+        canvas.drawText("1mV", x1 * 2 + x2, baseY + 35f, timePaint)
 
 
     }

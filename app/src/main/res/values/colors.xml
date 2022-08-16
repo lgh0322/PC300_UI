@@ -36,4 +36,7 @@
     <color name="wavebg4">#E6FAF2</color>
     <color name="gray">#FFE5F9F1</color>
     <color name="wave_color">#FF27D693</color>
+
+    <color name="report_wave_time">#ffbfbfbf</color>
+    <color name="report_wave_hint_line">#ffcccccc</color>
 </resources>
