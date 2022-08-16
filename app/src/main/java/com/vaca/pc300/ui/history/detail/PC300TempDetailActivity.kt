@@ -1,4 +1,4 @@
-package com.vaca.pc300
+package com.vaca.pc300.ui.history.detail
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView

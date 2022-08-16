@@ -1,4 +1,4 @@
-package com.vaca.pc300
+package com.vaca.pc300.ui.history.detail
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,17 +7,17 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.vaca.pc300.databinding.ActivityBpDetailBinding
+import com.vaca.pc300.databinding.ActivityGluDetailBinding
 import com.vaca.pc300.databinding.ActivityMainBinding
 
-class PC300BPDetailActivity : AppCompatActivity() {
+class PC300GluDetailActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityBpDetailBinding
+    private lateinit var binding: ActivityGluDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityBpDetailBinding.inflate(layoutInflater)
+        binding = ActivityGluDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.back.setOnClickListener {
