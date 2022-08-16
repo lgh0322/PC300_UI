@@ -17,7 +17,7 @@ class PC300DataDetailAdapter(var context: Context) : RecyclerView.Adapter<PC300D
 
     val name= listOf<String>("SYS","DIA","SpO₂","PR","Temp","GLU","UA","CHOL")
     val unit= listOf<String>("mmHg","mmHg","%","bpm","°C","mmol/L","mg/dL","mg/dL")
-    val value= listOf<Int>(-1,-1,-1,-1,-1,-1,-1,-1)
+    val value= arrayListOf<String>("","","","","","","","")
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -25,19 +25,65 @@ class PC300DataDetailAdapter(var context: Context) : RecyclerView.Adapter<PC300D
         return ViewHolder(view)
     }
 
-    fun addAll(userBean: ArrayList<String>) {
-        mData.clear()
-        for (k in userBean) {
-            mData.add(k)
+
+    fun changeSys(sys:Int){
+        if(sys==0){
+            return
         }
-        notifyDataSetChanged()
+        value[0]=sys.toString()
+        notifyItemChanged(0)
     }
+
+    fun changeDia(dia:Int){
+        if(dia==0){
+            return
+        }
+        value[1]=dia.toString()
+        notifyItemChanged(1)
+    }
+
+    fun changeSpo2(spo2:Int){
+        if(spo2==0){
+            return
+        }
+        value[2]=spo2.toString()
+        notifyItemChanged(2)
+    }
+
+    fun changePr(pr:Int){
+        if(pr==0){
+            return
+        }
+        value[3]=pr.toString()
+        notifyItemChanged(3)
+    }
+
+    fun changeTemp(temp:Double){
+        value[4]=temp.toString()
+        notifyItemChanged(4)
+    }
+
+    fun changeGlu(glu:Double){
+        value[5]=glu.toString()
+        notifyItemChanged(5)
+    }
+
+    fun changeUa(ua:Double){
+        value[6]=ua.toString()
+        notifyItemChanged(6)
+    }
+
+    fun changeChol(chol:Int){
+        value[7]=chol.toString()
+        notifyItemChanged(7)
+    }
+
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.name.text=name[position]
         holder.unit.text=unit[position]
-        if(value[position]==-1){
+        if(value[position].isEmpty()){
             holder.value.visibility=View.GONE
             holder.emptySign.visibility=View.VISIBLE
         }else{

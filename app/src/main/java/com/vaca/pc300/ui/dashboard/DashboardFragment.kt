@@ -1,6 +1,7 @@
 package com.vaca.pc300.ui.dashboard
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,9 @@ import com.vaca.pc300.databinding.FragmentDashboardBinding
 import com.vaca.pc300.ui.dashboard.adapter.PC300DataDetailAdapter
 import com.vaca.pc300.ui.dashboard.adapter.PC300ItemDecoration3
 import androidx.lifecycle.Observer
+import com.lepu.blepro.ble.cmd.Pc300BleResponse
+import com.lepu.blepro.event.InterfaceEvent
+
 class DashboardFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
@@ -59,6 +63,15 @@ class DashboardFragment : Fragment() {
                 if(a== Bluetooth.MODEL_PC300){
                     binding.bleState.visibility=View.GONE
                 }
+            })
+
+
+        LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300RtOxyParam).observe(this,
+            Observer { o ->
+                val a = o.data as Pc300BleResponse.RtOxyParam
+                dataAdapter.changeSpo2(a.spo2)
+                dataAdapter.changePr(a.pr)
+                Log.e("EventEr1RtData", "gagaxxxxaaaaaa  " + a.spo2 + "  " + a.pr)
             })
 
 
