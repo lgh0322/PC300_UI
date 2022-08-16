@@ -150,7 +150,7 @@ public class BeBpResultView extends View {
             int c1 = 25;
             int c2 = (int) (c1 * 1.2156);
             int x1 = x ;
-            int y1 = y - c2 ;
+            int y1 = y ;
             PaintFlagsDrawFilter mSetfil = new PaintFlagsDrawFilter(0, Paint.FILTER_BITMAP_FLAG);
             c.setDrawFilter(mSetfil);
             c.drawBitmap(mi, new Rect(0, 0, 51, 62), new Rect(x1, y1, x1 + c1, y1 + c2), mBlackPaint2);

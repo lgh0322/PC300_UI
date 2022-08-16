@@ -32,7 +32,7 @@ class PC300BPDetailActivity : AppCompatActivity() {
             binding.dia.text=it.dia.toString()
             binding.pr.text=it.pr.toString()
 
-            binding.bpView.setBPValue(it.sys,it.dia)
+            binding.bpView.setBPValue(180,40)
         }
     }
 }
