@@ -13,7 +13,7 @@ import com.lepu.blepro.event.EventMsgConst
 import com.lepu.blepro.objs.Bluetooth
 import com.vaca.pc300.databinding.FragmentDashboardBinding
 import com.vaca.pc300.ui.dashboard.adapter.PC300DataDetailAdapter
-import com.vaca.pc300.ui.dashboard.adapter.SpaceItemDecoration3
+import com.vaca.pc300.ui.dashboard.adapter.PC300ItemDecoration3
 import androidx.lifecycle.Observer
 class DashboardFragment : Fragment() {
 
@@ -51,7 +51,7 @@ class DashboardFragment : Fragment() {
             }
         }
         binding.pc300DataView.adapter =dataAdapter
-        binding.pc300DataView.addItemDecoration(SpaceItemDecoration3(30))
+        binding.pc300DataView.addItemDecoration(PC300ItemDecoration3(30))
 
         LiveEventBus.get<Any>(EventMsgConst.Ble.EventBleDeviceReady).observe(this,
             Observer { o ->
