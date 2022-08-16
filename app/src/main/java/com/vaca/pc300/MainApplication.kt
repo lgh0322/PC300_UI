@@ -3,11 +3,14 @@ package com.vaca.pc300
 
 import android.app.Application
 import com.lepu.blepro.BleServiceHelper
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 
 
 class MainApplication : Application() {
 
     companion object {
+        val dataScope = CoroutineScope(Dispatchers.IO)
         lateinit var application: Application
     }
 
