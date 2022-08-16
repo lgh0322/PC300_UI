@@ -74,6 +74,11 @@ class DashboardFragment : Fragment() {
                 Log.e("EventEr1RtData", "gagaxxxxaaaaaa  " + a.spo2 + "  " + a.pr)
             })
 
+        LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300TempResult).observe(this,
+            Observer { o ->
+                val a = o.data as Pc300BleResponse.TempResult
+                dataAdapter.changeTemp(a.temp)
+            })
 
         return root
     }

@@ -58,7 +58,7 @@ class PC300DataDetailAdapter(var context: Context) : RecyclerView.Adapter<PC300D
         notifyItemChanged(3)
     }
 
-    fun changeTemp(temp:Double){
+    fun changeTemp(temp:Float){
         value[4]=temp.toString()
         notifyItemChanged(4)
     }
