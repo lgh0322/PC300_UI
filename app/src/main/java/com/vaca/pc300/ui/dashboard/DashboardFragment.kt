@@ -8,10 +8,13 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.jeremyliao.liveeventbus.LiveEventBus
+import com.lepu.blepro.event.EventMsgConst
+import com.lepu.blepro.objs.Bluetooth
 import com.vaca.pc300.databinding.FragmentDashboardBinding
 import com.vaca.pc300.ui.dashboard.adapter.PC300DataDetailAdapter
 import com.vaca.pc300.ui.dashboard.adapter.SpaceItemDecoration3
-
+import androidx.lifecycle.Observer
 class DashboardFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
@@ -33,15 +36,12 @@ class DashboardFragment : Fragment() {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
+        val textView: TextView = binding.bleState
         dashboardViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
 
         dashboardViewModel.changeText("Divice is offline")
-
-
-
         dataAdapter= PC300DataDetailAdapter(requireContext())
 
 
@@ -53,7 +53,13 @@ class DashboardFragment : Fragment() {
         binding.pc300DataView.adapter =dataAdapter
         binding.pc300DataView.addItemDecoration(SpaceItemDecoration3(30))
 
-
+        LiveEventBus.get<Any>(EventMsgConst.Ble.EventBleDeviceReady).observe(this,
+            Observer { o ->
+                val a=o as Int
+                if(a== Bluetooth.MODEL_PC300){
+                    binding.bleState.visibility=View.GONE
+                }
+            })
 
 
         return root

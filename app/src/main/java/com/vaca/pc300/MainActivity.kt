@@ -14,6 +14,7 @@ import com.lepu.blepro.ble.cmd.Pc300BleResponse
 import com.lepu.blepro.event.EventMsgConst
 import com.lepu.blepro.event.InterfaceEvent
 import com.lepu.blepro.objs.Bluetooth
+import com.lepu.blepro.objs.Bluetooth.MODEL_PC300
 import com.lepu.blepro.utils.LepuBleLog
 import com.vaca.pc300.databinding.ActivityMainBinding
 
@@ -58,7 +59,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun initDataObserve() {
+    private fun initDataObserve() {
 
 
         LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300RtBpData).observe(this,
@@ -110,6 +111,16 @@ class MainActivity : AppCompatActivity() {
             Observer { o ->
                 val a = o.data as Pc300BleResponse.RtOxyParam
                 Log.e("EventEr1RtData", "gagaxxxxaaaaaa  " + a.spo2 + "  " + a.pr)
+            })
+
+
+
+        LiveEventBus.get<Any>(EventMsgConst.Ble.EventBleDeviceReady).observe(this,
+            Observer { o ->
+                val a=o as Int
+                if(a==MODEL_PC300){
+
+                }
             })
     }
 }
