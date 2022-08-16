@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.jeremyliao.liveeventbus.utils.AppUtils.init
 import com.vaca.pc300.R
+import com.vaca.pc300.room.PCdata
 
 
 class PC300HistoryBpAdapter(var context: Context) :
@@ -22,7 +23,7 @@ class PC300HistoryBpAdapter(var context: Context) :
     var currentSelect = 0;
 
 
-    private val mData: MutableList<String> = ArrayList()
+    private val mData: MutableList<PCdata> = ArrayList()
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
 
 
@@ -31,7 +32,7 @@ class PC300HistoryBpAdapter(var context: Context) :
         return ViewHolder(view)
     }
 
-    fun addAll(userBean: ArrayList<String>) {
+    fun addAll(userBean:List<PCdata>) {
         mData.clear()
         for (k in userBean) {
             mData.add(k)
