@@ -141,20 +141,26 @@ public class BeBpResultView extends View {
 //        c.drawText("Normal", 120, 365, mWhitePaint);
 
         if (sys != 0 && sys <= 200 && sys >= 70 && dia != 0 && dia <= 120 && dia >= 40) {
-            int x = (dia - 40) * RED_RECT_W / 70 + RECT_LEFT;
-            int y = (200 - sys) * DARK_RED_RECT_H / 130 + RECT_TOP;
-            BitmapFactory.Options xx = new BitmapFactory.Options();
-            xx.inScaled = false;
-            xx.inPreferredConfig = Bitmap.Config.ARGB_8888;
-            Bitmap mi = BitmapFactory.decodeResource(getResources(), R.drawable.mark_icon, xx);
-            int c1 = 25;
-            int c2 = (int) (c1 * 1.2156);
-            int x1 = x ;
-            int y1 = y ;
-            PaintFlagsDrawFilter mSetfil = new PaintFlagsDrawFilter(0, Paint.FILTER_BITMAP_FLAG);
-            c.setDrawFilter(mSetfil);
-            c.drawBitmap(mi, new Rect(0, 0, 51, 62), new Rect(x1, y1, x1 + c1, y1 + c2), mBlackPaint2);
-//            c.drawCircle(x, y, CIRCLE_RADIO, mMainPaint);
+            int x=0;
+            int y=0;
+
+            if(sys<90){
+                y = (90 - sys) * BLUE_RECT_H / 20 + RECT_TOP+(DARK_RED_RECT_H-BLUE_RECT_H);
+            }else if(sys<120){
+                y = (120- sys) *(GREEN_RECT_H- BLUE_RECT_H) / 30 + RECT_TOP+(DARK_RED_RECT_H-GREEN_RECT_H);
+            }else {
+                y = (200- sys) *(DARK_RED_RECT_H- GREEN_RECT_H) / 80 + RECT_TOP;
+            }
+
+            if(dia<60){
+               x = (dia - 40) * BLUE_RECT_W / 20 + RECT_LEFT;
+            }else if( dia<80){
+                x = (dia - 60) *(GREEN_RECT_W-BLUE_RECT_W) / 20 + RECT_LEFT+BLUE_RECT_W;
+            }else{
+               x = (dia - 80) * (DARK_RED_RECT_W-GREEN_RECT_W) / 40 + RECT_LEFT+GREEN_RECT_W;
+            }
+
+            c.drawCircle(x, y, CIRCLE_RADIO, mMainPaint);
         }
     }
 
