@@ -180,8 +180,7 @@ class WaveView : View {
         canvas.drawARGB(0, 0, 0, 0)
         nd=width.toFloat()/ drawSize
         val baseY = 1.5f*co
-        canvas.drawLine(30f, co * 5.5f - realTimeDoubler * co, 30f, co * 5.5f, linePaint)
-        canvas.drawText("1mV", 35f, baseY + 35f, timePaint)
+
         if (disp) {
             for ((index, h) in data.withIndex()) {
                 val h1 = h * realTimeDoubler
