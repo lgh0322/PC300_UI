@@ -122,7 +122,7 @@ public class BeBpResultView extends View {
         c.drawRect(mGreenRect, mGreenPaint);
         c.drawRect(mBlueRect, mBluePaint);
 
-        c.drawText("SYS", RECT_LEFT - MARGIN, RECT_TOP - MARGIN, mBlackPaint1);
+        c.drawText("SYS", RECT_LEFT - MARGIN, RECT_TOP +MARGIN, mBlackPaint1);
         c.drawText("180", RECT_LEFT - MARGIN, RECT_BTM - RED_RECT_H, mBlackPaint1);
         c.drawText("160", RECT_LEFT - MARGIN, RECT_BTM - ORANGE_RECT_H, mBlackPaint1);
         c.drawText("140", RECT_LEFT - MARGIN, RECT_BTM - YELLOW_RECT_H, mBlackPaint1);
@@ -149,8 +149,8 @@ public class BeBpResultView extends View {
             Bitmap mi = BitmapFactory.decodeResource(getResources(), R.drawable.mark_icon, xx);
             int c1 = 25;
             int c2 = (int) (c1 * 1.2156);
-            int x1 = x - c1 / 2;
-            int y1 = y - c2 + 15;
+            int x1 = x ;
+            int y1 = y - c2 ;
             PaintFlagsDrawFilter mSetfil = new PaintFlagsDrawFilter(0, Paint.FILTER_BITMAP_FLAG);
             c.setDrawFilter(mSetfil);
             c.drawBitmap(mi, new Rect(0, 0, 51, 62), new Rect(x1, y1, x1 + c1, y1 + c2), mBlackPaint2);

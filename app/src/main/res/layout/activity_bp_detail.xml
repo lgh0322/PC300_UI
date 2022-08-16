@@ -156,6 +156,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.vaca.pc300.view.BeBpResultView
+            android:id="@+id/bp_view"
             android:layout_marginTop="22dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

@@ -77,7 +77,7 @@
     <dimen name="canvas_h">210dp</dimen>
     <dimen name="rect_left">24dp</dimen>
     <dimen name="rect_right">50dp</dimen>
-    <dimen name="rect_top">20dp</dimen>
+    <dimen name="rect_top">7dp</dimen>
     <dimen name="rect_btm">192dp</dimen>
 
 
