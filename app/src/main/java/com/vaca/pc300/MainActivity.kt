@@ -17,6 +17,7 @@ import com.lepu.blepro.objs.Bluetooth
 import com.lepu.blepro.objs.Bluetooth.MODEL_PC300
 import com.lepu.blepro.utils.LepuBleLog
 import com.vaca.pc300.databinding.ActivityMainBinding
+import com.vaca.pc300.utils.DateStringUtil
 
 
 class MainActivity : AppCompatActivity() {
@@ -37,6 +38,12 @@ class MainActivity : AppCompatActivity() {
 
         bleInit()
         initDataObserve()
+
+
+
+        val tsMother = System.currentTimeMillis()
+        val ts = DateStringUtil.timeConvertEnglish(tsMother)
+        Log.e("gagaxx",ts)
     }
 
 
