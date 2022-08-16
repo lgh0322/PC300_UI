@@ -86,11 +86,11 @@ class MainActivity : AppCompatActivity() {
                 Log.e("EventEr1RtData", "gagaxxxxaaaaaa  " + a.dia + "  " + a.sys + "   " + a.plus+"   ")
                 val tsMother = System.currentTimeMillis()
                 val ts = DateStringUtil.timeConvertEnglish(tsMother)
-                val pcData=PCdata(tsMother,ts,"",a.sys,a.dia,a.plus,"")
+               /* val pcData=PCdata(tsMother,ts,"",a.sys,a.dia,a.plus,"")
 
                 dataScope.launch {
                     PcAppDatabase.pc300db.pcDao().insert(pcData)
-                }
+                }*/
 
             })
 

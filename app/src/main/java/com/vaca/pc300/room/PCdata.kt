@@ -12,5 +12,7 @@ data class PCdata(
     @ColumnInfo(name = "sys") val sys: Int,
     @ColumnInfo(name = "dia") val dia: Int,
     @ColumnInfo(name = "pr") val pr: Int,
+    @ColumnInfo(name = "temp") val temp:Float,
     @ColumnInfo(name = "note") val note: String,
+
 )
