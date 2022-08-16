@@ -63,7 +63,7 @@ class PC300DataDetailAdapter(var context: Context) : RecyclerView.Adapter<PC300D
         notifyItemChanged(4)
     }
 
-    fun changeGlu(glu:Double){
+    fun changeGlu(glu:Float){
         value[5]=glu.toString()
         notifyItemChanged(5)
     }
