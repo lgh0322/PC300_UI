@@ -18,6 +18,8 @@ import com.vaca.pc300.ui.dashboard.adapter.PC300ItemDecoration3
 import androidx.lifecycle.Observer
 import com.lepu.blepro.ble.cmd.Pc300BleResponse
 import com.lepu.blepro.event.InterfaceEvent
+import com.vaca.pc300.view.WaveView
+import java.util.*
 
 class DashboardFragment : Fragment() {
 
@@ -26,6 +28,7 @@ class DashboardFragment : Fragment() {
 
     private val binding get() = _binding!!
     private lateinit var dataAdapter: PC300DataDetailAdapter
+    var drawTask: WaveView.Companion.DrawTask? = null
 
 
     override fun onCreateView(
@@ -94,6 +97,35 @@ class DashboardFragment : Fragment() {
                 dataAdapter.changeDia(a.dia)
                 dataAdapter.changePr(a.plus)
             })
+
+
+        LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300EcgResult).observe(this,
+            Observer { o ->
+
+                val a = o.data as Pc300BleResponse.EcgResult
+
+            })
+
+        LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300RtEcgWave).observe(this,
+            Observer { o ->
+                WaveView.disp=true
+                val a = o.data as Pc300BleResponse.RtEcgWave
+                for(k in a.wFs){
+                    WaveView.waveDataX.offer(k)
+                }
+            })
+
+        WaveView.reset()
+        if (drawTask == null) {
+            drawTask = WaveView.Companion.DrawTask()
+            Timer().schedule(drawTask, Date(), 32)
+        }
+
+
+        WaveView.er2Graph.observe(viewLifecycleOwner) {
+            Log.e("gaga","gagax")
+            binding.waveView.invalidate()
+        }
         return root
     }
 

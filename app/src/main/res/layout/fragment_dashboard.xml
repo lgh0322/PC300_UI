@@ -109,6 +109,17 @@
                 android:layout_height="wrap_content"/>
             
             <com.vaca.pc300.view.WaveViewBackGround
+                android:elevation="0dp"
+                android:layout_marginTop="42dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="309dp"
+                android:layout_height="103dp"/>
+
+            <com.vaca.pc300.view.WaveView
+                android:id="@+id/wave_view"
+                android:elevation="1dp"
                 android:layout_marginTop="42dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
