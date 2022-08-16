@@ -4,11 +4,14 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.widget.ImageViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.jeremyliao.liveeventbus.utils.AppUtils.init
 import com.vaca.pc300.R
 import com.vaca.pc300.room.PCdata
+import com.vaca.pc300.ui.history.utils.BeBpDiagnosis
 
 
 class PC300HistoryBpAdapter(var context: Context) :
@@ -42,6 +45,11 @@ class PC300HistoryBpAdapter(var context: Context) :
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item=mData[position]
+        holder.sys.text=item.sys.toString()+"/"+item.dia.toString()
+        holder.time.text=item.dateString
+        holder.bpm.text=item.pr.toString()
+        holder.healthIndex.background.level = BeBpDiagnosis(item.sys, item.dia).indicator
 
     }
 
@@ -56,6 +64,7 @@ class PC300HistoryBpAdapter(var context: Context) :
         val time:TextView = itemView.findViewById(R.id.time)
         val bpm:TextView = itemView.findViewById(R.id.bpm)
 
+        val healthIndex: ImageView = itemView.findViewById(R.id.be_bp_mark)
         init {
 
             itemView.setOnClickListener {
