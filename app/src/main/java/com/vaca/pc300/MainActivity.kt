@@ -20,10 +20,13 @@ import com.vaca.pc300.databinding.ActivityMainBinding
 import com.vaca.pc300.room.PCdata
 import com.vaca.pc300.room.PcAppDatabase
 import com.vaca.pc300.utils.DateStringUtil
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class MainActivity : AppCompatActivity() {
-
+    val dataScope = CoroutineScope(Dispatchers.IO)
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -84,7 +87,11 @@ class MainActivity : AppCompatActivity() {
                 val tsMother = System.currentTimeMillis()
                 val ts = DateStringUtil.timeConvertEnglish(tsMother)
                 val pcData=PCdata(tsMother,ts,"",a.sys,a.dia,a.plus,"")
-                PcAppDatabase.pc300db.pcDao().insert(pcData)
+
+                dataScope.launch {
+                    PcAppDatabase.pc300db.pcDao().insert(pcData)
+                }
+
             })
 
 
