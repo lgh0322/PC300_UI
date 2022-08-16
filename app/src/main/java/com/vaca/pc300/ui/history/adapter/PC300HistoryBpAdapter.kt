@@ -26,7 +26,7 @@ class PC300HistoryBpAdapter(var context: Context) :
     var currentSelect = 0;
 
 
-    private val mData: MutableList<PCdata> = ArrayList()
+     val mData: MutableList<PCdata> = ArrayList()
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
 
 

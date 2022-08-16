@@ -9,6 +9,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.vaca.pc300.databinding.ActivityMainBinding
 import com.vaca.pc300.databinding.ActivityTempDetailBinding
+import com.vaca.pc300.ui.history.HistoryFragment
 
 class PC300TempDetailActivity : AppCompatActivity() {
 
@@ -21,6 +22,11 @@ class PC300TempDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.back.setOnClickListener {
             onBackPressed()
+        }
+
+
+        HistoryFragment.currentSelect.observe(this){
+
         }
     }
 }

@@ -12,6 +12,7 @@ import com.vaca.pc300.MainApplication
 import com.vaca.pc300.ui.history.detail.PC300BPDetailActivity
 import com.vaca.pc300.databinding.FragmentHistoryBpBinding
 import com.vaca.pc300.room.PcAppDatabase
+import com.vaca.pc300.ui.history.HistoryFragment
 import com.vaca.pc300.ui.history.adapter.PC300HistoryBpAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
@@ -47,6 +48,7 @@ class PC300HistoryBPFragment : Fragment() {
 
         leftAdapter.click=object :PC300HistoryBpAdapter.Click{
             override fun clickItem(position: Int) {
+                HistoryFragment.currentSelect.postValue(leftAdapter.mData.get(position))
                 startActivity(Intent(requireActivity(), PC300BPDetailActivity::class.java))
             }
         }

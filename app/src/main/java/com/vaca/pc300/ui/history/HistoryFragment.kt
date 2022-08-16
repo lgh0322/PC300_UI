@@ -12,6 +12,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vaca.pc300.R
 import com.vaca.pc300.databinding.FragmentHistoryBinding
+import com.vaca.pc300.room.PCdata
 import com.vaca.pc300.ui.history.adapter.PC300HistoryLeftAdapter
 
 class HistoryFragment : Fragment() {
@@ -19,6 +20,7 @@ class HistoryFragment : Fragment() {
     private var _binding: FragmentHistoryBinding? = null
     companion object {
         val initJump = MutableLiveData<Int>()
+        val currentSelect=MutableLiveData<PCdata>()
     }
 
     private val binding get() = _binding!!

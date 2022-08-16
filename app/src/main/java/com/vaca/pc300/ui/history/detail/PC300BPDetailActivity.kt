@@ -9,6 +9,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.vaca.pc300.databinding.ActivityBpDetailBinding
 import com.vaca.pc300.databinding.ActivityMainBinding
+import com.vaca.pc300.ui.history.HistoryFragment
 
 class PC300BPDetailActivity : AppCompatActivity() {
 
@@ -22,6 +23,15 @@ class PC300BPDetailActivity : AppCompatActivity() {
 
         binding.back.setOnClickListener {
             onBackPressed()
+        }
+
+
+        HistoryFragment.currentSelect.observe(this){
+
+            binding.sys.text=it.sys.toString()
+            binding.dia.text=it.dia.toString()
+            binding.pr.text=it.pr.toString()
+
         }
     }
 }

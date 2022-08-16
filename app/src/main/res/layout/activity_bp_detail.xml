@@ -67,6 +67,7 @@
                 android:layout_width="50dp"
                 android:layout_height="match_parent">
                 <TextView
+                    android:id="@+id/sys"
                     android:text="118"
                     android:textSize="24sp"
                     android:textColor="#1C2431"
@@ -98,6 +99,7 @@
                 android:layout_width="50dp"
                 android:layout_height="match_parent">
                 <TextView
+                    android:id="@+id/dia"
                     android:text="93"
                     android:textSize="24sp"
                     android:textColor="#1C2431"
@@ -129,6 +131,7 @@
                 android:layout_width="50dp"
                 android:layout_height="match_parent">
                 <TextView
+                    android:id="@+id/pr"
                     android:text="74"
                     android:textSize="24sp"
                     android:textColor="#1C2431"
