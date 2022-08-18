@@ -52,7 +52,7 @@ class PC300HistorySpo2Adapter(var context: Context) : RecyclerView.Adapter<PC300
 
 
     override fun getItemCount(): Int {
-        return 25
+        return mData.size
     }
 
     inner class ViewHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
