@@ -3,6 +3,7 @@ package com.vaca.pc300.ui.history.detail
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -49,5 +50,10 @@ class PC300BPDetailActivity : AppCompatActivity() {
 
             binding.bpView.setBPValue(it.sys,it.dia)
         }
+    }
+
+    override fun onBackPressed() {
+        Log.e("gaga","uyes")
+        super.onBackPressed()
     }
 }
