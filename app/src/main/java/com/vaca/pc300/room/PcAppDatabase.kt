@@ -6,6 +6,7 @@ import androidx.room.RoomDatabase
 import com.vaca.pc300.MainApplication
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @Database(entities = [PCdata::class], version = 1)
 abstract class PcAppDatabase : RoomDatabase() {
@@ -27,7 +28,10 @@ abstract class PcAppDatabase : RoomDatabase() {
 
 
         fun saveBP(sys:Int,dia:Int,pulse:Int){
+            dataScope.launch {
 
+
+            }
         }
 
         fun saveTemp(temp:Float){
