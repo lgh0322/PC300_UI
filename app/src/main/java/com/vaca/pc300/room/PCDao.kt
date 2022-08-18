@@ -38,6 +38,8 @@ interface PCDao {
     @Query("UPDATE PCdata SET note=:myNote WHERE date = :date")
     fun updateNote(myNote: String, date: Long)
 
+    @Query("SELECT note FROM PCdata WHERE date = :date")
+    fun getNote(date: Long):String
 
 
 

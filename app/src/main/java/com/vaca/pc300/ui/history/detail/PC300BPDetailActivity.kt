@@ -14,6 +14,9 @@ import com.vaca.pc300.databinding.ActivityBpDetailBinding
 import com.vaca.pc300.databinding.ActivityMainBinding
 import com.vaca.pc300.room.PcAppDatabase
 import com.vaca.pc300.ui.history.HistoryFragment
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class PC300BPDetailActivity : AppCompatActivity() {
 
@@ -48,7 +51,14 @@ class PC300BPDetailActivity : AppCompatActivity() {
             binding.sys.text=it.sys.toString()
             binding.dia.text=it.dia.toString()
             binding.pr.text=it.pr.toString()
-            binding.note.setText(it.note.toString())
+
+            PcAppDatabase.dataScope.launch {
+                val note= PcAppDatabase.pc300db.pcDao().getNote(it.date)
+                withContext(Dispatchers.Main){
+                    binding.note.setText(note)
+                }
+            }
+
 
             binding.bpView.setBPValue(it.sys,it.dia)
         }
