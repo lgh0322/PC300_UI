@@ -17,8 +17,8 @@ data class PCdata(
     @ColumnInfo(name = "temp") var temp:Float=0f,
     @ColumnInfo(name = "glu") var glu:Float=0f,
     @ColumnInfo(name = "hr") var hr: Int=0,
-    @ColumnInfo(name = "ecg_data") val ecg_data: DoubleArray?=null,
+    @ColumnInfo(name = "ecg_data") var ecg_data: DoubleArray?=null,
     @ColumnInfo(name = "ecg_result") var ecg_result: String="",
     @ColumnInfo(name = "note") var note: String="",
 
-)
+    )

@@ -70,7 +70,23 @@ abstract class PcAppDatabase : RoomDatabase() {
         }
 
         fun saveEcg(wave:DoubleArray,hr:Int,result:String){
+            dataScope.launch {
+                val tsMother = System.currentTimeMillis()
+                if(tsMother- lastSaveTime<300){
+                    return@launch
+                }
+                lastSaveTime=tsMother;
+                val ts = DateStringUtil.timeConvertEnglish(tsMother)
+                val data=PCdata();
+                data.date=tsMother;
+                data.dateString=ts;
+                data.type= TYPE_ECG;
+                data.ecg_data= wave;
+                data.hr=hr;
+                data.ecg_result=result;
+                pc300db.pcDao().insert(data)
 
+            }
         }
 
 
