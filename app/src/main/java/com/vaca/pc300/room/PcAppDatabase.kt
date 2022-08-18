@@ -13,5 +13,28 @@ abstract class PcAppDatabase : RoomDatabase() {
             MainApplication.application,
             PcAppDatabase::class.java, "pc300-name"
         ).build()
+
+
+        fun saveBP(){
+
+        }
+
+        fun saveTemp(){
+
+        }
+
+        fun saveEcg(){
+
+        }
+
+
+        fun saveGlu(){
+
+        }
+
+
+        fun saveO2(){
+
+        }
     }
 }
