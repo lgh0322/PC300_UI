@@ -29,7 +29,7 @@ class WaveView : View {
             0
         }
 
-        val pkgsize=4
+        val pkgsize=6
 
         var currentHead = 0
         val headLen = 3

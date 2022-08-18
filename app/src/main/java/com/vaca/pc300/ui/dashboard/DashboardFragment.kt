@@ -18,6 +18,7 @@ import com.vaca.pc300.ui.dashboard.adapter.PC300ItemDecoration3
 import androidx.lifecycle.Observer
 import com.lepu.blepro.ble.cmd.Pc300BleResponse
 import com.lepu.blepro.event.InterfaceEvent
+import com.vaca.pc300.view.Er2Draw
 import com.vaca.pc300.view.WaveView
 import java.util.*
 
@@ -30,6 +31,14 @@ class DashboardFragment : Fragment() {
     private lateinit var dataAdapter: PC300DataDetailAdapter
     var drawTask: WaveView.Companion.DrawTask? = null
 
+    var n=0;
+    inner class RecTask() : TimerTask() {
+        override fun run() {
+            Log.e("dadahh",n.toString())
+        }
+    }
+
+    var recTask: RecTask? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -113,14 +122,19 @@ class DashboardFragment : Fragment() {
                 for(k in a.wFs){
                     WaveView.waveDataX.offer(k)
                 }
+                n+=a.wFs.size
             })
 
         WaveView.reset()
         if (drawTask == null) {
             drawTask = WaveView.Companion.DrawTask()
-            Timer().schedule(drawTask, Date(), 32)
+            Timer().schedule(drawTask, Date(), 40)
         }
 
+//        if (recTask == null) {
+//            recTask =RecTask()
+//            Timer().schedule(recTask, Date(), 1000)
+//        }
 
         WaveView.er2Graph.observe(viewLifecycleOwner) {
             Log.e("gaga","gagax")
