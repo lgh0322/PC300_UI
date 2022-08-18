@@ -53,7 +53,7 @@ class MainApplication : Application() {
         LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300RtOxyParam).observeForever(
             Observer { o ->
                 val a = o.data as Pc300BleResponse.RtOxyParam
-                Log.e("EventEr1RtData", "gagaxxxxaaaaaa  " + a.spo2 + "  " + a.pr)
+                Log.e("plpl", "gagaxxxxaaaaaa  " + a.spo2 + "  " + a.pr+"   "+a.isProbeOff)
             })
     }
 
