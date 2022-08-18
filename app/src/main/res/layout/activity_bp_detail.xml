@@ -167,6 +167,8 @@
             android:background="@drawable/data_bg"
             android:layout_height="145dp">
             <EditText
+                android:id="@+id/note"
+                android:maxLength="200"
                 android:background="@null"
                 android:hint="Add Note"
                 android:gravity="top|start"
@@ -182,6 +184,7 @@
 
 
             <TextView
+                android:id="@+id/note_number"
                 android:text="0/200"
                 android:textSize="12sp"
                 android:textColor="#6B7280"
