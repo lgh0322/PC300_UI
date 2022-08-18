@@ -1,6 +1,8 @@
 package com.vaca.pc300.ui.history.detail
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -23,7 +25,20 @@ class PC300Spo2DetailActivity : AppCompatActivity() {
         binding.back.setOnClickListener {
             onBackPressed()
         }
+        binding.note.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                binding.noteNumber.text = "${binding.note.text.toString().length}/400"
+            }
+
+        })
 
         HistoryFragment.currentSelect.observe(this){
 
