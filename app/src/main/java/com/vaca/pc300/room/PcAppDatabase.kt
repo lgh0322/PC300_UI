@@ -127,5 +127,11 @@ abstract class PcAppDatabase : RoomDatabase() {
 
             }
         }
+
+        fun updateNote(date:Long,note:String){
+            dataScope.launch {
+                pc300db.pcDao().updateNote(note,date)
+            }
+        }
     }
 }

@@ -12,6 +12,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.vaca.pc300.databinding.ActivityBpDetailBinding
 import com.vaca.pc300.databinding.ActivityMainBinding
+import com.vaca.pc300.room.PcAppDatabase
 import com.vaca.pc300.ui.history.HistoryFragment
 
 class PC300BPDetailActivity : AppCompatActivity() {
@@ -47,12 +48,18 @@ class PC300BPDetailActivity : AppCompatActivity() {
             binding.sys.text=it.sys.toString()
             binding.dia.text=it.dia.toString()
             binding.pr.text=it.pr.toString()
+            binding.note.setText(it.note.toString())
 
             binding.bpView.setBPValue(it.sys,it.dia)
         }
     }
 
     override fun onBackPressed() {
+        val item=HistoryFragment.currentSelect.value
+        if(item!=null){
+            Log.e("gaga",binding.note.text.toString())
+            PcAppDatabase.updateNote(item.date,binding.note.text.toString())
+        }
         Log.e("gaga","uyes")
         super.onBackPressed()
     }
