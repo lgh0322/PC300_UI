@@ -47,6 +47,7 @@
             android:background="@drawable/data_bg"
             android:layout_height="139dp">
             <TextView
+                android:id="@+id/time"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:text="Starting time：10:28:44 AM Apr 19, 2022"

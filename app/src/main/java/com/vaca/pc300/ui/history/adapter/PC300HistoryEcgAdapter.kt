@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.vaca.pc300.R
+import com.vaca.pc300.room.PCdata
 
 
 class PC300HistoryEcgAdapter(var context: Context) : RecyclerView.Adapter<PC300HistoryEcgAdapter.ViewHolder>() {
@@ -20,17 +21,16 @@ class PC300HistoryEcgAdapter(var context: Context) : RecyclerView.Adapter<PC300H
 
     var click:Click?=null
 
-    private val mData: MutableList<String> = ArrayList()
+   val mData: MutableList<PCdata> = ArrayList()
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
 
-    val name= listOf<String>("BP","SpO₂","Temp","GLU","ECG")
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = mInflater.inflate(R.layout.item_pc300_history_ecg, parent, false)
         return ViewHolder(view)
     }
 
-    fun addAll(userBean: ArrayList<String>) {
+    fun addAll(userBean: List<PCdata>) {
         mData.clear()
         for (k in userBean) {
             mData.add(k)

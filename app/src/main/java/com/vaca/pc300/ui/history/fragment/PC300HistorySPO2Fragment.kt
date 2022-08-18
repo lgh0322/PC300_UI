@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vaca.pc300.ui.history.detail.PC300Spo2DetailActivity
 import com.vaca.pc300.databinding.FragmentHistorySpo2Binding
+import com.vaca.pc300.ui.history.HistoryFragment
 import com.vaca.pc300.ui.history.adapter.PC300HistorySpo2Adapter
 
 class PC300HistorySPO2Fragment : Fragment() {
@@ -40,6 +41,7 @@ class PC300HistorySPO2Fragment : Fragment() {
 
         leftAdapter.click=object : PC300HistorySpo2Adapter.Click{
             override fun clickItem(position: Int) {
+                HistoryFragment.currentSelect.postValue(leftAdapter.mData.get(position))
                 startActivity(Intent(requireActivity(), PC300Spo2DetailActivity::class.java))
             }
         }

@@ -22,7 +22,7 @@ class PC300HistoryTempAdapter(var context: Context) :
 
     var click: Click? = null
 
-    private val mData: MutableList<PCdata> = ArrayList()
+    val mData: MutableList<PCdata> = ArrayList()
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
 
 

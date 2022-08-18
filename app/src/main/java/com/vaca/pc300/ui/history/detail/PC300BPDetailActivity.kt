@@ -47,7 +47,7 @@ class PC300BPDetailActivity : AppCompatActivity() {
         })
 
         HistoryFragment.currentSelect.observe(this){
-
+            binding.time.text=it.dateString
             binding.sys.text=it.sys.toString()
             binding.dia.text=it.dia.toString()
             binding.pr.text=it.pr.toString()

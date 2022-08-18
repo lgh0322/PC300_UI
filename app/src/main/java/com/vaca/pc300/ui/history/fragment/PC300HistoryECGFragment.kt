@@ -42,6 +42,7 @@ class PC300HistoryECGFragment : Fragment() {
 
         leftAdapter.click=object : PC300HistoryEcgAdapter.Click{
             override fun clickItem(position: Int) {
+                HistoryFragment.currentSelect.postValue(leftAdapter.mData.get(position))
                 startActivity(Intent(requireActivity(), PC300EcgDetailActivity::class.java))
             }
         }

@@ -8,29 +8,29 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.vaca.pc300.R
+import com.vaca.pc300.room.PCdata
 
 
 class PC300HistorySpo2Adapter(var context: Context) : RecyclerView.Adapter<PC300HistorySpo2Adapter.ViewHolder>() {
 
 
-        var currentSelect=0;
+    var currentSelect=0;
     interface Click{
         fun clickItem(position: Int)
     }
 
     var click:Click?=null
 
-    private val mData: MutableList<String> = ArrayList()
+    val mData: MutableList<PCdata> = ArrayList()
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
 
-    val name= listOf<String>("BP","SpO₂","Temp","GLU","ECG")
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = mInflater.inflate(R.layout.item_pc300_history_spo2, parent, false)
         return ViewHolder(view)
     }
 
-    fun addAll(userBean: ArrayList<String>) {
+    fun addAll(userBean: List<PCdata>) {
         mData.clear()
         for (k in userBean) {
             mData.add(k)

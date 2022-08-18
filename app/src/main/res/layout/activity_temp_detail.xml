@@ -50,6 +50,7 @@
             android:background="@drawable/data_bg">
 
             <TextView
+                android:id="@+id/time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -64,7 +65,7 @@
 
 
             <TextView
-                android:id="@+id/o2"
+                android:id="@+id/temp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="148dp"
@@ -85,7 +86,7 @@
                 android:text="℃"
                 android:textColor="#9CA3AF"
                 android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/o2"
+                app:layout_constraintStart_toEndOf="@+id/temp"
                 app:layout_constraintTop_toTopOf="parent" />
 
 

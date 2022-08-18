@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.vaca.pc300.ui.history.detail.PC300GluDetailActivity
 import com.vaca.pc300.databinding.FragmentHistoryGluBinding
 import com.vaca.pc300.room.PcAppDatabase
+import com.vaca.pc300.ui.history.HistoryFragment
 import com.vaca.pc300.ui.history.adapter.PC300HistoryGluAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -45,6 +46,7 @@ class PC300HistoryGluFragment : Fragment() {
 
         leftAdapter.click=object : PC300HistoryGluAdapter.Click{
             override fun clickItem(position: Int) {
+                HistoryFragment.currentSelect.postValue(leftAdapter.mData.get(position))
                 startActivity(Intent(requireActivity(), PC300GluDetailActivity::class.java))
             }
         }

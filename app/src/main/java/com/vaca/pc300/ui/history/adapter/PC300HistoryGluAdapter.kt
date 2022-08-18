@@ -21,7 +21,7 @@ class PC300HistoryGluAdapter(var context: Context) : RecyclerView.Adapter<PC300H
 
     var click:Click?=null
 
-    private val mData: MutableList<PCdata> = ArrayList()
+    val mData: MutableList<PCdata> = ArrayList()
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
 
     val name= listOf<String>("BP","SpO₂","Temp","GLU","ECG")
