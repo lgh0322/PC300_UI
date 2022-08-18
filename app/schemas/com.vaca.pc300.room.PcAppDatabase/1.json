@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "179917badf21abb378900e24cc862e0a",
+    "identityHash": "c07a837d5b4018dab464e6d2ba8b7a08",
     "entities": [
       {
         "tableName": "PCdata",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` INTEGER NOT NULL, `dateString` TEXT NOT NULL, `id` TEXT NOT NULL, `sys` INTEGER NOT NULL, `dia` INTEGER NOT NULL, `pr` INTEGER NOT NULL, `temp` REAL NOT NULL, `note` TEXT NOT NULL, PRIMARY KEY(`date`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` INTEGER NOT NULL, `dateString` TEXT NOT NULL, `id` TEXT NOT NULL, `type` INTEGER NOT NULL, `sys` INTEGER NOT NULL, `dia` INTEGER NOT NULL, `pr` INTEGER NOT NULL, `temp` REAL NOT NULL, `note` TEXT NOT NULL, PRIMARY KEY(`date`))",
         "fields": [
           {
             "fieldPath": "date",
@@ -24,6 +24,12 @@
             "fieldPath": "id",
             "columnName": "id",
             "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "INTEGER",
             "notNull": true
           },
           {
@@ -70,7 +76,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '179917badf21abb378900e24cc862e0a')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c07a837d5b4018dab464e6d2ba8b7a08')"
     ]
   }
 }

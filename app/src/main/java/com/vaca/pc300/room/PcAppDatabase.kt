@@ -15,25 +15,33 @@ abstract class PcAppDatabase : RoomDatabase() {
         ).build()
 
 
-        fun saveBP(){
+        const val TYPE_BP=0;
+        const val TYPE_ECG=1;
+        const val TYPE_TEMP=2;
+        const val TYPE_O2=3;
+        const val TYPE_GLU=4;
+
+
+
+        fun saveBP(sys:Int,dia:Int,pulse:Int){
 
         }
 
-        fun saveTemp(){
+        fun saveTemp(temp:Float){
 
         }
 
-        fun saveEcg(){
-
-        }
-
-
-        fun saveGlu(){
+        fun saveEcg(wave:DoubleArray,hr:Int,result:String){
 
         }
 
 
-        fun saveO2(){
+        fun saveGlu(glu:Float){
+
+        }
+
+
+        fun saveO2(o2:Int,pr:Int){
 
         }
     }

@@ -33,6 +33,12 @@ class MainApplication : Application() {
                 Log.e("gagaggg",a.spo2.toString())
 
             })
+
+        LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300BpResult).observeForever(
+            Observer { o ->
+                val a = o.data as Pc300BleResponse.BpResult
+
+            })
     }
 
 
