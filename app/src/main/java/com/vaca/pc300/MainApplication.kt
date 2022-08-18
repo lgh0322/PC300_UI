@@ -40,6 +40,13 @@ class MainApplication : Application() {
                 val a = o.data as Pc300BleResponse.BpResult
                 PcAppDatabase.saveBP(a.sys,a.dia,a.plus);
             })
+
+
+        LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300TempResult).observeForever(
+            Observer { o ->
+                val a = o.data as Pc300BleResponse.TempResult
+                PcAppDatabase.saveTemp(Math.round(a.temp*10)/10.0f)
+            })
     }
 
 
