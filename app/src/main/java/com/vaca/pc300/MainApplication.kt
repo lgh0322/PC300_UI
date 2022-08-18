@@ -47,6 +47,12 @@ class MainApplication : Application() {
                 val a = o.data as Pc300BleResponse.TempResult
                 PcAppDatabase.saveTemp(Math.round(a.temp*10)/10.0f)
             })
+
+        LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300GluResult).observeForever(
+            Observer { o ->
+                val a = o.data as Pc300BleResponse.GluResult
+                PcAppDatabase.saveGlu(a.data)
+            })
     }
 
 
