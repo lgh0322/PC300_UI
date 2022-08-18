@@ -50,7 +50,21 @@ abstract class PcAppDatabase : RoomDatabase() {
         }
 
         fun saveTemp(temp:Float){
+            dataScope.launch {
+                val tsMother = System.currentTimeMillis()
+                if(tsMother- lastSaveTime<3000){
+                    return@launch
+                }
+                lastSaveTime=tsMother;
+                val ts = DateStringUtil.timeConvertEnglish(tsMother)
+                val data=PCdata();
+                data.date=tsMother;
+                data.dateString=ts;
+                data.type= TYPE_BP;
+                data.temp=temp;
+                pc300db.pcDao().insert(data)
 
+            }
         }
 
         fun saveEcg(wave:DoubleArray,hr:Int,result:String){
