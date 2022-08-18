@@ -40,14 +40,7 @@ class PC300HistoryEcgAdapter(var context: Context) : RecyclerView.Adapter<PC300H
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-       // holder.sys.text=name[position]
-        if(position== currentSelect){
-            //holder.sys.setTextColor(ContextCompat.getColor(context,R.color.color_111827))
 
-        }else{
-           // holder.sys.setTextColor(ContextCompat.getColor(context,R.color.color_9CA3AF))
-
-        }
     }
 
 
