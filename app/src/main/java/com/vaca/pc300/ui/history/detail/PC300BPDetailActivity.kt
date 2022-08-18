@@ -67,10 +67,8 @@ class PC300BPDetailActivity : AppCompatActivity() {
     override fun onBackPressed() {
         val item=HistoryFragment.currentSelect.value
         if(item!=null){
-            Log.e("gaga",binding.note.text.toString())
             PcAppDatabase.updateNote(item.date,binding.note.text.toString())
         }
-        Log.e("gaga","uyes")
         super.onBackPressed()
     }
 }

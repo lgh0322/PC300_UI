@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vaca.pc300.ui.history.detail.PC300EcgDetailActivity
 import com.vaca.pc300.databinding.FragmentHistoryEcgBinding
+import com.vaca.pc300.room.PcAppDatabase
+import com.vaca.pc300.ui.history.HistoryFragment
 import com.vaca.pc300.ui.history.adapter.PC300HistoryEcgAdapter
 
 class PC300HistoryECGFragment : Fragment() {
@@ -51,4 +53,6 @@ class PC300HistoryECGFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }

@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.vaca.pc300.databinding.ActivityMainBinding
 import com.vaca.pc300.databinding.ActivitySpo2DetailBinding
+import com.vaca.pc300.room.PcAppDatabase
 import com.vaca.pc300.ui.history.HistoryFragment
 
 class PC300Spo2DetailActivity : AppCompatActivity() {
@@ -44,5 +45,14 @@ class PC300Spo2DetailActivity : AppCompatActivity() {
 
         }
 
+    }
+
+
+    override fun onBackPressed() {
+        val item= HistoryFragment.currentSelect.value
+        if(item!=null){
+            PcAppDatabase.updateNote(item.date,binding.note.text.toString())
+        }
+        super.onBackPressed()
     }
 }
