@@ -5,32 +5,33 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.vaca.pc300.R
+import com.vaca.pc300.room.PCdata
 
 
-class PC300HistoryTempAdapter(var context: Context) : RecyclerView.Adapter<PC300HistoryTempAdapter.ViewHolder>() {
+class PC300HistoryTempAdapter(var context: Context) :
+    RecyclerView.Adapter<PC300HistoryTempAdapter.ViewHolder>() {
 
 
-        var currentSelect=0;
-    interface Click{
+    var currentSelect = 0;
+
+    interface Click {
         fun clickItem(position: Int)
     }
 
-    var click:Click?=null
+    var click: Click? = null
 
-    private val mData: MutableList<String> = ArrayList()
+    private val mData: MutableList<PCdata> = ArrayList()
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
 
-    val name= listOf<String>("BP","SpO₂","Temp","GLU","ECG")
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = mInflater.inflate(R.layout.item_pc300_history_temp, parent, false)
         return ViewHolder(view)
     }
 
-    fun addAll(userBean: ArrayList<String>) {
+    fun addAll(userBean: List<PCdata>) {
         mData.clear()
         for (k in userBean) {
             mData.add(k)
@@ -38,25 +39,21 @@ class PC300HistoryTempAdapter(var context: Context) : RecyclerView.Adapter<PC300
         notifyDataSetChanged()
     }
 
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-       // holder.sys.text=name[position]
-        if(position== currentSelect){
-            //holder.sys.setTextColor(ContextCompat.getColor(context,R.color.color_111827))
-
-        }else{
-           // holder.sys.setTextColor(ContextCompat.getColor(context,R.color.color_9CA3AF))
-
-        }
+        val item = mData[position]
+        holder.temp.text = item.temp.toString()
+        holder.time.text = item.dateString
     }
 
 
     override fun getItemCount(): Int {
-        return 25
+        return mData.size
     }
 
-    inner class ViewHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
-//        val sys:TextView=itemView.findViewById(R.id.sys)
+    inner class ViewHolder internal constructor(itemView: View) :
+        RecyclerView.ViewHolder(itemView) {
+        val time: TextView = itemView.findViewById(R.id.time)
+        val temp: TextView = itemView.findViewById(R.id.temp)
 
         init {
 
@@ -65,9 +62,6 @@ class PC300HistoryTempAdapter(var context: Context) : RecyclerView.Adapter<PC300
             }
         }
     }
-
-
-
 
 
 }
