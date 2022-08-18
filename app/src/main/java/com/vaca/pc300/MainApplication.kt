@@ -8,6 +8,7 @@ import com.jeremyliao.liveeventbus.LiveEventBus
 import com.lepu.blepro.BleServiceHelper
 import com.lepu.blepro.ble.cmd.Pc300BleResponse
 import com.lepu.blepro.event.InterfaceEvent
+import com.vaca.pc300.room.PcAppDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 
@@ -37,7 +38,7 @@ class MainApplication : Application() {
         LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300BpResult).observeForever(
             Observer { o ->
                 val a = o.data as Pc300BleResponse.BpResult
-
+                PcAppDatabase.saveBP(a.sys,a.dia,a.plus);
             })
     }
 

@@ -14,6 +14,9 @@ interface PCDao {
     fun getAllR(): List<PCdata>
 
 
+    @Query("SELECT * FROM PCdata WHERE type=:type ORDER BY date DESC")
+    fun getAllR(type:Int): List<PCdata>
+
 
     @Query("SELECT * FROM PCdata WHERE date IN (:userIds)")
     fun loadAllByIds(userIds: IntArray): List<PCdata>

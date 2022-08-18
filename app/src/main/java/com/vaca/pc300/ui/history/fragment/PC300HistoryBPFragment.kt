@@ -54,7 +54,7 @@ class PC300HistoryBPFragment : Fragment() {
         }
 
         MainApplication.dataScope.launch {
-            val a=PcAppDatabase.pc300db.pcDao().getAllR()
+            val a=PcAppDatabase.pc300db.pcDao().getAllR(PcAppDatabase.TYPE_BP)
             Log.e("faa",a.size.toString())
             withContext(Dispatchers.Main){
                 leftAdapter.addAll(a)
