@@ -60,7 +60,7 @@ abstract class PcAppDatabase : RoomDatabase() {
                 val data=PCdata();
                 data.date=tsMother;
                 data.dateString=ts;
-                data.type= TYPE_BP;
+                data.type= TYPE_TEMP;
                 data.temp=temp;
                 pc300db.pcDao().insert(data)
 
