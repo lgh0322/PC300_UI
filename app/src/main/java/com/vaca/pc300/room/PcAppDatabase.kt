@@ -4,6 +4,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.vaca.pc300.MainApplication
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 
 @Database(entities = [PCdata::class], version = 1)
 abstract class PcAppDatabase : RoomDatabase() {
@@ -14,6 +16,7 @@ abstract class PcAppDatabase : RoomDatabase() {
             PcAppDatabase::class.java, "pc300-name"
         ).build()
 
+        val dataScope = CoroutineScope(Dispatchers.IO)
 
         const val TYPE_BP=0;
         const val TYPE_ECG=1;
