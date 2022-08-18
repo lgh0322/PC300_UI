@@ -52,7 +52,7 @@ abstract class PcAppDatabase : RoomDatabase() {
         fun saveTemp(temp:Float){
             dataScope.launch {
                 val tsMother = System.currentTimeMillis()
-                if(tsMother- lastSaveTime<3000){
+                if(tsMother- lastSaveTime<300){
                     return@launch
                 }
                 lastSaveTime=tsMother;
