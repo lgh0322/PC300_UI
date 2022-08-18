@@ -11,6 +11,7 @@ import com.lepu.blepro.event.InterfaceEvent
 import com.vaca.pc300.room.PcAppDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import java.util.logging.Handler
 
 
 class MainApplication : Application() {
@@ -50,9 +51,41 @@ class MainApplication : Application() {
             })
 
 
+        var spo2Sum=0;
+        var prSum=0;
+        var prCount=0;
+        var prStartTime=0L;
+        var prEndTime=0L;
+        var prIsStart=false
+        var wantSaveTime=0L
+        val handler= android.os.Handler();
+
         LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300RtOxyParam).observeForever(
             Observer { o ->
                 val a = o.data as Pc300BleResponse.RtOxyParam
+                if(a.spo2!=0 && a.pr!=0){
+                    if(!prIsStart){
+                        prIsStart=true
+                        prStartTime=System.currentTimeMillis()
+                        prCount=1;
+                        prSum=a.pr
+                        spo2Sum=a.spo2
+                    }else{
+                        prCount++;
+                        prSum+=a.pr
+                        spo2Sum+=a.spo2
+                    }
+                }else{
+                    prIsStart=false
+                }
+
+                if(a.isProbeOff){
+                    prEndTime=System.currentTimeMillis()
+                    if(prEndTime-prStartTime>3000){
+                        wantSaveTime=System.currentTimeMillis()
+                        //保存数据。
+                    }
+                }
                 Log.e("plpl", "gagaxxxxaaaaaa  " + a.spo2 + "  " + a.pr+"   "+a.isProbeOff)
             })
     }
