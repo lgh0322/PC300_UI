@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.vaca.pc300.R
+import com.vaca.pc300.room.PCdata
 
 
 class PC300HistoryGluAdapter(var context: Context) : RecyclerView.Adapter<PC300HistoryGluAdapter.ViewHolder>() {
@@ -20,7 +21,7 @@ class PC300HistoryGluAdapter(var context: Context) : RecyclerView.Adapter<PC300H
 
     var click:Click?=null
 
-    private val mData: MutableList<String> = ArrayList()
+    private val mData: MutableList<PCdata> = ArrayList()
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
 
     val name= listOf<String>("BP","SpO₂","Temp","GLU","ECG")
@@ -30,7 +31,7 @@ class PC300HistoryGluAdapter(var context: Context) : RecyclerView.Adapter<PC300H
         return ViewHolder(view)
     }
 
-    fun addAll(userBean: ArrayList<String>) {
+    fun addAll(userBean: List<PCdata>) {
         mData.clear()
         for (k in userBean) {
             mData.add(k)
@@ -38,16 +39,10 @@ class PC300HistoryGluAdapter(var context: Context) : RecyclerView.Adapter<PC300H
         notifyDataSetChanged()
     }
 
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-       // holder.sys.text=name[position]
-        if(position== currentSelect){
-            //holder.sys.setTextColor(ContextCompat.getColor(context,R.color.color_111827))
-
-        }else{
-           // holder.sys.setTextColor(ContextCompat.getColor(context,R.color.color_9CA3AF))
-
-        }
+        val item = mData[position]
+        holder.glu.text = item.glu.toString()
+        holder.time.text = item.dateString
     }
 
 
@@ -56,7 +51,8 @@ class PC300HistoryGluAdapter(var context: Context) : RecyclerView.Adapter<PC300H
     }
 
     inner class ViewHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
-      //  val sys:TextView=itemView.findViewById(R.id.sys)
+        val glu:TextView=itemView.findViewById(R.id.glu)
+        val time: TextView = itemView.findViewById(R.id.time)
 
         init {
 
