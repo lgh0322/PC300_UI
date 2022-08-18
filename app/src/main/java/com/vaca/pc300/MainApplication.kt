@@ -28,12 +28,7 @@ class MainApplication : Application() {
         BleServiceHelper.BleServiceHelper.initService(this, null)
 
 
-        LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300RtOxyParam).observeForever(
-            Observer { o ->
-                val a = o.data as Pc300BleResponse.RtOxyParam
-                Log.e("gagaggg",a.spo2.toString())
 
-            })
 
         LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300BpResult).observeForever(
             Observer { o ->
@@ -52,6 +47,13 @@ class MainApplication : Application() {
             Observer { o ->
                 val a = o.data as Pc300BleResponse.GluResult
                 PcAppDatabase.saveGlu(a.data)
+            })
+
+
+        LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300RtOxyParam).observeForever(
+            Observer { o ->
+                val a = o.data as Pc300BleResponse.RtOxyParam
+                Log.e("EventEr1RtData", "gagaxxxxaaaaaa  " + a.spo2 + "  " + a.pr)
             })
     }
 

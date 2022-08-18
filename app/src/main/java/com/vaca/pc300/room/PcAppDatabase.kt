@@ -94,7 +94,22 @@ abstract class PcAppDatabase : RoomDatabase() {
 
 
         fun saveO2(o2:Int,pr:Int){
+            dataScope.launch {
+                val tsMother = System.currentTimeMillis()
+                if(tsMother- lastSaveTime<300){
+                    return@launch
+                }
+                lastSaveTime=tsMother;
+                val ts = DateStringUtil.timeConvertEnglish(tsMother)
+                val data=PCdata();
+                data.date=tsMother;
+                data.dateString=ts;
+                data.type= TYPE_O2;
+                data.o2= o2;
+                data.pr=pr;
+                pc300db.pcDao().insert(data)
 
+            }
         }
     }
 }

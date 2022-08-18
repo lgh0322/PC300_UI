@@ -13,6 +13,7 @@ data class PCdata(
     @ColumnInfo(name = "sys") var sys: Int=0,
     @ColumnInfo(name = "dia") var dia: Int=0,
     @ColumnInfo(name = "pr") var pr: Int=0,
+    @ColumnInfo(name = "o2") var o2: Int=0,
     @ColumnInfo(name = "temp") var temp:Float=0f,
     @ColumnInfo(name = "glu") var glu:Float=0f,
     @ColumnInfo(name = "hr") var hr: Int=0,
