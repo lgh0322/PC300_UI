@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.vaca.pc300.MainApplication
 import com.vaca.pc300.utils.DateStringUtil
 import kotlinx.coroutines.CoroutineScope
@@ -11,6 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 @Database(entities = [PCdata::class], version = 1)
+@TypeConverters(ConverterDoubleToString::class)
 abstract class PcAppDatabase : RoomDatabase() {
     abstract fun pcDao(): PCDao
     companion object{
@@ -73,7 +75,21 @@ abstract class PcAppDatabase : RoomDatabase() {
 
 
         fun saveGlu(glu:Float){
+            dataScope.launch {
+                val tsMother = System.currentTimeMillis()
+                if(tsMother- lastSaveTime<300){
+                    return@launch
+                }
+                lastSaveTime=tsMother;
+                val ts = DateStringUtil.timeConvertEnglish(tsMother)
+                val data=PCdata();
+                data.date=tsMother;
+                data.dateString=ts;
+                data.type= TYPE_TEMP;
+                data.glu=glu;
+                pc300db.pcDao().insert(data)
 
+            }
         }
 
 

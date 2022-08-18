@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "c07a837d5b4018dab464e6d2ba8b7a08",
+    "identityHash": "aa52dbeae00742889c7b115be50406ee",
     "entities": [
       {
         "tableName": "PCdata",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` INTEGER NOT NULL, `dateString` TEXT NOT NULL, `id` TEXT NOT NULL, `type` INTEGER NOT NULL, `sys` INTEGER NOT NULL, `dia` INTEGER NOT NULL, `pr` INTEGER NOT NULL, `temp` REAL NOT NULL, `note` TEXT NOT NULL, PRIMARY KEY(`date`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` INTEGER NOT NULL, `dateString` TEXT NOT NULL, `id` TEXT NOT NULL, `type` INTEGER NOT NULL, `sys` INTEGER NOT NULL, `dia` INTEGER NOT NULL, `pr` INTEGER NOT NULL, `temp` REAL NOT NULL, `glu` REAL NOT NULL, `hr` INTEGER NOT NULL, `ecg_data` TEXT, `ecg_result` TEXT NOT NULL, `note` TEXT NOT NULL, PRIMARY KEY(`date`))",
         "fields": [
           {
             "fieldPath": "date",
@@ -57,6 +57,30 @@
             "notNull": true
           },
           {
+            "fieldPath": "glu",
+            "columnName": "glu",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hr",
+            "columnName": "hr",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ecg_data",
+            "columnName": "ecg_data",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ecg_result",
+            "columnName": "ecg_result",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
             "fieldPath": "note",
             "columnName": "note",
             "affinity": "TEXT",
@@ -76,7 +100,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c07a837d5b4018dab464e6d2ba8b7a08')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'aa52dbeae00742889c7b115be50406ee')"
     ]
   }
 }
