@@ -26,7 +26,6 @@
 
 
     <LinearLayout
-        android:visibility="gone"
         android:orientation="vertical"
         android:gravity="top|center_horizontal"
         android:layout_width="match_parent"
@@ -44,13 +43,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:layout_marginTop="16dp"
-            android:src="@drawable/lpm_dashboard_graph"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="204dp"/>
+            android:layout_marginTop="16dp"
+            android:layout_height="204dp">
+            <com.bigkoo.convenientbanner.ConvenientBanner
+                android:id="@+id/banner"
+                android:elevation="0dp"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                app:canLoop="true" />
+            <LinearLayout
+                android:elevation="30dp"
+                android:id="@+id/dot_layout"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/banner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
+            android:id="@+id/say_text"
             android:layout_marginTop="24dp"
             android:text="Prepare cotton swabs, alcohol wipes, blood collection needles, test strips, blood collection devices, Code cards, blood lipid detectors."
             android:textSize="14sp"
@@ -64,6 +81,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
         android:id="@+id/left_view"
         android:layout_marginTop="88dp"
         android:layout_width="match_parent"
