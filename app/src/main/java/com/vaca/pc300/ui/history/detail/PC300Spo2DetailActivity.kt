@@ -48,6 +48,7 @@ class PC300Spo2DetailActivity : AppCompatActivity() {
             binding.o2.text=it.o2.toString()
             binding.pr.text=it.pr.toString()
             binding.time.text=it.dateString
+            binding.duration.text="Duration: ${it.o2_duration} sec"
             PcAppDatabase.dataScope.launch {
                 val note= PcAppDatabase.pc300db.pcDao().getNote(it.date)
                 withContext(Dispatchers.Main){

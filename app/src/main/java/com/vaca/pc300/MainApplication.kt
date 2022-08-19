@@ -60,6 +60,7 @@ class MainApplication : Application() {
         var wantSaveTime = 0L
         val handler = android.os.Handler(Looper.getMainLooper());
         var haveIn10 = false
+        var duration=0;
 
         LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300RtOxyParam).observeForever(
             Observer { o ->
@@ -83,13 +84,14 @@ class MainApplication : Application() {
                 if (a.isProbeOff) {
                     prEndTime = System.currentTimeMillis()
                     if (prEndTime - prStartTime > 3000) {
+                        duration= ((prEndTime - prStartTime)/1000).toInt();
                         wantSaveTime = System.currentTimeMillis()
                         //保存数据。
                         haveIn10 = false
                         handler.postDelayed({
                             if (haveIn10 == false) {
                                 Log.e("plpl","save")
-                                PcAppDatabase.saveO2(50, 50)
+                                PcAppDatabase.saveO2(50, 50,duration)
                             }
                         }, 10000)
                     }

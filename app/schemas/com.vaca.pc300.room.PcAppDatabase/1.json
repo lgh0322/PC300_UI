@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "48043dd7fd3b5c9805b140d55ab0e4f4",
+    "identityHash": "bb8c9f4930da0915754b2893f2b96a9f",
     "entities": [
       {
         "tableName": "PCdata",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` INTEGER NOT NULL, `dateString` TEXT NOT NULL, `id` TEXT NOT NULL, `type` INTEGER NOT NULL, `sys` INTEGER NOT NULL, `dia` INTEGER NOT NULL, `pr` INTEGER NOT NULL, `o2` INTEGER NOT NULL, `temp` REAL NOT NULL, `glu` REAL NOT NULL, `hr` INTEGER NOT NULL, `ecg_data` TEXT, `ecg_result` TEXT NOT NULL, `note` TEXT NOT NULL, PRIMARY KEY(`date`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` INTEGER NOT NULL, `dateString` TEXT NOT NULL, `id` TEXT NOT NULL, `type` INTEGER NOT NULL, `sys` INTEGER NOT NULL, `dia` INTEGER NOT NULL, `pr` INTEGER NOT NULL, `o2` INTEGER NOT NULL, `o2_duration` INTEGER NOT NULL, `temp` REAL NOT NULL, `glu` REAL NOT NULL, `hr` INTEGER NOT NULL, `ecg_data` TEXT, `ecg_result` TEXT NOT NULL, `note` TEXT NOT NULL, PRIMARY KEY(`date`))",
         "fields": [
           {
             "fieldPath": "date",
@@ -53,6 +53,12 @@
           {
             "fieldPath": "o2",
             "columnName": "o2",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "o2_duration",
+            "columnName": "o2_duration",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -106,7 +112,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '48043dd7fd3b5c9805b140d55ab0e4f4')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'bb8c9f4930da0915754b2893f2b96a9f')"
     ]
   }
 }

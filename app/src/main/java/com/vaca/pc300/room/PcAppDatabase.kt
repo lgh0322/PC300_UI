@@ -109,7 +109,7 @@ abstract class PcAppDatabase : RoomDatabase() {
         }
 
 
-        fun saveO2(o2:Int,pr:Int){
+        fun saveO2(o2:Int,pr:Int,duration:Int){
             dataScope.launch {
                 val tsMother = System.currentTimeMillis()
                 if(tsMother- lastSaveTime<300){
@@ -123,6 +123,7 @@ abstract class PcAppDatabase : RoomDatabase() {
                 data.type= TYPE_O2;
                 data.o2= o2;
                 data.pr=pr;
+                data.o2_duration=duration;
                 pc300db.pcDao().insert(data)
 
             }
