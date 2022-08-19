@@ -13,6 +13,10 @@ import com.vaca.pc300.databinding.ActivityEcgDetailBinding
 import com.vaca.pc300.databinding.ActivityMainBinding
 import com.vaca.pc300.room.PcAppDatabase
 import com.vaca.pc300.ui.history.HistoryFragment
+import com.vaca.pc300.view.ReportXWaveView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class PC300EcgDetailActivity : AppCompatActivity() {
 
@@ -42,6 +46,19 @@ class PC300EcgDetailActivity : AppCompatActivity() {
         })
 
         HistoryFragment.currentSelect.observe(this){
+            binding.time.text=it.dateString
+            binding.hr.text=it.hr.toString()
+            binding.result.text=it.ecg_result
+            binding.gaga2.removeAllViews()
+            binding.gaga2.addView(ReportXWaveView(this, 0, it.ecg_data!!))
+
+            PcAppDatabase.dataScope.launch {
+                val note= PcAppDatabase.pc300db.pcDao().getNote(it.date)
+                withContext(Dispatchers.Main){
+                    binding.note.setText(note)
+                }
+            }
+
 
         }
     }

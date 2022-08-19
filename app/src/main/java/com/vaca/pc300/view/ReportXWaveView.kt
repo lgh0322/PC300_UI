@@ -57,6 +57,24 @@ class ReportXWaveView : View {
         init()
     }
 
+    constructor(context: Context?, time: Long, shortArray:DoubleArray) : super(context) {
+        this.timeTemp = time
+        waveTime = SimpleDateFormat("MM-dd HH:mm:ss").format(time)
+
+        val ss = shortArray.size
+        waveData =shortArray
+        if (ss % lineSize == 0) {
+            totalHightNumber = shortArray.size / lineSize
+            totalHight = shortArray.size / lineSize * hhh * co
+        } else {
+            totalHightNumber = shortArray.size / lineSize + 1
+            totalHight = (shortArray.size / lineSize + 1) * hhh * co
+        }
+
+
+        init()
+    }
+
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
         init()
     }
@@ -195,7 +213,7 @@ class ReportXWaveView : View {
 
             }
             waveTime = SimpleDateFormat("MM-dd HH:mm:ss").format(timeTemp)
-            canvas.drawText(waveTime, 20f, baseH +co * hhh / 2f- 15f, timePaint)
+//            canvas.drawText(waveTime, 20f, baseH +co * hhh / 2f- 15f, timePaint)
         }
 
 

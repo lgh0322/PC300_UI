@@ -53,6 +53,7 @@
                 android:background="@drawable/data_bg">
 
                 <TextView
+                    android:id="@+id/time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -93,7 +94,7 @@
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="50dp"
                     android:fontFamily="@font/pingfang_sc_bold"
-                    android:text="℃"
+                    android:text="/min"
                     android:textColor="#9CA3AF"
                     android:textSize="12sp"
                     app:layout_constraintStart_toEndOf="@+id/hr"
@@ -109,6 +110,7 @@
                     android:layout_height="1dp"/>
 
                 <TextView
+                    android:id="@+id/result"
                     android:text="Regular ECG"
                     android:fontFamily="@font/pingfang_sc_bold"
                     android:textColor="#78CE96"
