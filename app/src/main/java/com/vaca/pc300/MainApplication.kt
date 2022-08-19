@@ -100,6 +100,26 @@ class MainApplication : Application() {
                 }
                 Log.e("plpl", "gagaxxxxaaaaaa  " + a.spo2 + "  " + a.pr + "   " + a.isProbeOff)
             })
+
+
+
+
+
+        LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300RtEcgWave).observeForever(
+            Observer { o ->
+                val a = o.data as Pc300BleResponse.RtEcgWave
+                Log.e("plpl",a.seqNo.toString())
+            })
+
+
+
+
+        LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300EcgResult).observeForever(
+            Observer { o ->
+
+                val a = o.data as Pc300BleResponse.EcgResult
+                Log.e("plpl", "gagaxxxxaaaaaa  " + a.resultMess)
+            })
     }
 
 
