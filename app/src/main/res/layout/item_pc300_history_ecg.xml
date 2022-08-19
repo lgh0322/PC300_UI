@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="92dp">
+    android:paddingTop="16dp"
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
@@ -10,12 +11,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="@drawable/data_bg"
         android:layout_width="263dp"
-        android:layout_height="76dp"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent">
         <ImageView
+            android:elevation="10dp"
             android:id="@+id/be_bp_mark"
             android:layout_width="9dp"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:background="@drawable/bg_bpm_item_title"
             app:layout_constraintStart_toStartOf="parent" />
         <ImageView
@@ -28,6 +32,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
+            android:id="@+id/time"
             android:text="10:28:44 AM Apr 19, 2022"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,6 +47,7 @@
         <TextView
             android:id="@+id/result"
             android:text="Regular ECG"
+            android:paddingEnd="30dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:textSize="20sp"

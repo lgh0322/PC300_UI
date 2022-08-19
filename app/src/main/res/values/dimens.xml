@@ -139,4 +139,5 @@
     <dimen name="bpm_result_heart_beat_width">24dp</dimen>
     <dimen name="bpm_result_normal_data">30sp</dimen>
 
+    <dimen name="dp_360">360dp</dimen>
 </resources>

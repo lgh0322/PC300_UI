@@ -39,4 +39,7 @@
 
     <color name="report_wave_time">#ffbfbfbf</color>
     <color name="report_wave_hint_line">#ffcccccc</color>
+
+    <color name="colorStateIndicator_02">#FF1CA0FF</color>
+    <color name="reportWave">#242A38</color>
 </resources>

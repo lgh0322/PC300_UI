@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.jeremyliao.liveeventbus.utils.AppUtils.init
 import com.vaca.pc300.R
 import com.vaca.pc300.room.PCdata
 
@@ -40,7 +41,9 @@ class PC300HistoryEcgAdapter(var context: Context) : RecyclerView.Adapter<PC300H
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
+        val item=mData[position]
+        holder.time.text=item.dateString
+        holder.result.text=item.ecg_result
     }
 
 
@@ -49,7 +52,8 @@ class PC300HistoryEcgAdapter(var context: Context) : RecyclerView.Adapter<PC300H
     }
 
     inner class ViewHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
-//        val sys:TextView=itemView.findViewById(R.id.sys)
+        val time:TextView=itemView.findViewById(R.id.time)
+        val result:TextView=itemView.findViewById(R.id.result)
 
         init {
 
