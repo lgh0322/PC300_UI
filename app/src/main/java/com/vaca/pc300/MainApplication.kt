@@ -91,7 +91,7 @@ class MainApplication : Application() {
                         handler.postDelayed({
                             if (haveIn10 == false) {
                                 Log.e("plpl","save")
-                                PcAppDatabase.saveO2(50, 50,duration)
+                                PcAppDatabase.saveO2(spo2Sum/prCount, prSum/prCount,duration)
                             }
                         }, 10000)
                     }
