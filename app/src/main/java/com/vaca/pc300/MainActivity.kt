@@ -15,6 +15,7 @@ import com.lepu.blepro.event.EventMsgConst
 import com.lepu.blepro.event.InterfaceEvent
 import com.lepu.blepro.objs.Bluetooth
 import com.lepu.blepro.objs.Bluetooth.MODEL_PC300
+import com.lepu.blepro.observer.BleChangeObserver
 import com.lepu.blepro.utils.LepuBleLog
 import com.vaca.pc300.databinding.ActivityMainBinding
 import com.vaca.pc300.room.PCdata
@@ -25,7 +26,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),BleChangeObserver {
     val dataScope = CoroutineScope(Dispatchers.IO)
     private lateinit var binding: ActivityMainBinding
 
@@ -142,5 +143,9 @@ class MainActivity : AppCompatActivity() {
 
                 }
             })
+    }
+
+    override fun onBleStateChanged(model: Int, state: Int) {
+        TODO("Not yet implemented")
     }
 }
