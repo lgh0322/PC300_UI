@@ -26,7 +26,8 @@
 
 
     <LinearLayout
-
+        android:id="@+id/before_connect"
+        android:visibility="gone"
         android:orientation="vertical"
         android:gravity="top|center_horizontal"
         android:layout_width="match_parent"
@@ -260,8 +261,8 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.Group
-        android:id="@+id/group"
-        android:visibility="gone"
+        android:id="@+id/after_connect"
+        android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="main_view,x2,x3" />
