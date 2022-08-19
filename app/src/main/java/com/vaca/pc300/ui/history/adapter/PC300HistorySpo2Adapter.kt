@@ -40,7 +40,10 @@ class PC300HistorySpo2Adapter(var context: Context) : RecyclerView.Adapter<PC300
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
+        val item=mData[position]
+        holder.bpm.text=item.pr.toString()
+        holder.o2.text=item.o2.toString()
+        holder.time.text = item.dateString
     }
 
 
@@ -49,8 +52,9 @@ class PC300HistorySpo2Adapter(var context: Context) : RecyclerView.Adapter<PC300
     }
 
     inner class ViewHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
-//        val sys:TextView=itemView.findViewById(R.id.sys)
-
+        val o2:TextView=itemView.findViewById(R.id.spo2)
+        val bpm:TextView=itemView.findViewById(R.id.bpm)
+        val time:TextView=itemView.findViewById(R.id.time)
         init {
 
             itemView.setOnClickListener {
