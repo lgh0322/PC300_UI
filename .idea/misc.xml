@@ -32,6 +32,9 @@
         <entry key="..\:/Users/liguanghao/Desktop/PC300_UI22/app/src/main/res/drawable/data_bg.xml" value="0.232" />
         <entry key="..\:/Users/liguanghao/Desktop/PC300_UI22/app/src/main/res/drawable/empty_data_line.xml" value="0.232" />
         <entry key="..\:/Users/liguanghao/Desktop/PC300_UI22/app/src/main/res/drawable/home_dots.xml" value="0.242" />
+        <entry key="..\:/Users/liguanghao/Desktop/PC300_UI22/app/src/main/res/drawable/poctor_text_bg.xml" value="0.242" />
+        <entry key="..\:/Users/liguanghao/Desktop/PC300_UI22/app/src/main/res/drawable/poctor_text_bg_unselect.xml" value="0.242" />
+        <entry key="..\:/Users/liguanghao/Desktop/PC300_UI22/app/src/main/res/drawable/poctor_top_bg.xml" value="0.242" />
         <entry key="..\:/Users/liguanghao/Desktop/PC300_UI22/app/src/main/res/drawable/wave_text_bg.xml" value="0.1955" />
         <entry key="..\:/Users/liguanghao/Desktop/PC300_UI22/app/src/main/res/layout/activity_bp_detail.xml" value="0.1875" />
         <entry key="..\:/Users/liguanghao/Desktop/PC300_UI22/app/src/main/res/layout/activity_ecg_detail.xml" value="0.2359375" />
@@ -49,6 +52,8 @@
         <entry key="..\:/Users/liguanghao/Desktop/PC300_UI22/app/src/main/res/layout/item_pc300_history_glu.xml" value="0.2359375" />
         <entry key="..\:/Users/liguanghao/Desktop/PC300_UI22/app/src/main/res/layout/item_pc300_history_spo2.xml" value="0.12771739130434784" />
         <entry key="..\:/Users/liguanghao/Desktop/PC300_UI22/app/src/main/res/layout/item_pc300_history_temp.xml" value="0.21197916666666666" />
+        <entry key="..\:/Users/liguanghao/Desktop/PC300_UI22/app/src/main/res/layout/item_poctor_top.xml" value="0.2359375" />
+        <entry key="..\:/Users/liguanghao/Desktop/PC300_UI22/app/src/main/res/layout/item_select_status.xml" value="0.75" />
         <entry key="..\:/Users/liguanghao/Desktop/PC300_UI22/app/src/main/res/layout/pc300_detail_data_layout.xml" value="0.36614583333333334" />
         <entry key="..\:/bodyfat/PC300/app/src/main/res/drawable/botton_1_icon.xml" value="0.122" />
         <entry key="..\:/bodyfat/PC300/app/src/main/res/drawable/botton_2_icon.xml" value="0.122" />

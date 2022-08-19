@@ -1,5 +1,6 @@
 package com.vaca.pc300.ui.dashboard
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bigkoo.convenientbanner.ConvenientBanner
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator
@@ -16,6 +18,7 @@ import com.bigkoo.convenientbanner.listener.OnPageChangeListener
 import com.vaca.pc300.R
 import com.vaca.pc300.databinding.FragmentDashboardBinding
 import com.vaca.pc300.ui.dashboard.adapter.*
+import com.vaca.pc300.ui.history.adapter.PC300HistoryEcgAdapter
 
 class DashboardFragment : Fragment() {
 
@@ -90,6 +93,9 @@ class DashboardFragment : Fragment() {
         iv.id = position
         return iv
     }
+
+    private lateinit var leftAdapter: PoctorSelectStatusAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -112,9 +118,22 @@ class DashboardFragment : Fragment() {
 
         initHomeImg()
 
+        leftAdapter=PoctorSelectStatusAdapter(requireContext())
+
+        binding.selectStatus.layoutManager = object :  LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false) {
+            override fun canScrollHorizontally(): Boolean {
+                return false
+            }
+        }
+        binding.selectStatus.adapter =leftAdapter
+
+        binding.selectStatus.addItemDecoration(ItemSelectDecoration(convertDpToPx(requireContext(),8f).toInt()))
+
         return root
     }
-
+    fun convertDpToPx(context: Context, dp: Float): Float {
+        return dp * context.getResources().getDisplayMetrics().density
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
