@@ -66,8 +66,8 @@ class HistoryFragment : Fragment() {
         }
         binding.leftView.adapter =leftAdapter
 
-
         initJump.postValue(0)
+
 
 
         val fm = childFragmentManager.findFragmentById(R.id.bx) as NavHostFragment
@@ -77,6 +77,14 @@ class HistoryFragment : Fragment() {
             currentIndex = it
             graph.setStartDestination(topId[it])
             navController.graph = graph
+
+            if (!navController.popBackStack(topId[0], false)) {
+                try {
+                    navController.navigate(topId[0])
+                } catch (e: java.lang.Exception) {
+
+                }
+            }
         }
 
 
@@ -85,6 +93,9 @@ class HistoryFragment : Fragment() {
         return root
     }
 
+    override fun onResume() {
+        super.onResume()
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
