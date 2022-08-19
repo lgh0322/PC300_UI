@@ -103,12 +103,19 @@ class MainApplication : Application() {
 
 
 
+        val ecgList=ArrayList<Double>()
 
 
         LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300RtEcgWave).observeForever(
             Observer { o ->
                 val a = o.data as Pc300BleResponse.RtEcgWave
-//                Log.e("plpl",a.seqNo.toString()+a.)
+                if(a.seqNo==0){
+                    ecgList.clear()
+                }else{
+                    for(k in a.wFs){
+                        ecgList.add(k.toDouble())
+                    }
+                }
             })
 
 
@@ -116,9 +123,12 @@ class MainApplication : Application() {
 
         LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300EcgResult).observeForever(
             Observer { o ->
-
                 val a = o.data as Pc300BleResponse.EcgResult
                 Log.e("plpl", "gagaxxxxaaaaaa  " + a.resultMess+"   "+a.hr)
+                val doubleArray=DoubleArray(ecgList.size){
+                    ecgList[it]
+                }
+                PcAppDatabase.saveEcg(doubleArray,a.hr,a.resultMess)
             })
     }
 
