@@ -13,6 +13,9 @@ import com.vaca.pc300.databinding.ActivityMainBinding
 import com.vaca.pc300.databinding.ActivitySpo2DetailBinding
 import com.vaca.pc300.room.PcAppDatabase
 import com.vaca.pc300.ui.history.HistoryFragment
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class PC300Spo2DetailActivity : AppCompatActivity() {
 
@@ -42,6 +45,15 @@ class PC300Spo2DetailActivity : AppCompatActivity() {
         })
 
         HistoryFragment.currentSelect.observe(this){
+            binding.o2.text=it.o2.toString()
+            binding.pr.text=it.pr.toString()
+            binding.time.text=it.dateString
+            PcAppDatabase.dataScope.launch {
+                val note= PcAppDatabase.pc300db.pcDao().getNote(it.date)
+                withContext(Dispatchers.Main){
+                    binding.note.setText(note)
+                }
+            }
 
         }
 
