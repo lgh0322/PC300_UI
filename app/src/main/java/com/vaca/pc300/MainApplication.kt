@@ -108,7 +108,7 @@ class MainApplication : Application() {
         LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300RtEcgWave).observeForever(
             Observer { o ->
                 val a = o.data as Pc300BleResponse.RtEcgWave
-                Log.e("plpl",a.seqNo.toString())
+//                Log.e("plpl",a.seqNo.toString()+a.)
             })
 
 
@@ -118,7 +118,7 @@ class MainApplication : Application() {
             Observer { o ->
 
                 val a = o.data as Pc300BleResponse.EcgResult
-                Log.e("plpl", "gagaxxxxaaaaaa  " + a.resultMess)
+                Log.e("plpl", "gagaxxxxaaaaaa  " + a.resultMess+"   "+a.hr)
             })
     }
 
