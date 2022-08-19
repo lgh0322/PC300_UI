@@ -25,6 +25,13 @@ class DashboardFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    val textList= listOf<String>(
+        "Prepare cotton swabs, alcohol wipes, blood collection needles, test strips, blood glucose detectors.",
+        "First: Install batteries;\nSecond: Insert test strip.",
+        "First: Wipe the finger with an alcohol wipe;\nSecond: Wipe off residual alcohol;\nThird: Using a blood collection needle to collect blood from the side of the finger;\nFourth: When the amount of blood is too small, you can press the finger properly.",
+        "First: Touch the edge of the test strip to the drop of blood;\nSecond: After the test is completed, the measured value is displayed."
+    )
+
     private fun initHomeImg() {
 
         val con: ConvenientBanner<BannerBean> = binding.banner as ConvenientBanner<BannerBean>
@@ -49,6 +56,7 @@ class DashboardFragment : Fragment() {
                         for (k in 0 until 4) {
                             mDotsLayout.getChildAt(k)?.isSelected = k == con.currentItem
                         }
+                        binding.sayText.text=textList[con.currentItem]
 
                     }
                 }

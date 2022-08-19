@@ -69,6 +69,7 @@
 
 
         <TextView
+            android:id="@+id/say_text"
             android:layout_marginTop="24dp"
             android:text="Prepare cotton swabs, alcohol wipes, blood collection needles, test strips, blood glucose detectors."   android:textSize="14sp"
             android:textColor="#6B7280"
