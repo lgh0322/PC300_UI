@@ -112,11 +112,12 @@ class DashboardFragment : Fragment() {
             Observer { o ->
 
                 val a = o.data as Pc300BleResponse.EcgResult
-
+                binding.hr.text=a.hr.toString()
             })
 
         LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300RtEcgWave).observe(this,
             Observer { o ->
+                binding.hr.text="--"
                 WaveView.disp=true
                 val a = o.data as Pc300BleResponse.RtEcgWave
                 for(k in a.wFs){

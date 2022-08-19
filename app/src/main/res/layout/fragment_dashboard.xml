@@ -84,7 +84,8 @@
                 android:layout_height="wrap_content"/>
 
             <TextView
-                android:text="90"
+                android:id="@+id/hr"
+                android:text="--"
                 android:textSize="18sp"
                 android:textColor="#022964"
                 android:fontFamily="@font/pingfang_sc_bold"
