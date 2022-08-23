@@ -11,12 +11,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.viatom.blood.LPM311HistoryDetailActivity
-import com.viatom.blood.databinding.FragmentHistoryBinding
+import com.viatom.blood.databinding.Lpm311FragmentHistoryBinding
 import com.viatom.blood.ui.history.adapter.LPM311HistoryAdapter
 
-class HistoryFragment : Fragment() {
+class LPM311HistoryFragment : Fragment() {
 
-    private var _binding: FragmentHistoryBinding? = null
+    private var _binding: Lpm311FragmentHistoryBinding? = null
     companion object {
         val initJump = MutableLiveData<Int>()
     }
@@ -31,10 +31,10 @@ class HistoryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val historyViewModel =
-            ViewModelProvider(this).get(HistoryViewModel::class.java)
+        val LPM311HistoryViewModel =
+            ViewModelProvider(this).get(LPM311HistoryViewModel::class.java)
 
-        _binding = FragmentHistoryBinding.inflate(inflater, container, false)
+        _binding = Lpm311FragmentHistoryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         leftAdapter=LPM311HistoryAdapter(requireContext())

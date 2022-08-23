@@ -15,12 +15,12 @@ import com.bigkoo.convenientbanner.ConvenientBanner
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator
 import com.bigkoo.convenientbanner.listener.OnPageChangeListener
 import com.viatom.blood.R
-import com.viatom.blood.databinding.FragmentDashboardBinding
+import com.viatom.blood.databinding.Lpm311FragmentDashboardBinding
 import com.viatom.blood.ui.dashboard.adapter.*
 
-class DashboardFragment : Fragment() {
+class LPM311DashboardFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: Lpm311FragmentDashboardBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -99,18 +99,18 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        val LPM311DashboardViewModel =
+            ViewModelProvider(this).get(LPM311DashboardViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = Lpm311FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textHome
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
+        LPM311DashboardViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
 
-        dashboardViewModel.changeText("Divice is offline")
+        LPM311DashboardViewModel.changeText("Divice is offline")
 
 
 

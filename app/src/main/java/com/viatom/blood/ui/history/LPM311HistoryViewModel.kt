@@ -1,19 +1,13 @@
-package com.viatom.blood.ui.dashboard
+package com.viatom.blood.ui.history
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class LPM311HistoryViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+        value = "This is dashboard Fragment"
     }
     val text: LiveData<String> = _text
-
-
-    fun changeText(a:String){
-        _text.postValue(a)
-
-    }
 }

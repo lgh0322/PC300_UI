@@ -1,13 +1,19 @@
-package com.viatom.blood.ui.setttings
+package com.viatom.blood.ui.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class SettingsViewModel : ViewModel() {
+class LPM311DashboardViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
+        value = "This is home Fragment"
     }
     val text: LiveData<String> = _text
+
+
+    fun changeText(a:String){
+        _text.postValue(a)
+
+    }
 }
