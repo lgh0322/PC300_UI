@@ -2,16 +2,16 @@ package com.viatom.blood
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.viatom.blood.databinding.ActivityGluDetailBinding
+import com.viatom.blood.databinding.PoctorActivityUricDetailBinding
 
 class PoctorUricDetailActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityGluDetailBinding
+    private lateinit var binding: PoctorActivityUricDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityGluDetailBinding.inflate(layoutInflater)
+        binding = PoctorActivityUricDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.back.setOnClickListener {
