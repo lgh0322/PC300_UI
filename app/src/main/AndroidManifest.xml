@@ -24,11 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.viatom.blood.PC300BPDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
-        <activity android:name="com.viatom.blood.PC300Spo2DetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
-        <activity android:name="com.viatom.blood.PC300TempDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
-        <activity android:name="com.viatom.blood.PC300GluDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
-        <activity android:name="com.viatom.blood.PC300EcgDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
 
         <activity android:name="com.viatom.blood.LPM311HistoryDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
         <activity android:name="com.viatom.blood.LPM311AboutActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
