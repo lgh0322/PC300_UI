@@ -44,6 +44,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/before"
             android:layout_width="match_parent"
             android:layout_marginTop="16dp"
             android:layout_height="204dp">
