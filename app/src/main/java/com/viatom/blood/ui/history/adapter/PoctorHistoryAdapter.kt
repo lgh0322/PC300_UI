@@ -50,6 +50,13 @@ class PoctorHistoryAdapter(var context: Context) :
         }else{
             holder.status.visibility=View.GONE
         }
+
+
+        if(item.type==2){
+            holder.unit.text="µmol/L"
+        }else{
+            holder.unit.text="mmol/L"
+        }
     }
 
 
@@ -62,6 +69,7 @@ class PoctorHistoryAdapter(var context: Context) :
         val data: TextView =itemView.findViewById(R.id.data)
         val time: TextView =itemView.findViewById(R.id.time)
         val status: TextView =itemView.findViewById(R.id.state)
+        val unit: TextView =itemView.findViewById(R.id.unit)
         init {
             itemView.setOnClickListener {
                 click?.clickItem(layoutPosition)
