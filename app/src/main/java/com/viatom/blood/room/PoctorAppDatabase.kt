@@ -43,9 +43,7 @@ abstract class PoctorAppDatabase : RoomDatabase() {
                 data.date=tsMother;
                 data.dateString=ts;
                 data.type= TYPE_BP;
-                data.sys=sys;
-                data.dia=dia;
-                data.pr=pulse;
+
                 pc300db.pcDao().insert(data)
 
             }
@@ -63,7 +61,7 @@ abstract class PoctorAppDatabase : RoomDatabase() {
                 data.date=tsMother;
                 data.dateString=ts;
                 data.type= TYPE_TEMP;
-                data.temp=temp;
+
                 pc300db.pcDao().insert(data)
 
             }
@@ -81,8 +79,7 @@ abstract class PoctorAppDatabase : RoomDatabase() {
                 data.date=tsMother;
                 data.dateString=ts;
                 data.type= TYPE_ECG;
-                data.hr=hr;
-                data.ecg_result=result;
+
                 pc300db.pcDao().insert(data)
 
             }
@@ -120,9 +117,7 @@ abstract class PoctorAppDatabase : RoomDatabase() {
                 data.date=tsMother;
                 data.dateString=ts;
                 data.type= TYPE_O2;
-                data.o2= o2;
-                data.pr=pr;
-                data.o2_duration=duration;
+
                 pc300db.pcDao().insert(data)
 
             }

@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "8e7bd0caa563944737944fc1f9127dab",
+    "identityHash": "a551f2f80b824db3931381c7b3897a41",
     "entities": [
       {
         "tableName": "PoctorData",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` INTEGER NOT NULL, `dateString` TEXT NOT NULL, `id` TEXT NOT NULL, `type` INTEGER NOT NULL, `sys` INTEGER NOT NULL, `dia` INTEGER NOT NULL, `pr` INTEGER NOT NULL, `o2` INTEGER NOT NULL, `o2_duration` INTEGER NOT NULL, `temp` REAL NOT NULL, `glu` REAL NOT NULL, `hr` INTEGER NOT NULL, `ecg_result` TEXT NOT NULL, `note` TEXT NOT NULL, PRIMARY KEY(`date`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` INTEGER NOT NULL, `dateString` TEXT NOT NULL, `id` TEXT NOT NULL, `type` INTEGER NOT NULL, `glu` REAL NOT NULL, `ketone` REAL NOT NULL, `uric` REAL NOT NULL, `note` TEXT NOT NULL, PRIMARY KEY(`date`))",
         "fields": [
           {
             "fieldPath": "date",
@@ -33,57 +33,21 @@
             "notNull": true
           },
           {
-            "fieldPath": "sys",
-            "columnName": "sys",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "dia",
-            "columnName": "dia",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "pr",
-            "columnName": "pr",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "o2",
-            "columnName": "o2",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "o2_duration",
-            "columnName": "o2_duration",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "temp",
-            "columnName": "temp",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
             "fieldPath": "glu",
             "columnName": "glu",
             "affinity": "REAL",
             "notNull": true
           },
           {
-            "fieldPath": "hr",
-            "columnName": "hr",
-            "affinity": "INTEGER",
+            "fieldPath": "ketone",
+            "columnName": "ketone",
+            "affinity": "REAL",
             "notNull": true
           },
           {
-            "fieldPath": "ecg_result",
-            "columnName": "ecg_result",
-            "affinity": "TEXT",
+            "fieldPath": "uric",
+            "columnName": "uric",
+            "affinity": "REAL",
             "notNull": true
           },
           {
@@ -106,7 +70,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8e7bd0caa563944737944fc1f9127dab')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a551f2f80b824db3931381c7b3897a41')"
     ]
   }
 }
