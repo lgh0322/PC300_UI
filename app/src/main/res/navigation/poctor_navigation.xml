@@ -3,22 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/pc300_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/poctor_navigation_home">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/poctor_navigation_home"
         android:name="com.viatom.blood.ui.dashboard.PoctorDashboardFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/poctor_navigation_dashboard"
         android:name="com.viatom.blood.ui.history.PoctorHistoryFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_history" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/poctor_navigation_notifications"
         android:name="com.viatom.blood.ui.setttings.PoctorSettingsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_settings" />
