@@ -2,6 +2,7 @@ package com.viatom.blood.ui.history
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,16 +11,19 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.viatom.blood.MainApplication
 import com.viatom.blood.ui.history.detail.LPM311HistoryDetailActivity
 import com.viatom.blood.databinding.Lpm311FragmentHistoryBinding
+import com.viatom.blood.room.LPM311AppDatabase
 import com.viatom.blood.ui.history.adapter.LPM311HistoryAdapter
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class LPM311HistoryFragment : Fragment() {
 
     private var _binding: Lpm311FragmentHistoryBinding? = null
-    companion object {
-        val initJump = MutableLiveData<Int>()
-    }
+
 
     private val binding get() = _binding!!
     var currentIndex = 0
@@ -54,9 +58,14 @@ class LPM311HistoryFragment : Fragment() {
 
         }
 
+        MainApplication.dataScope.launch {
+            val a=LPM311AppDatabase.lpmDb.lpmDao().getAllR()
+            Log.e("faa",a.size.toString())
+            withContext(Dispatchers.Main){
+                leftAdapter.addAll(a)
+            }
 
-        initJump.postValue(0)
-
+        }
 
 
         return root

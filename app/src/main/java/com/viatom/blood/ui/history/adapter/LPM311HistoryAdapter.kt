@@ -4,8 +4,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.lepu.blepro.event.InterfaceEvent
 import com.viatom.blood.R
+import com.viatom.blood.room.LPM311Data
 
 
 class LPM311HistoryAdapter(var context: Context) :
@@ -20,7 +23,7 @@ class LPM311HistoryAdapter(var context: Context) :
 
     var click: Click? = null
 
-    private val mData: MutableList<String> = ArrayList()
+    private val mData: MutableList<LPM311Data> = ArrayList()
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
 
     val name = listOf<String>("BP", "SpO₂", "Temp", "GLU", "ECG")
@@ -30,7 +33,7 @@ class LPM311HistoryAdapter(var context: Context) :
         return ViewHolder(view)
     }
 
-    fun addAll(userBean: ArrayList<String>) {
+    fun addAll(userBean: List<LPM311Data>) {
         mData.clear()
         for (k in userBean) {
             mData.add(k)
@@ -40,25 +43,22 @@ class LPM311HistoryAdapter(var context: Context) :
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        // holder.sys.text=name[position]
-        if (position == currentSelect) {
-            //holder.sys.setTextColor(ContextCompat.getColor(context,R.color.color_111827))
-
-        } else {
-            // holder.sys.setTextColor(ContextCompat.getColor(context,R.color.color_9CA3AF))
-
-        }
+        val item=mData[position]
+        holder.chol.text=item.chol.toString()
+        holder.trig.text=item.trig.toString()
+        holder.time.text=item.dateString
     }
 
 
     override fun getItemCount(): Int {
-        return 25
+        return mData.size
     }
 
     inner class ViewHolder internal constructor(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
-//        val sys:TextView=itemView.findViewById(R.id.sys)
-
+        val chol: TextView =itemView.findViewById(R.id.chol)
+        val trig: TextView =itemView.findViewById(R.id.trig)
+        val time:TextView=itemView.findViewById(R.id.time)
         init {
 
             itemView.setOnClickListener {
