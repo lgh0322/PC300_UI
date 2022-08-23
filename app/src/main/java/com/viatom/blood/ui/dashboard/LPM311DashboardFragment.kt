@@ -1,6 +1,7 @@
 package com.viatom.blood.ui.dashboard
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,6 +26,11 @@ import com.viatom.blood.ui.dashboard.adapter.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import androidx.lifecycle.Observer
+import com.lepu.blepro.ble.data.Lpm311Data
+import com.lepu.blepro.event.InterfaceEvent
+import com.viatom.blood.room.LPM311AppDatabase
+import com.viatom.blood.utils.DateStringUtil
+
 class LPM311DashboardFragment : Fragment() {
 
     private var _binding: Lpm311FragmentDashboardBinding? = null
@@ -146,6 +152,22 @@ class LPM311DashboardFragment : Fragment() {
 
                 }
             })
+
+        LiveEventBus.get<InterfaceEvent>(InterfaceEvent.LPM311.EventLpm311Data).observe(viewLifecycleOwner,
+            Observer { o ->
+                val a = o.data as Lpm311Data
+                Log.e("EventEr1RtData", "gagaxxxxaaaaaa  " + a.day)
+                val date= DateStringUtil.getDate(a.year,a.month,a.day,a.hour,a.minute,a.second)
+                val cc= date.time
+                val ts = DateStringUtil.timeConvertEnglish(cc)
+                Log.e("gagax",ts)
+                LPM311AppDatabase.saveLPM(a.chol, a.trig, a.hdl, a.ldl, a.cholDivHdl, cc)
+            })
+
+
+        binding.before.visibility=View.GONE
+        binding.leftView.visibility=View.VISIBLE
+
 
         return root
     }
