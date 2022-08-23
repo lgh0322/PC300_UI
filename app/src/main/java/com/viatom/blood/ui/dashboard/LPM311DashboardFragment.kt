@@ -160,8 +160,8 @@ class LPM311DashboardFragment : Fragment() {
             })
 
 
-        binding.before.visibility=View.GONE
-        binding.leftView.visibility=View.VISIBLE
+//        binding.before.visibility=View.GONE
+//        binding.leftView.visibility=View.VISIBLE
 
 
         return root
