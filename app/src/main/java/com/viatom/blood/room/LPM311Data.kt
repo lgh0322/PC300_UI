@@ -9,8 +9,10 @@ data class LPM311Data(
     @PrimaryKey var date: Long = 0L,
     @ColumnInfo(name = "dateString") var dateString: String = "",
     @ColumnInfo(name = "id") var id: String = "",
-    @ColumnInfo(name = "type") var type: Int = 0,
-    @ColumnInfo(name = "value") var value: Float = 0f,
-    @ColumnInfo(name = "state") var state: Int = 0,
+    @ColumnInfo(name = "chol") var chol: Float = 0f,
+    @ColumnInfo(name = "trig") var trig: Float = 0f,
+    @ColumnInfo(name = "hdl") var hdl: Float = 0f,
+    @ColumnInfo(name = "ldl") var ldl: Float = 0f,
+    @ColumnInfo(name = "cholhdl") var cholhdl: Float = 0f,
     @ColumnInfo(name = "note") var note: String = "",
     )

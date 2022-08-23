@@ -14,8 +14,7 @@ interface LPM311Dao {
     fun getAllR(): List<LPM311Data>
 
 
-    @Query("SELECT * FROM LPM311Data WHERE type=:type ORDER BY date DESC")
-    fun getAllR(type:Int): List<LPM311Data>
+
 
 
     @Query("SELECT * FROM LPM311Data WHERE date IN (:userIds)")

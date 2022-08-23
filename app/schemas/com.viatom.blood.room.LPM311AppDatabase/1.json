@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "1cd8f5551e435062466406dec84342dc",
+    "identityHash": "0ee0f3e691f9ae37cdc40f0cbf247e91",
     "entities": [
       {
         "tableName": "LPM311Data",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` INTEGER NOT NULL, `dateString` TEXT NOT NULL, `id` TEXT NOT NULL, `type` INTEGER NOT NULL, `value` REAL NOT NULL, `state` INTEGER NOT NULL, `note` TEXT NOT NULL, PRIMARY KEY(`date`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` INTEGER NOT NULL, `dateString` TEXT NOT NULL, `id` TEXT NOT NULL, `chol` REAL NOT NULL, `trig` REAL NOT NULL, `hdl` REAL NOT NULL, `ldl` REAL NOT NULL, `cholhdl` REAL NOT NULL, `note` TEXT NOT NULL, PRIMARY KEY(`date`))",
         "fields": [
           {
             "fieldPath": "date",
@@ -27,21 +27,33 @@
             "notNull": true
           },
           {
-            "fieldPath": "type",
-            "columnName": "type",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "value",
-            "columnName": "value",
+            "fieldPath": "chol",
+            "columnName": "chol",
             "affinity": "REAL",
             "notNull": true
           },
           {
-            "fieldPath": "state",
-            "columnName": "state",
-            "affinity": "INTEGER",
+            "fieldPath": "trig",
+            "columnName": "trig",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hdl",
+            "columnName": "hdl",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ldl",
+            "columnName": "ldl",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cholhdl",
+            "columnName": "cholhdl",
+            "affinity": "REAL",
             "notNull": true
           },
           {
@@ -64,7 +76,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1cd8f5551e435062466406dec84342dc')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0ee0f3e691f9ae37cdc40f0cbf247e91')"
     ]
   }
 }
