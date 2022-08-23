@@ -49,7 +49,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/pingfang_sc_bold"
             android:paddingStart="16dp"
-            android:text="Starting time：10:28:44 AM Apr 19, 2022"
+            android:text="10:28:44 AM Apr 19, 2022"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
