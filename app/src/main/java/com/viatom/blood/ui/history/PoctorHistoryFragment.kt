@@ -1,5 +1,6 @@
 package com.viatom.blood.ui.history
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,6 +9,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.viatom.blood.PoctorGluDetailActivity
+import com.viatom.blood.databinding.PoctorActivityGluDetailBinding
 import com.viatom.blood.databinding. PoctorFragmentHistoryBinding
 import com.viatom.blood.ui.history.adapter.PoctorHistoryAdapter
 import com.viatom.blood.ui.history.adapter.PoctorTopAdapter
@@ -61,6 +64,7 @@ class PoctorHistoryFragment : Fragment() {
         dataAdapter.click=object :PoctorHistoryAdapter.Click{
             override fun clickItem(position: Int) {
                 Log.e("gaga",position.toString())
+                startActivity(Intent(requireActivity(), PoctorGluDetailActivity::class.java))
             }
 
         }
