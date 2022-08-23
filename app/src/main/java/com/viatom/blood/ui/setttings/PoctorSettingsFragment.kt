@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.viatom.blood.databinding.FragmentSettingsBinding
 
-class SettingsFragment : Fragment() {
+class PoctorSettingsFragment : Fragment() {
 
     private var _binding: FragmentSettingsBinding? = null
 
@@ -21,8 +21,8 @@ class SettingsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val settingsViewModel =
-            ViewModelProvider(this).get(SettingsViewModel::class.java)
+        val poctorSettingsViewModel =
+            ViewModelProvider(this).get(PoctorSettingsViewModel::class.java)
 
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         val root: View = binding.root
