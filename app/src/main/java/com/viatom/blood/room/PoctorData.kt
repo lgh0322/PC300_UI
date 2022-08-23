@@ -11,5 +11,6 @@ data class PoctorData(
     @ColumnInfo(name = "id") var id: String = "",
     @ColumnInfo(name = "type") var type: Int = 0,
     @ColumnInfo(name = "value") var value: Float = 0f,
+    @ColumnInfo(name = "state") var state: Int = 0,
     @ColumnInfo(name = "note") var note: String = "",
     )

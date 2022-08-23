@@ -13,6 +13,11 @@ import com.viatom.blood.R
 class PoctorSelectStatusAdapter(var context: Context) : RecyclerView.Adapter<PoctorSelectStatusAdapter.ViewHolder>() {
 
 
+    companion object{
+        val name= listOf<String>("Fasting","Before meals","After meals","Random")
+
+    }
+
     var currentSelect=0;
     interface Click{
         fun clickItem(position: Int)
@@ -23,7 +28,6 @@ class PoctorSelectStatusAdapter(var context: Context) : RecyclerView.Adapter<Poc
 
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
 
-    val name= listOf<String>("Fasting","Before meals","After meals","Random")
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = mInflater.inflate(R.layout.item_select_status, parent, false)

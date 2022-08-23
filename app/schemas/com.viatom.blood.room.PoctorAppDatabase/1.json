@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "b46215c771086a08701ee97fde653a92",
+    "identityHash": "080ee4bc8c02e8cb26d2c9625fd84101",
     "entities": [
       {
         "tableName": "PoctorData",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` INTEGER NOT NULL, `dateString` TEXT NOT NULL, `id` TEXT NOT NULL, `type` INTEGER NOT NULL, `value` REAL NOT NULL, `note` TEXT NOT NULL, PRIMARY KEY(`date`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` INTEGER NOT NULL, `dateString` TEXT NOT NULL, `id` TEXT NOT NULL, `type` INTEGER NOT NULL, `value` REAL NOT NULL, `state` INTEGER NOT NULL, `note` TEXT NOT NULL, PRIMARY KEY(`date`))",
         "fields": [
           {
             "fieldPath": "date",
@@ -39,6 +39,12 @@
             "notNull": true
           },
           {
+            "fieldPath": "state",
+            "columnName": "state",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
             "fieldPath": "note",
             "columnName": "note",
             "affinity": "TEXT",
@@ -58,7 +64,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b46215c771086a08701ee97fde653a92')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '080ee4bc8c02e8cb26d2c9625fd84101')"
     ]
   }
 }
