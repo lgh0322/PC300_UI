@@ -39,7 +39,7 @@ abstract class PoctorAppDatabase : RoomDatabase() {
                 data.date=tsMother;
                 data.dateString=ts;
                 data.type= TYPE_POCTOR_GLU;
-                data.glu=glu;
+                data.value=glu;
                 poctorDb.pcDao().insert(data)
             }
         }
@@ -56,7 +56,7 @@ abstract class PoctorAppDatabase : RoomDatabase() {
                 data.date=tsMother;
                 data.dateString=ts;
                 data.type= TYPE_POCTOR_KETONE;
-                data.ketone=ketone
+                data.value=ketone
                 poctorDb.pcDao().insert(data)
             }
         }
@@ -73,7 +73,7 @@ abstract class PoctorAppDatabase : RoomDatabase() {
                 data.date=tsMother;
                 data.dateString=ts;
                 data.type= TYPE_POCTOR_URIC;
-                data.uric=uric
+                data.value=uric
                 poctorDb.pcDao().insert(data)
             }
         }

@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "a551f2f80b824db3931381c7b3897a41",
+    "identityHash": "b46215c771086a08701ee97fde653a92",
     "entities": [
       {
         "tableName": "PoctorData",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` INTEGER NOT NULL, `dateString` TEXT NOT NULL, `id` TEXT NOT NULL, `type` INTEGER NOT NULL, `glu` REAL NOT NULL, `ketone` REAL NOT NULL, `uric` REAL NOT NULL, `note` TEXT NOT NULL, PRIMARY KEY(`date`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` INTEGER NOT NULL, `dateString` TEXT NOT NULL, `id` TEXT NOT NULL, `type` INTEGER NOT NULL, `value` REAL NOT NULL, `note` TEXT NOT NULL, PRIMARY KEY(`date`))",
         "fields": [
           {
             "fieldPath": "date",
@@ -33,20 +33,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "glu",
-            "columnName": "glu",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "ketone",
-            "columnName": "ketone",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "uric",
-            "columnName": "uric",
+            "fieldPath": "value",
+            "columnName": "value",
             "affinity": "REAL",
             "notNull": true
           },
@@ -70,7 +58,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a551f2f80b824db3931381c7b3897a41')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b46215c771086a08701ee97fde653a92')"
     ]
   }
 }

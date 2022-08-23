@@ -10,9 +10,6 @@ data class PoctorData(
     @ColumnInfo(name = "dateString") var dateString: String = "",
     @ColumnInfo(name = "id") var id: String = "",
     @ColumnInfo(name = "type") var type: Int = 0,
-    @ColumnInfo(name = "glu") var glu: Float = 0f,
-    @ColumnInfo(name = "ketone") var ketone: Float = 0f,
-    @ColumnInfo(name = "uric") var uric: Float = 0f,
+    @ColumnInfo(name = "value") var value: Float = 0f,
     @ColumnInfo(name = "note") var note: String = "",
-
     )

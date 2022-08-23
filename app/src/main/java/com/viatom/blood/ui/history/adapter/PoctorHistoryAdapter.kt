@@ -40,7 +40,9 @@ class PoctorHistoryAdapter(var context: Context) :
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
+        val item=mData[position]
+        holder.time.text=item.dateString
+        holder.data.text=item.value.toString()
     }
 
 
