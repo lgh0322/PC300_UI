@@ -27,7 +27,7 @@ abstract class PoctorAppDatabase : RoomDatabase() {
 
         var lastSaveTime=0L;
 
-        fun savePoctorGlu(glu:Float){
+        fun savePoctorGlu(glu:Float,state:Int=0){
             dataScope.launch {
                 val tsMother = System.currentTimeMillis()
                 if(tsMother- lastSaveTime <3000){
