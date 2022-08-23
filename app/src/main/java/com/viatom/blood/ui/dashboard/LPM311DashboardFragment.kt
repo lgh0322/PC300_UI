@@ -141,7 +141,6 @@ class LPM311DashboardFragment : Fragment() {
             Observer { o ->
                 val a=o as Int
                 if(a== Bluetooth.MODEL_LPM311){
-                    binding.textHome.visibility=View.GONE
                     binding.before.visibility=View.GONE
                     binding.leftView.visibility=View.VISIBLE
 
