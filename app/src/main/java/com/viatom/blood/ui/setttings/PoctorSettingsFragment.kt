@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.viatom.blood.databinding.FragmentSettingsBinding
+import com.viatom.blood.databinding. PoctorFragmentSettingsBinding
 
 class PoctorSettingsFragment : Fragment() {
 
-    private var _binding: FragmentSettingsBinding? = null
+    private var _binding:  PoctorFragmentSettingsBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,7 +24,7 @@ class PoctorSettingsFragment : Fragment() {
         val poctorSettingsViewModel =
             ViewModelProvider(this).get(PoctorSettingsViewModel::class.java)
 
-        _binding = FragmentSettingsBinding.inflate(inflater, container, false)
+        _binding =  PoctorFragmentSettingsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
 

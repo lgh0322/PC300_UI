@@ -16,12 +16,12 @@ import com.bigkoo.convenientbanner.ConvenientBanner
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator
 import com.bigkoo.convenientbanner.listener.OnPageChangeListener
 import com.viatom.blood.R
-import com.viatom.blood.databinding.FragmentDashboardBinding
+import com.viatom.blood.databinding.PoctorFragmentDashboardBinding
 import com.viatom.blood.ui.dashboard.adapter.*
 
 class PoctorDashboardFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding:PoctorFragmentDashboardBinding? = null
 
 
     private val binding get() = _binding!!
@@ -103,7 +103,7 @@ class PoctorDashboardFragment : Fragment() {
         val poctorDashboardViewModel =
             ViewModelProvider(this).get(PoctorDashboardViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = PoctorFragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textHome
