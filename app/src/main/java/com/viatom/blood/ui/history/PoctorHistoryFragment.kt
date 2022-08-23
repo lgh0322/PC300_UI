@@ -1,22 +1,20 @@
 package com.viatom.blood.ui.history
 
 import android.content.Intent
-import android.os.Build.VERSION_CODES.P
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.viatom.blood.MainApplication
-import com.viatom.blood.PoctorGluDetailActivity
-import com.viatom.blood.PoctorKetoneDetailActivity
-import com.viatom.blood.PoctorUricDetailActivity
-import com.viatom.blood.databinding.PoctorActivityGluDetailBinding
+import com.viatom.blood.ui.history.detail.PoctorUricDetailActivity
 import com.viatom.blood.databinding. PoctorFragmentHistoryBinding
 import com.viatom.blood.room.PoctorAppDatabase
+import com.viatom.blood.room.PoctorData
 import com.viatom.blood.ui.history.adapter.PoctorHistoryAdapter
 import com.viatom.blood.ui.history.adapter.PoctorTopAdapter
 import kotlinx.coroutines.Dispatchers
@@ -34,6 +32,10 @@ class PoctorHistoryFragment : Fragment() {
     private lateinit var topAdapter: PoctorTopAdapter
 
     private lateinit var dataAdapter: PoctorHistoryAdapter
+
+    companion object {
+        val currentSelect= MutableLiveData<PoctorData>()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -73,6 +75,7 @@ class PoctorHistoryFragment : Fragment() {
         dataAdapter.click=object :PoctorHistoryAdapter.Click{
             override fun clickItem(position: Int) {
                 Log.e("gaga",position.toString())
+                currentSelect.postValue(dataAdapter.mData[position])
                 startActivity(Intent(requireActivity(), PoctorUricDetailActivity::class.java))
             }
         }

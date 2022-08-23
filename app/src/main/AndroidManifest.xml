@@ -25,9 +25,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.viatom.blood.PoctorGluDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
-        <activity android:name="com.viatom.blood.PoctorUricDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
-        <activity android:name="com.viatom.blood.PoctorKetoneDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
+        <activity android:name="com.viatom.blood.ui.history.detail.PoctorGluDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
+        <activity android:name="com.viatom.blood.ui.history.detail.PoctorUricDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
+        <activity android:name="com.viatom.blood.ui.history.detail.PoctorKetoneDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
 
 
     </application>

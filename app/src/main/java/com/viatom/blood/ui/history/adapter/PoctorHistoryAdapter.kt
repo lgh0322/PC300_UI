@@ -22,7 +22,7 @@ class PoctorHistoryAdapter(var context: Context) :
 
     var click: Click? = null
 
-    private val mData: MutableList<PoctorData> = ArrayList()
+   val mData: MutableList<PoctorData> = ArrayList()
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
 
 
