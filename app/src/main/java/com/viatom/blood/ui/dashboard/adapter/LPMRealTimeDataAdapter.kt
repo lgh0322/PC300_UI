@@ -15,7 +15,6 @@ class LPMRealTimeDataAdapter(var context: Context) : RecyclerView.Adapter<LPMRea
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
 
     val name= listOf<String>("CHOL","TRIG","HDL","LDL","CHOL/HDL","GLU","UA","CHOL")
-  //  val unit= listOf<String>("mmHg","mmHg","%","bpm","°C","mmol/L","mg/dL","mg/dL")
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = mInflater.inflate(R.layout.item_lpm311_real_time, parent, false)

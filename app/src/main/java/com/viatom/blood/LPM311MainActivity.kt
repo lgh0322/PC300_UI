@@ -12,6 +12,7 @@ import com.lepu.blepro.event.EventMsgConst
 import com.lepu.blepro.objs.Bluetooth
 import com.lepu.blepro.utils.LepuBleLog
 import com.viatom.blood.databinding.Lpm311ActivityMainBinding
+import kotlinx.coroutines.launch
 
 class LPM311MainActivity : AppCompatActivity() {
 
@@ -30,6 +31,10 @@ class LPM311MainActivity : AppCompatActivity() {
 
 
         bleInit()
+
+
+
+
     }
 
 
