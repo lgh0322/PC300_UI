@@ -9,11 +9,11 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.viatom.blood.R;
 
 
-public class BannerHolder extends Holder<BannerBean> {
+public class LPM311BannerHolder extends Holder<BannerBean> {
 
     private ImageView iv;
 
-    public BannerHolder(View itemView) {
+    public LPM311BannerHolder(View itemView) {
         super(itemView);
     }
 

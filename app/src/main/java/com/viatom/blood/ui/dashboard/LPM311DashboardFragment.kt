@@ -42,8 +42,10 @@ class LPM311DashboardFragment : Fragment() {
         val mDotsLayout = binding.dotLayout
         con.setPages(
             object : CBViewHolderCreator {
-                override fun createHolder(itemView: View): BannerHolder {
-                    return BannerHolder(itemView)
+                override fun createHolder(itemView: View): LPM311BannerHolder {
+                    return LPM311BannerHolder(
+                        itemView
+                    )
                 }
 
                 override fun getLayoutId(): Int {
