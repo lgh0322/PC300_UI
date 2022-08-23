@@ -28,10 +28,11 @@ import kotlinx.coroutines.launch
 import androidx.lifecycle.Observer
 import com.lepu.blepro.ble.data.Lpm311Data
 import com.lepu.blepro.event.InterfaceEvent
+import com.lepu.blepro.observer.BleChangeObserver
 import com.viatom.blood.room.LPM311AppDatabase
 import com.viatom.blood.utils.DateStringUtil
 
-class LPM311DashboardFragment : Fragment() {
+class LPM311DashboardFragment : Fragment(),BleChangeObserver {
 
     private var _binding: Lpm311FragmentDashboardBinding? = null
 
@@ -170,5 +171,9 @@ class LPM311DashboardFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onBleStateChanged(model: Int, state: Int) {
+
     }
 }
