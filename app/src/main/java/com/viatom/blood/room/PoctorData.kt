@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class PCdata(
+data class PoctorData(
     @PrimaryKey var date: Long = 0L,
     @ColumnInfo(name = "dateString") var dateString: String = "",
     @ColumnInfo(name = "id") var id: String = "",

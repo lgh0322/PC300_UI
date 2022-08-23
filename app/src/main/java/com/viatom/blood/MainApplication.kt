@@ -9,7 +9,7 @@ import com.jeremyliao.liveeventbus.LiveEventBus
 import com.lepu.blepro.BleServiceHelper
 import com.lepu.blepro.ble.cmd.Pc300BleResponse
 import com.lepu.blepro.event.InterfaceEvent
-import com.vaca.pc300.room.PcAppDatabase
+import com.vaca.pc300.room.PoctorAppDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 
@@ -34,20 +34,20 @@ class MainApplication : Application() {
         LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300BpResult).observeForever(
             Observer { o ->
                 val a = o.data as Pc300BleResponse.BpResult
-                PcAppDatabase.saveBP(a.sys, a.dia, a.plus);
+                PoctorAppDatabase.saveBP(a.sys, a.dia, a.plus);
             })
 
 
         LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300TempResult).observeForever(
             Observer { o ->
                 val a = o.data as Pc300BleResponse.TempResult
-                PcAppDatabase.saveTemp(Math.round(a.temp * 10) / 10.0f)
+                PoctorAppDatabase.saveTemp(Math.round(a.temp * 10) / 10.0f)
             })
 
         LiveEventBus.get<InterfaceEvent>(InterfaceEvent.PC300.EventPc300GluResult).observeForever(
             Observer { o ->
                 val a = o.data as Pc300BleResponse.GluResult
-                PcAppDatabase.saveGlu(a.data)
+                PoctorAppDatabase.saveGlu(a.data)
             })
 
 
@@ -91,7 +91,7 @@ class MainApplication : Application() {
                         handler.postDelayed({
                             if (haveIn10 == false) {
                                 Log.e("plpl","save")
-                                PcAppDatabase.saveO2(spo2Sum/prCount, prSum/prCount,duration)
+                                PoctorAppDatabase.saveO2(spo2Sum/prCount, prSum/prCount,duration)
                             }
                         }, 10000)
                     }
@@ -128,7 +128,7 @@ class MainApplication : Application() {
                 val doubleArray=DoubleArray(ecgList.size){
                     ecgList[it]
                 }
-                PcAppDatabase.saveEcg(doubleArray,a.hr,a.resultMess)
+                PoctorAppDatabase.saveEcg(doubleArray,a.hr,a.resultMess)
             })
     }
 

@@ -6,19 +6,19 @@ import androidx.room.RoomDatabase
 import com.vaca.pc300.utils.DateStringUtil
 
 import com.viatom.blood.MainApplication
-import com.viatom.blood.room.PCDao
-import com.viatom.blood.room.PCdata
+import com.viatom.blood.room.PoctorDao
+import com.viatom.blood.room.PoctorData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [PCdata::class], version = 1)
-abstract class PcAppDatabase : RoomDatabase() {
-    abstract fun pcDao(): PCDao
+@Database(entities = [PoctorData::class], version = 1)
+abstract class PoctorAppDatabase : RoomDatabase() {
+    abstract fun pcDao(): PoctorDao
     companion object{
         val pc300db = Room.databaseBuilder(
             MainApplication.application,
-            PcAppDatabase::class.java, "pc300-name"
+            PoctorAppDatabase::class.java, "pc300-name"
         ).build()
 
         val dataScope = CoroutineScope(Dispatchers.IO)
@@ -39,7 +39,7 @@ abstract class PcAppDatabase : RoomDatabase() {
                 }
                 lastSaveTime=tsMother;
                 val ts = DateStringUtil.timeConvertEnglish(tsMother)
-                val data= PCdata();
+                val data= PoctorData();
                 data.date=tsMother;
                 data.dateString=ts;
                 data.type= TYPE_BP;
@@ -59,7 +59,7 @@ abstract class PcAppDatabase : RoomDatabase() {
                 }
                 lastSaveTime=tsMother;
                 val ts = DateStringUtil.timeConvertEnglish(tsMother)
-                val data= PCdata();
+                val data= PoctorData();
                 data.date=tsMother;
                 data.dateString=ts;
                 data.type= TYPE_TEMP;
@@ -77,7 +77,7 @@ abstract class PcAppDatabase : RoomDatabase() {
                 }
                 lastSaveTime=tsMother;
                 val ts = DateStringUtil.timeConvertEnglish(tsMother)
-                val data= PCdata();
+                val data= PoctorData();
                 data.date=tsMother;
                 data.dateString=ts;
                 data.type= TYPE_ECG;
@@ -97,7 +97,7 @@ abstract class PcAppDatabase : RoomDatabase() {
                 }
                 lastSaveTime=tsMother;
                 val ts = DateStringUtil.timeConvertEnglish(tsMother)
-                val data= PCdata();
+                val data= PoctorData();
                 data.date=tsMother;
                 data.dateString=ts;
                 data.type= TYPE_GLU;
@@ -116,7 +116,7 @@ abstract class PcAppDatabase : RoomDatabase() {
                 }
                 lastSaveTime=tsMother;
                 val ts = DateStringUtil.timeConvertEnglish(tsMother)
-                val data= PCdata();
+                val data= PoctorData();
                 data.date=tsMother;
                 data.dateString=ts;
                 data.type= TYPE_O2;
