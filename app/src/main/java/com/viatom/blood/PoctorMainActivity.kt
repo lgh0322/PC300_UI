@@ -24,6 +24,6 @@ class PoctorMainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
 //        PoctorAppDatabase.savePoctorKetone(13.6f)
-        PoctorAppDatabase.savePoctorUric(28.40f)
+//        PoctorAppDatabase.savePoctorUric(28.40f)
     }
 }
