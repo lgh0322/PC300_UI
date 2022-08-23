@@ -1,6 +1,7 @@
 package com.viatom.blood.ui.history
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,6 +56,14 @@ class PoctorHistoryFragment : Fragment() {
 
             }
         binding.dataView.adapter = dataAdapter
+
+
+        dataAdapter.click=object :PoctorHistoryAdapter.Click{
+            override fun clickItem(position: Int) {
+                Log.e("gaga",position.toString())
+            }
+
+        }
 
 
 
