@@ -118,4 +118,17 @@ object DateStringUtil {
             minutes
         ) + ":" + String.format("%02d", sec)
     }
+
+
+    fun getDate(year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int): Date {
+        val cal = Calendar.getInstance()
+        cal[Calendar.YEAR] = year
+        cal[Calendar.MONTH] = month-1
+        cal[Calendar.DAY_OF_MONTH] = day
+        cal[Calendar.HOUR_OF_DAY] = hour
+        cal[Calendar.MINUTE] = minute
+        cal[Calendar.SECOND] = second
+        cal[Calendar.MILLISECOND] = 0
+        return cal.time
+    }
 }

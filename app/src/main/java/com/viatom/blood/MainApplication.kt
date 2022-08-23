@@ -12,6 +12,7 @@ import com.lepu.blepro.ble.data.Lpm311Data
 import com.lepu.blepro.event.EventMsgConst
 import com.lepu.blepro.event.InterfaceEvent
 import com.lepu.blepro.objs.Bluetooth
+import com.viatom.blood.utils.DateStringUtil
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -38,6 +39,11 @@ class MainApplication : Application() {
             Observer { o ->
                 val a = o.data as Lpm311Data
                 Log.e("EventEr1RtData", "gagaxxxxaaaaaa  " + a.day)
+                val date=DateStringUtil.getDate(a.year,a.month,a.day,a.hour,a.minute,a.second)
+                val cc= date.time
+                val ts = DateStringUtil.timeConvertEnglish(cc)
+                Log.e("gagax",ts)
+
             })
 
 
