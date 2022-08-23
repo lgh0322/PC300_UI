@@ -45,12 +45,8 @@ class PoctorTopAdapter(var context: Context) :
          holder.buttonText.text=name[position]
         if (position == currentSelect) {
             holder.buttonText.background = ContextCompat.getDrawable(context, R.drawable.poctor_top_bg)
-            //holder.sys.setTextColor(ContextCompat.getColor(context,R.color.color_111827))
-
         } else {
             holder.buttonText.background=null
-            // holder.sys.setTextColor(ContextCompat.getColor(context,R.color.color_9CA3AF))
-
         }
     }
 

@@ -14,6 +14,7 @@ import com.viatom.blood.PoctorKetoneDetailActivity
 import com.viatom.blood.PoctorUricDetailActivity
 import com.viatom.blood.databinding.PoctorActivityGluDetailBinding
 import com.viatom.blood.databinding. PoctorFragmentHistoryBinding
+import com.viatom.blood.room.PoctorAppDatabase
 import com.viatom.blood.ui.history.adapter.PoctorHistoryAdapter
 import com.viatom.blood.ui.history.adapter.PoctorTopAdapter
 
@@ -21,6 +22,7 @@ class PoctorHistoryFragment : Fragment() {
 
     private var _binding:  PoctorFragmentHistoryBinding? = null
 
+    private var currentType=PoctorAppDatabase.TYPE_POCTOR_GLU
 
     private val binding get() = _binding!!
 
@@ -68,7 +70,6 @@ class PoctorHistoryFragment : Fragment() {
                 Log.e("gaga",position.toString())
                 startActivity(Intent(requireActivity(), PoctorUricDetailActivity::class.java))
             }
-
         }
 
 

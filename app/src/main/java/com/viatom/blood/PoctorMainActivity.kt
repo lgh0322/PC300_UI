@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.viatom.blood.databinding.PoctorActivityMainBinding
+import com.viatom.blood.room.PoctorAppDatabase
 
 class PoctorMainActivity : AppCompatActivity() {
 
@@ -21,5 +22,7 @@ class PoctorMainActivity : AppCompatActivity() {
         navView.itemIconTintList=null
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         navView.setupWithNavController(navController)
+
+//        PoctorAppDatabase.savePoctorGlu(7.6f)
     }
 }

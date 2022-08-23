@@ -1,0 +1,76 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "a551f2f80b824db3931381c7b3897a41",
+    "entities": [
+      {
+        "tableName": "PoctorData",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` INTEGER NOT NULL, `dateString` TEXT NOT NULL, `id` TEXT NOT NULL, `type` INTEGER NOT NULL, `glu` REAL NOT NULL, `ketone` REAL NOT NULL, `uric` REAL NOT NULL, `note` TEXT NOT NULL, PRIMARY KEY(`date`))",
+        "fields": [
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dateString",
+            "columnName": "dateString",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "glu",
+            "columnName": "glu",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ketone",
+            "columnName": "ketone",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "uric",
+            "columnName": "uric",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "note",
+            "columnName": "note",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "date"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a551f2f80b824db3931381c7b3897a41')"
+    ]
+  }
+}
