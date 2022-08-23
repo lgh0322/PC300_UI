@@ -84,6 +84,14 @@ class PoctorHistoryFragment : Fragment() {
             override fun clickItem(position: Int) {
                 Log.e("gaf",position.toString())
                 currentType=position
+                MainApplication.dataScope.launch {
+                    val a=PoctorAppDatabase.poctorDb.pcDao().getAllR(currentType)
+                    Log.e("faa",a.size.toString())
+                    withContext(Dispatchers.Main){
+                        dataAdapter.addAll(a)
+                    }
+
+                }
             }
         }
 

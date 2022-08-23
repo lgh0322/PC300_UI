@@ -23,6 +23,7 @@ class PoctorMainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         navView.setupWithNavController(navController)
 
-        PoctorAppDatabase.savePoctorGlu(1.6f)
+//        PoctorAppDatabase.savePoctorKetone(13.6f)
+        PoctorAppDatabase.savePoctorUric(28.40f)
     }
 }
