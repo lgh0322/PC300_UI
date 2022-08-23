@@ -78,6 +78,7 @@ class PoctorHistoryFragment : Fragment() {
         topAdapter.click=object :PoctorTopAdapter.Click{
             override fun clickItem(position: Int) {
                 Log.e("gaf",position.toString())
+                currentType=position
             }
 
         }
