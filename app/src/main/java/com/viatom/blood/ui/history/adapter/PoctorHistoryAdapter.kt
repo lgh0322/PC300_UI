@@ -56,7 +56,6 @@ class PoctorHistoryAdapter(var context: Context) :
         val time: TextView =itemView.findViewById(R.id.time)
         val status: TextView =itemView.findViewById(R.id.state)
         init {
-
             itemView.setOnClickListener {
                 click?.clickItem(layoutPosition)
             }
