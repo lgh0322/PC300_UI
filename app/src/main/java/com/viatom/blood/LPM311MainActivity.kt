@@ -7,7 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.viatom.blood.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class LPM311MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
