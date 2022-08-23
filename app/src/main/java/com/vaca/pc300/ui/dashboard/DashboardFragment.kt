@@ -18,7 +18,6 @@ import com.bigkoo.convenientbanner.listener.OnPageChangeListener
 import com.vaca.pc300.R
 import com.vaca.pc300.databinding.FragmentDashboardBinding
 import com.vaca.pc300.ui.dashboard.adapter.*
-import com.vaca.pc300.ui.history.adapter.PC300HistoryEcgAdapter
 
 class DashboardFragment : Fragment() {
 
