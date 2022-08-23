@@ -1,4 +1,4 @@
-package com.viatom.blood
+package com.viatom.blood.ui.history.detail
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

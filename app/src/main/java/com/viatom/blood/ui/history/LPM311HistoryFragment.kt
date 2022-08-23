@@ -10,7 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.viatom.blood.LPM311HistoryDetailActivity
+import com.viatom.blood.ui.history.detail.LPM311HistoryDetailActivity
 import com.viatom.blood.databinding.Lpm311FragmentHistoryBinding
 import com.viatom.blood.ui.history.adapter.LPM311HistoryAdapter
 
@@ -49,7 +49,7 @@ class LPM311HistoryFragment : Fragment() {
         binding.leftView.adapter =leftAdapter
         leftAdapter.click=object:LPM311HistoryAdapter.Click{
             override fun clickItem(position: Int) {
-                startActivity(Intent(requireActivity(),LPM311HistoryDetailActivity::class.java))
+                startActivity(Intent(requireActivity(), LPM311HistoryDetailActivity::class.java))
             }
 
         }
