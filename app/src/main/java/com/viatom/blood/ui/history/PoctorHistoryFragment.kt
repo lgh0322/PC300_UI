@@ -17,6 +17,8 @@ import com.viatom.blood.room.PoctorAppDatabase
 import com.viatom.blood.room.PoctorData
 import com.viatom.blood.ui.history.adapter.PoctorHistoryAdapter
 import com.viatom.blood.ui.history.adapter.PoctorTopAdapter
+import com.viatom.blood.ui.history.detail.PoctorGluDetailActivity
+import com.viatom.blood.ui.history.detail.PoctorKetoneDetailActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -75,8 +77,17 @@ class PoctorHistoryFragment : Fragment() {
         dataAdapter.click=object :PoctorHistoryAdapter.Click{
             override fun clickItem(position: Int) {
                 Log.e("gaga",position.toString())
-                currentSelect.postValue(dataAdapter.mData[position])
-                startActivity(Intent(requireActivity(), PoctorUricDetailActivity::class.java))
+                val item=dataAdapter.mData[position]
+                currentSelect.postValue(item)
+
+                if(item.type==0){
+                    startActivity(Intent(requireActivity(), PoctorGluDetailActivity::class.java))
+                }else if(item.type==1){
+                    startActivity(Intent(requireActivity(), PoctorKetoneDetailActivity::class.java))
+                }else if(item.type==2){
+                    startActivity(Intent(requireActivity(), PoctorUricDetailActivity::class.java))
+                }
+
             }
         }
 
