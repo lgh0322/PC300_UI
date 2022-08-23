@@ -12,6 +12,7 @@ import com.lepu.blepro.ble.data.Lpm311Data
 import com.lepu.blepro.event.EventMsgConst
 import com.lepu.blepro.event.InterfaceEvent
 import com.lepu.blepro.objs.Bluetooth
+import com.viatom.blood.room.LPM311AppDatabase.Companion.saveLPM
 import com.viatom.blood.utils.DateStringUtil
 
 import kotlinx.coroutines.CoroutineScope
@@ -43,7 +44,7 @@ class MainApplication : Application() {
                 val cc= date.time
                 val ts = DateStringUtil.timeConvertEnglish(cc)
                 Log.e("gagax",ts)
-
+                saveLPM(a.chol,a.trig,a.hdl,a.ldl,a.cholDivHdl,cc)
             })
 
 

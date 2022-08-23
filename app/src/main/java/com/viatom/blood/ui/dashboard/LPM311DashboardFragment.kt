@@ -14,10 +14,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bigkoo.convenientbanner.ConvenientBanner
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator
 import com.bigkoo.convenientbanner.listener.OnPageChangeListener
+import com.jeremyliao.liveeventbus.LiveEventBus
+import com.lepu.blepro.BleServiceHelper
+import com.lepu.blepro.event.EventMsgConst
+import com.lepu.blepro.objs.Bluetooth
+import com.viatom.blood.MainApplication
 import com.viatom.blood.R
 import com.viatom.blood.databinding.Lpm311FragmentDashboardBinding
 import com.viatom.blood.ui.dashboard.adapter.*
-
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import androidx.lifecycle.Observer
 class LPM311DashboardFragment : Fragment() {
 
     private var _binding: Lpm311FragmentDashboardBinding? = null
@@ -128,6 +135,17 @@ class LPM311DashboardFragment : Fragment() {
         binding.leftView.addItemDecoration(SpaceItemDecorationLPM(50))
 
         initHomeImg()
+
+
+        LiveEventBus.get<Any>(EventMsgConst.Ble.EventBleDeviceReady).observeForever(
+            Observer { o ->
+                val a=o as Int
+                if(a== Bluetooth.MODEL_LPM311){
+
+
+                }
+            })
+
         return root
     }
 

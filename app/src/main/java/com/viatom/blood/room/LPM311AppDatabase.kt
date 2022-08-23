@@ -24,7 +24,7 @@ abstract class LPM311AppDatabase : RoomDatabase() {
 
         var lastSaveTime=0L;
 
-        fun saveLPM(chol:Float,trig:Float,hdl:Float,ldl:Float,cholhdl:Float){
+        fun saveLPM(chol:Double,trig:Double,hdl:Double,ldl:Double,cholhdl:Double,time:Long){
             dataScope.launch {
                 val tsMother = System.currentTimeMillis()
                 if(tsMother- lastSaveTime <3000){
@@ -33,8 +33,8 @@ abstract class LPM311AppDatabase : RoomDatabase() {
                 lastSaveTime =tsMother;
                 val ts = DateStringUtil.timeConvertEnglish(tsMother)
                 val data= LPM311Data();
-                data.date=tsMother;
-                data.dateString=ts;
+                data.date=time;
+                data.dateString=DateStringUtil.timeConvertEnglish(time);
                 data.chol=chol
                 data.trig=trig
                 data.hdl=hdl
