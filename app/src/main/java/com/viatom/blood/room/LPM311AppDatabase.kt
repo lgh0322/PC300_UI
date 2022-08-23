@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
 @Database(entities = [LPM311Data::class], version = 1)
 abstract class LPM311AppDatabase : RoomDatabase() {
-    abstract fun pcDao(): LPM311Dao
+    abstract fun lpmDao(): LPM311Dao
     companion object{
         val lpmDb = Room.databaseBuilder(
             MainApplication.application,
@@ -40,7 +40,7 @@ abstract class LPM311AppDatabase : RoomDatabase() {
                 data.hdl=hdl
                 data.ldl=ldl
                 data.cholhdl=cholhdl
-                lpmDb.pcDao().insert(data)
+                lpmDb.lpmDao().insert(data)
             }
         }
 
@@ -49,7 +49,7 @@ abstract class LPM311AppDatabase : RoomDatabase() {
 
         fun updateNote(date:Long,note:String){
             dataScope.launch {
-                lpmDb.pcDao().updateNote(note,date)
+                lpmDb.lpmDao().updateNote(note,date)
             }
         }
     }
