@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.viatom.blood.databinding.PoctorActivityGluDetailBinding
 import com.viatom.blood.room.PoctorAppDatabase
+import com.viatom.blood.ui.dashboard.adapter.PoctorSelectStatusAdapter
 import com.viatom.blood.ui.history.PoctorHistoryFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -26,6 +27,7 @@ class PoctorGluDetailActivity : AppCompatActivity() {
 
         PoctorHistoryFragment.currentSelect.observe(this){
             binding.glu.text=it.value.toString()
+            binding.state.text=PoctorSelectStatusAdapter.name[it.state]
             PoctorAppDatabase.dataScope.launch {
                 val note= PoctorAppDatabase.poctorDb.pcDao().getNote(it.date)
                 withContext(Dispatchers.Main){
