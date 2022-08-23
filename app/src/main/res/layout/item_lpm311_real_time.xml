@@ -12,19 +12,56 @@
         android:background="@drawable/data_bg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-        <TextView
-            android:id="@+id/value"
-            android:layout_width="wrap_content"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:gravity="center"
-            android:text="118"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/sf_pro_rounded_bold"
-            android:textColor="#1C2431"
-            android:textSize="24sp"
+            android:id="@+id/gaga"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_width="wrap_content">
+            <LinearLayout
+                android:visibility="gone"
+                android:paddingEnd="8dp"
+                android:id="@+id/empty_sign"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="38dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="26dp"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@drawable/empty_data_line"
+                    android:layout_width="16dp"
+                    android:layout_height="3dp"/>
+                <ImageView
+                    android:layout_marginStart="4dp"
+                    android:src="@drawable/empty_data_line"
+                    android:layout_width="16dp"
+                    android:layout_height="3dp"/>
+                <ImageView
+                    android:layout_marginStart="4dp"
+                    android:src="@drawable/empty_data_line"
+                    android:layout_width="16dp"
+                    android:layout_height="3dp"/>
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:gravity="center"
+                android:text="118"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/sf_pro_rounded_bold"
+                android:textColor="#1C2431"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
         <TextView
             android:id="@+id/unit"
             android:layout_width="wrap_content"
@@ -34,9 +71,9 @@
             android:layout_marginTop="29dp"
             android:text="mmol/L"
             android:fontFamily="@font/pingfang_sc_bold"
-            android:textColor="@color/black"
+            android:textColor="#6B7280"
             android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/value"
+            app:layout_constraintStart_toEndOf="@+id/gaga"
             app:layout_constraintTop_toTopOf="parent" />
         <TextView
             android:id="@+id/name"

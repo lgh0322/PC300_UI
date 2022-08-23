@@ -1,9 +1,6 @@
 package com.viatom.blood.room
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface LPM311Dao {
@@ -20,7 +17,7 @@ interface LPM311Dao {
     @Query("SELECT * FROM LPM311Data WHERE date IN (:userIds)")
     fun loadAllByIds(userIds: IntArray): List<LPM311Data>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(vararg item: LPM311Data)
 
 

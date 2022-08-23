@@ -156,12 +156,7 @@ class LPM311DashboardFragment : Fragment() {
         LiveEventBus.get<InterfaceEvent>(InterfaceEvent.LPM311.EventLpm311Data).observe(viewLifecycleOwner,
             Observer { o ->
                 val a = o.data as Lpm311Data
-                Log.e("EventEr1RtData", "gagaxxxxaaaaaa  " + a.day)
-                val date= DateStringUtil.getDate(a.year,a.month,a.day,a.hour,a.minute,a.second)
-                val cc= date.time
-                val ts = DateStringUtil.timeConvertEnglish(cc)
-                Log.e("gagax",ts)
-                LPM311AppDatabase.saveLPM(a.chol, a.trig, a.hdl, a.ldl, a.cholDivHdl, cc)
+                dataAdapter.addAll(a.chol, a.trig, a.hdl, a.ldl, a.cholDivHdl)
             })
 
 

@@ -53,7 +53,7 @@ class MainApplication : Application() {
                 val a=o as Int
                 if(a== Bluetooth.MODEL_LPM311){
                     dataScope.launch {
-                        delay(1000)
+                        delay(5000)
                         BleServiceHelper.BleServiceHelper.getFileList(Bluetooth.MODEL_LPM311,null)
                     }
 
