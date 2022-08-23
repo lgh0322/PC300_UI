@@ -1,4 +1,4 @@
-package com.vaca.pc300.room
+package com.viatom.blood.room
 
 import androidx.room.Database
 import androidx.room.Room
@@ -6,8 +6,6 @@ import androidx.room.RoomDatabase
 import com.vaca.pc300.utils.DateStringUtil
 import com.viatom.blood.MainApplication
 
-import com.viatom.blood.room.PoctorDao
-import com.viatom.blood.room.PoctorData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -32,10 +30,10 @@ abstract class PoctorAppDatabase : RoomDatabase() {
         fun savePoctorGlu(glu:Float){
             dataScope.launch {
                 val tsMother = System.currentTimeMillis()
-                if(tsMother- lastSaveTime<3000){
+                if(tsMother- lastSaveTime <3000){
                     return@launch
                 }
-                lastSaveTime=tsMother;
+                lastSaveTime =tsMother;
                 val ts = DateStringUtil.timeConvertEnglish(tsMother)
                 val data= PoctorData();
                 data.date=tsMother;
@@ -49,10 +47,10 @@ abstract class PoctorAppDatabase : RoomDatabase() {
         fun savePoctorKetone(ketone:Float){
             dataScope.launch {
                 val tsMother = System.currentTimeMillis()
-                if(tsMother- lastSaveTime<300){
+                if(tsMother- lastSaveTime <300){
                     return@launch
                 }
-                lastSaveTime=tsMother;
+                lastSaveTime =tsMother;
                 val ts = DateStringUtil.timeConvertEnglish(tsMother)
                 val data= PoctorData();
                 data.date=tsMother;
@@ -66,10 +64,10 @@ abstract class PoctorAppDatabase : RoomDatabase() {
         fun savePoctorUric(uric:Float){
             dataScope.launch {
                 val tsMother = System.currentTimeMillis()
-                if(tsMother- lastSaveTime<300){
+                if(tsMother- lastSaveTime <300){
                     return@launch
                 }
-                lastSaveTime=tsMother;
+                lastSaveTime =tsMother;
                 val ts = DateStringUtil.timeConvertEnglish(tsMother)
                 val data= PoctorData();
                 data.date=tsMother;
