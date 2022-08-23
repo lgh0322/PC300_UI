@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.viatom.blood.R
 import com.viatom.blood.room.PoctorData
+import com.viatom.blood.ui.dashboard.adapter.PoctorSelectStatusAdapter
 
 
 class PoctorHistoryAdapter(var context: Context) :
@@ -43,6 +44,12 @@ class PoctorHistoryAdapter(var context: Context) :
         val item=mData[position]
         holder.time.text=item.dateString
         holder.data.text=item.value.toString()
+        if(item.type==0){
+            holder.status.visibility=View.VISIBLE
+            holder.status.text=PoctorSelectStatusAdapter.name[item.state]
+        }else{
+            holder.status.visibility=View.GONE
+        }
     }
 
 
