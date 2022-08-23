@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.viatom.blood.PoctorGluDetailActivity
+import com.viatom.blood.PoctorKetoneDetailActivity
 import com.viatom.blood.databinding.PoctorActivityGluDetailBinding
 import com.viatom.blood.databinding. PoctorFragmentHistoryBinding
 import com.viatom.blood.ui.history.adapter.PoctorHistoryAdapter
@@ -64,7 +65,7 @@ class PoctorHistoryFragment : Fragment() {
         dataAdapter.click=object :PoctorHistoryAdapter.Click{
             override fun clickItem(position: Int) {
                 Log.e("gaga",position.toString())
-                startActivity(Intent(requireActivity(), PoctorGluDetailActivity::class.java))
+                startActivity(Intent(requireActivity(), PoctorKetoneDetailActivity::class.java))
             }
 
         }
