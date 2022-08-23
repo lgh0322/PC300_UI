@@ -72,6 +72,9 @@
         <entry key="..\:/bodyfat/PC300/app/src/main/res/layout/pc100_detail_data_layout.xml" value="0.14130434782608695" />
         <entry key="..\:/bodyfat/PC300/app/src/main/res/layout/pc300_detail_data_layout.xml" value="0.3333333333333333" />
         <entry key="..\:/bodyfat/PC300/app/src/main/res/menu/bottom_nav_menu.xml" value="0.17552083333333332" />
+        <entry key="..\:/bodyfat/pc300_232/PC300_UI/app/src/main/res/drawable/poctor_text_bg.xml" value="0.1585" />
+        <entry key="..\:/bodyfat/pc300_232/PC300_UI/app/src/main/res/drawable/poctor_text_bg_unselect.xml" value="0.1585" />
+        <entry key="..\:/bodyfat/pc300_232/PC300_UI/app/src/main/res/layout/poctor_activity_glu_detail.xml" value="0.264" />
       </map>
     </option>
   </component>
