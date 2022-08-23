@@ -80,7 +80,6 @@ class PoctorHistoryFragment : Fragment() {
                 Log.e("gaf",position.toString())
                 currentType=position
             }
-
         }
 
 
