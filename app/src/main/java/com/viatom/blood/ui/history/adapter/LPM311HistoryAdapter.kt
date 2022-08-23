@@ -23,7 +23,7 @@ class LPM311HistoryAdapter(var context: Context) :
 
     var click: Click? = null
 
-    private val mData: MutableList<LPM311Data> = ArrayList()
+    val mData: MutableList<LPM311Data> = ArrayList()
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
 
     val name = listOf<String>("BP", "SpO₂", "Temp", "GLU", "ECG")

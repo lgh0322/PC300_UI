@@ -15,6 +15,7 @@ import com.viatom.blood.MainApplication
 import com.viatom.blood.ui.history.detail.LPM311HistoryDetailActivity
 import com.viatom.blood.databinding.Lpm311FragmentHistoryBinding
 import com.viatom.blood.room.LPM311AppDatabase
+import com.viatom.blood.room.LPM311Data
 import com.viatom.blood.ui.history.adapter.LPM311HistoryAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,7 +24,9 @@ import kotlinx.coroutines.withContext
 class LPM311HistoryFragment : Fragment() {
 
     private var _binding: Lpm311FragmentHistoryBinding? = null
-
+    companion object {
+        val currentSelect=MutableLiveData<LPM311Data>()
+    }
 
     private val binding get() = _binding!!
     var currentIndex = 0
@@ -53,6 +56,7 @@ class LPM311HistoryFragment : Fragment() {
         binding.leftView.adapter =leftAdapter
         leftAdapter.click=object:LPM311HistoryAdapter.Click{
             override fun clickItem(position: Int) {
+                currentSelect.postValue(leftAdapter.mData[position])
                 startActivity(Intent(requireActivity(), LPM311HistoryDetailActivity::class.java))
             }
 
