@@ -19,6 +19,7 @@
     <!-- miui toast compat -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <application
+        android:name=".MainApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
