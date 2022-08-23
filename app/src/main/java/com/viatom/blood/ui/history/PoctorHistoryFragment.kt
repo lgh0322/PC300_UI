@@ -1,6 +1,7 @@
 package com.viatom.blood.ui.history
 
 import android.content.Intent
+import android.os.Build.VERSION_CODES.P
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.viatom.blood.MainApplication
 import com.viatom.blood.PoctorGluDetailActivity
 import com.viatom.blood.PoctorKetoneDetailActivity
 import com.viatom.blood.PoctorUricDetailActivity
@@ -17,6 +19,9 @@ import com.viatom.blood.databinding. PoctorFragmentHistoryBinding
 import com.viatom.blood.room.PoctorAppDatabase
 import com.viatom.blood.ui.history.adapter.PoctorHistoryAdapter
 import com.viatom.blood.ui.history.adapter.PoctorTopAdapter
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class PoctorHistoryFragment : Fragment() {
 
@@ -80,6 +85,15 @@ class PoctorHistoryFragment : Fragment() {
                 Log.e("gaf",position.toString())
                 currentType=position
             }
+        }
+
+        MainApplication.dataScope.launch {
+            val a=PoctorAppDatabase.poctorDb.pcDao().getAllR(currentType)
+            Log.e("faa",a.size.toString())
+            withContext(Dispatchers.Main){
+                dataAdapter.addAll(a)
+            }
+
         }
 
 

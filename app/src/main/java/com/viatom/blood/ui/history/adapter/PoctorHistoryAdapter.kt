@@ -4,15 +4,16 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.viatom.blood.R
+import com.viatom.blood.room.PoctorData
 
 
 class PoctorHistoryAdapter(var context: Context) :
     RecyclerView.Adapter<PoctorHistoryAdapter.ViewHolder>() {
 
 
-    var currentSelect = 0
 
     interface Click {
         fun clickItem(position: Int)
@@ -20,17 +21,16 @@ class PoctorHistoryAdapter(var context: Context) :
 
     var click: Click? = null
 
-    private val mData: MutableList<String> = ArrayList()
+    private val mData: MutableList<PoctorData> = ArrayList()
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
 
-    val name = listOf<String>("BP", "SpO₂", "Temp", "GLU", "ECG")
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = mInflater.inflate(R.layout.item_poctor_history, parent, false)
         return ViewHolder(view)
     }
 
-    fun addAll(userBean: ArrayList<String>) {
+    fun addAll(userBean: List<PoctorData>) {
         mData.clear()
         for (k in userBean) {
             mData.add(k)
@@ -40,25 +40,19 @@ class PoctorHistoryAdapter(var context: Context) :
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        // holder.sys.text=name[position]
-        if (position == currentSelect) {
-            //holder.sys.setTextColor(ContextCompat.getColor(context,R.color.color_111827))
 
-        } else {
-            // holder.sys.setTextColor(ContextCompat.getColor(context,R.color.color_9CA3AF))
-
-        }
     }
 
 
     override fun getItemCount(): Int {
-        return 25
+        return mData.size
     }
 
     inner class ViewHolder internal constructor(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
-//        val sys:TextView=itemView.findViewById(R.id.sys)
-
+        val data: TextView =itemView.findViewById(R.id.data)
+        val time: TextView =itemView.findViewById(R.id.time)
+        val status: TextView =itemView.findViewById(R.id.state)
         init {
 
             itemView.setOnClickListener {
