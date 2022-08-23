@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.vaca.pc300">
+    package="com.viatom.blood">
 
     <application
         android:allowBackup="true"
@@ -15,7 +15,7 @@
         tools:targetApi="31">
         <activity
             android:theme="@style/DuoekAppTheme.Light.NoActionBar2"
-            android:name=".MainActivity"
+            android:name="com.viatom.blood.PoctorMainActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
@@ -24,15 +24,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PC300BPDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
-        <activity android:name=".PC300Spo2DetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
-        <activity android:name=".PC300TempDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
-        <activity android:name=".PC300GluDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
-        <activity android:name=".PC300EcgDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
+        <activity android:name="com.viatom.blood.PoctorGluDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
+        <activity android:name="com.viatom.blood.PoctorUricDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
+        <activity android:name="com.viatom.blood.PoctorKetoneDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
 
-        <activity android:name=".LPM311HistoryDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
-        <activity android:name=".LPM311AboutActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
-        <activity android:name=".FeedbackActivity"  android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
+
     </application>
 
 </manifest>

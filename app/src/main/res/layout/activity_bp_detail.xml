@@ -152,7 +152,7 @@
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.vaca.pc300.view.BeBpResultView
+        <com.viatom.blood.view.BeBpResultView
             android:layout_marginTop="22dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.vaca.pc300.ui.dashboard.DashboardFragment"
+        android:name="com.viatom.blood.ui.dashboard.PoctorDashboardFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.vaca.pc300.ui.history.HistoryFragment"
+        android:name="com.viatom.blood.ui.history.PoctorHistoryFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.vaca.pc300.ui.setttings.SettingsFragment"
+        android:name="com.viatom.blood.ui.setttings.SettingsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_settings" />
 </navigation>
