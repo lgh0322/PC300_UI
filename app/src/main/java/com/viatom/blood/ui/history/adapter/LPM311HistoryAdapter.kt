@@ -62,7 +62,7 @@ class LPM311HistoryAdapter(var context: Context) :
                 .load(file)
                 .apply(requestOptions)
                 .into(holder.img)
-
+            holder.img.visibility=View.VISIBLE
             holder.status.visibility=View.GONE
         }else{
             holder.img.visibility=View.INVISIBLE
