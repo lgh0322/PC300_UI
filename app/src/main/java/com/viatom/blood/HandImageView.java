@@ -13,11 +13,11 @@ import android.widget.ImageView;
 /**
  * Created by Administrator on 2016/3/21.
  */
-public class MyImageView extends ImageView {
+public class HandImageView extends ImageView {
     private PointF centerPoint;
     private float firstdistance;
     private Matrix matrix;
-    public MyImageView(Context context) {
+    public HandImageView(Context context) {
         super(context);
         initParams();
     }
@@ -25,11 +25,11 @@ public class MyImageView extends ImageView {
         matrix = new Matrix();
         setImageMatrix(matrix);
     }
-    public MyImageView(Context context, AttributeSet attrs) {
+    public HandImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initParams();
     }
-    public MyImageView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public HandImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initParams();
     }
