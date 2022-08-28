@@ -1,10 +1,12 @@
 package com.viatom.blood.ui.dashboard
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -23,92 +25,60 @@ import com.viatom.blood.MainApplication
 import com.viatom.blood.R
 import com.viatom.blood.databinding.Lpm311FragmentDashboardBinding
 import com.viatom.blood.ui.dashboard.adapter.*
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import androidx.lifecycle.Observer
 import com.lepu.blepro.ble.data.Lpm311Data
 import com.lepu.blepro.event.InterfaceEvent
 import com.lepu.blepro.observer.BleChangeObserver
+import com.viatom.blood.BleServer.dataScope
+import com.viatom.blood.NetCmd
 import com.viatom.blood.room.LPM311AppDatabase
 import com.viatom.blood.utils.DateStringUtil
+import com.viatom.blood.utils.PathUtil
+import kotlinx.coroutines.*
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import java.io.ByteArrayInputStream
+import java.io.File
+import java.io.IOException
+import java.io.InputStream
+import java.lang.Exception
 
-class LPM311DashboardFragment : Fragment(),BleChangeObserver {
+class LPM311DashboardFragment : Fragment() {
 
     private var _binding: Lpm311FragmentDashboardBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+
     private val binding get() = _binding!!
     private lateinit var dataAdapter: LPMRealTimeDataAdapter
 
-    val textList= listOf<String>(
-        "Prepare cotton swabs, alcohol wipes, blood collection needles, test strips, blood collection devices, Code cards, blood lipid detectors.",
-        "First: Install batteries;\nSecond: Install CodeCard;\nThird: Long press the \"power on\" button;\nFourth: Insert test strip.",
-        "First: Wipe the finger with an alcohol wipe;\nSecond: Wipe off residual alcohol;\nThird: Using a blood collection needle to collect blood from the side of the finger;\nFourth: When the amount of blood is too small, you can press the finger properly.",
-        "First: Use blood collection device to collect blood;\nSecond: Drop the blood sample into the test strip at a constant rate;\nThird: Waiting for the test to be completed."
-    )
+    val client = OkHttpClient();
+    val url ="http://192.168.6.114"
+    @Throws(IOException::class)
+    fun uploadInfo(): ByteArray? {
 
-    private fun initHomeImg() {
+        val request: Request = Request.Builder().url(url).build()
+        client.newCall(request)
+            .execute()
+            .use { response ->
+                {
+                    if(response.code==200){
+                        var inputStream :InputStream?=null;
+                        try {
+                            inputStream= response.body!!.byteStream()
+                        }catch (e:Exception){
 
-        val con: ConvenientBanner<BannerBean> = binding.banner as ConvenientBanner<BannerBean>
-
-        val bannerList = listOf<BannerBean>(BannerBean(0), BannerBean(1), BannerBean(2), BannerBean(3))
-        val mDotsLayout = binding.dotLayout
-        con.setPages(
-            object : CBViewHolderCreator {
-                override fun createHolder(itemView: View): LPM311BannerHolder {
-                    return LPM311BannerHolder(
-                        itemView
-                    )
-                }
-
-                override fun getLayoutId(): Int {
-                    return R.layout.item_banner
-                }
-            }, bannerList
-        )
-            .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.ALIGN_PARENT_RIGHT)
-            .setOnPageChangeListener(object : OnPageChangeListener {
-                override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
-                    if (newState == 0) {
-                        for (k in 0 until 4) {
-                            mDotsLayout.getChildAt(k)?.isSelected = k == con.currentItem
+                        }finally {
+                            inputStream?.close()
                         }
-                        binding.sayText.text=textList[con.currentItem]
-
                     }
                 }
 
-                override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
 
-                }
-
-                override fun onPageSelected(index: Int) {
-
-                }
-
-            })
-
-        mDotsLayout.removeAllViews()
-        for (k in bannerList.indices) {
-            val params = ViewGroup.MarginLayoutParams(20, 20)
-            params.leftMargin = 20
-            params.rightMargin = 20
-            mDotsLayout.addView(dotsItem(k), params)
-        }
-        mDotsLayout.getChildAt(0)?.isSelected = true
-
-
+            }
+        return null
     }
 
-    private fun dotsItem(position: Int): ImageView {
-        val inflater =
-            requireContext().getSystemService(AppCompatActivity.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val layout = inflater.inflate(R.layout.home_dot_image, null)
-        val iv = layout.findViewById<View>(R.id.face_dot) as ImageView
-        iv.id = position
-        return iv
-    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -123,36 +93,41 @@ class LPM311DashboardFragment : Fragment(),BleChangeObserver {
         dataAdapter= LPMRealTimeDataAdapter(requireContext())
 
 
-        binding.leftView.layoutManager = object : GridLayoutManager(requireContext(), 2) {
-            override fun canScrollVertically(): Boolean {
-                return false
+        binding.getImg.setOnClickListener {
+            dataScope.launch {
+                NetCmd.getFile(url,"ga.jpg",object:NetCmd.OnDownloadListener{
+                    override fun onDownloadStart() {
+
+                    }
+
+                    override fun onDownloadSuccess(filePath: String?) {
+                        val gg= File( PathUtil.getPathX("ga.jpg")).readBytes()
+                        gg.let {
+                           MainScope().launch {
+                                val a= BitmapFactory.decodeStream(ByteArrayInputStream(it))
+                                binding.img.setImageBitmap(a)
+                            }
+                        }
+                    }
+
+                    override fun onDownloadSuccessBytes(byteArray: ByteArray?) {
+
+                    }
+
+                    override fun onDownloading(progress: Int) {
+                        Log.e("gaga",progress.toString())
+                    }
+
+                    override fun onDownloadFailed() {
+
+                    }
+
+                })
+
             }
         }
-        binding.leftView.adapter =dataAdapter
-        binding.leftView.addItemDecoration(SpaceItemDecorationLPM(50))
-
-        initHomeImg()
 
 
-        LiveEventBus.get<Any>(EventMsgConst.Ble.EventBleDeviceReady).observeForever(
-            Observer { o ->
-                val a=o as Int
-                if(a== Bluetooth.MODEL_LPM311){
-                    binding.before.visibility=View.GONE
-                    binding.leftView.visibility=View.VISIBLE
-
-                }
-            })
-
-        LiveEventBus.get<InterfaceEvent>(InterfaceEvent.LPM311.EventLpm311Data).observe(viewLifecycleOwner,
-            Observer { o ->
-                val a = o.data as Lpm311Data
-                dataAdapter.addAll(a.chol, a.trig, a.hdl, a.ldl, a.cholDivHdl)
-            })
-
-
-//        binding.before.visibility=View.GONE
-//        binding.leftView.visibility=View.VISIBLE
 
 
         return root
@@ -163,7 +138,5 @@ class LPM311DashboardFragment : Fragment(),BleChangeObserver {
         _binding = null
     }
 
-    override fun onBleStateChanged(model: Int, state: Int) {
 
-    }
 }

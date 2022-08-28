@@ -50,45 +50,39 @@
             android:layout_width="match_parent"
             android:layout_marginTop="16dp"
             android:layout_height="204dp">
-            <com.bigkoo.convenientbanner.ConvenientBanner
-                android:id="@+id/banner"
-                android:elevation="0dp"
-                android:layout_height="match_parent"
+            <ImageView
+                android:id="@+id/img"
                 android:layout_width="match_parent"
-                app:canLoop="true" />
-            <LinearLayout
-                android:elevation="30dp"
-                android:id="@+id/dot_layout"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="@+id/banner"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:layout_height="match_parent"/>
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/say_text"
             android:layout_marginTop="24dp"
-            android:text="Prepare cotton swabs, alcohol wipes, blood collection needles, test strips, blood collection devices, Code cards, blood lipid detectors."
-            android:textSize="14sp"
+            android:text="请连接esp32的WiFi"
+            android:textSize="20sp"
             android:textColor="#6B7280"
             android:fontFamily="@font/pingfang_sc_bold"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/get_img"
+            android:background="@drawable/ai_bg"
+            android:text="获取图片"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginTop="50dp"
+            android:layout_width="100dp"
+            android:layout_height="50dp"/>
     </LinearLayout>
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:visibility="gone"
-        android:id="@+id/left_view"
-        android:layout_marginTop="88dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+
 
 
 

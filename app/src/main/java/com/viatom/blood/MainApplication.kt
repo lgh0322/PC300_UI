@@ -14,6 +14,7 @@ import com.lepu.blepro.event.InterfaceEvent
 import com.lepu.blepro.objs.Bluetooth
 import com.viatom.blood.room.LPM311AppDatabase.Companion.saveLPM
 import com.viatom.blood.utils.DateStringUtil
+import com.viatom.blood.utils.PathUtil
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -33,34 +34,7 @@ class MainApplication : Application() {
         super.onCreate()
 
         application = this
-        BleServiceHelper.BleServiceHelper.initService(this, null)
-
-
-        LiveEventBus.get<InterfaceEvent>(InterfaceEvent.LPM311.EventLpm311Data).observeForever(
-            Observer { o ->
-                val a = o.data as Lpm311Data
-                Log.e("EventEr1RtData", "gagaxxxxaaaaaa  " + a.day)
-                val date=DateStringUtil.getDate(a.year,a.month,a.day,a.hour,a.minute,a.second)
-                val cc= date.time
-                val ts = DateStringUtil.timeConvertEnglish(cc)
-                Log.e("gagax",ts)
-                saveLPM(a.chol,a.trig,a.hdl,a.ldl,a.cholDivHdl,cc)
-            })
-
-
-        LiveEventBus.get<Any>(EventMsgConst.Ble.EventBleDeviceReady).observeForever(
-            Observer { o ->
-                val a=o as Int
-                if(a== Bluetooth.MODEL_LPM311){
-                    dataScope.launch {
-                        delay(5000)
-                        BleServiceHelper.BleServiceHelper.getFileList(Bluetooth.MODEL_LPM311,null)
-                    }
-
-                }
-            })
-
-
+        PathUtil.initVar(this)
 
     }
 
