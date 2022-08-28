@@ -59,11 +59,13 @@
         <entry key="..\:/bodyfat/PC300/app/src/main/res/menu/bottom_nav_menu.xml" value="0.17552083333333332" />
         <entry key="..\:/bodyfat/gaga33/PC300_UI/app/src/main/res/drawable/ai_bg.xml" value="0.121" />
         <entry key="..\:/bodyfat/gaga33/PC300_UI/app/src/main/res/drawable/empty_data_line.xml" value="0.1585" />
+        <entry key="..\:/bodyfat/gaga33/PC300_UI/app/src/main/res/drawable/poctor_top_bg.xml" value="0.1735" />
         <entry key="..\:/bodyfat/gaga33/PC300_UI/app/src/main/res/layout/activity_lpm311_history_detail.xml" value="0.21557971014492755" />
         <entry key="..\:/bodyfat/gaga33/PC300_UI/app/src/main/res/layout/home_dot_image.xml" value="0.10989583333333333" />
         <entry key="..\:/bodyfat/gaga33/PC300_UI/app/src/main/res/layout/item_banner.xml" value="0.10989583333333333" />
         <entry key="..\:/bodyfat/gaga33/PC300_UI/app/src/main/res/layout/item_lpm311_history.xml" value="0.22826086956521738" />
         <entry key="..\:/bodyfat/gaga33/PC300_UI/app/src/main/res/layout/item_lpm311_real_time.xml" value="0.264" />
+        <entry key="..\:/bodyfat/gaga33/PC300_UI/app/src/main/res/layout/item_poctor_top.xml" value="0.25" />
         <entry key="..\:/bodyfat/gaga33/PC300_UI/app/src/main/res/layout/lpm311_fragment_dashboard.xml" value="0.10989583333333333" />
         <entry key="..\:/bodyfat/gaga33/PC300_UI/app/src/main/res/layout/lpm311_fragment_history.xml" value="0.10989583333333333" />
         <entry key="..\:/bodyfat/gaga33/PC300_UI/app/src/main/res/layout/lpm311_fragment_settings.xml" value="0.10989583333333333" />

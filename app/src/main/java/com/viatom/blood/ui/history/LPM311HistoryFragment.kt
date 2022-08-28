@@ -18,6 +18,7 @@ import com.viatom.blood.databinding.Lpm311FragmentHistoryBinding
 import com.viatom.blood.room.LPM311AppDatabase
 import com.viatom.blood.room.LPM311Data
 import com.viatom.blood.ui.history.adapter.LPM311HistoryAdapter
+import com.viatom.blood.ui.history.adapter.PoctorTopAdapter
 import kotlinx.coroutines.*
 
 class LPM311HistoryFragment : Fragment(){
@@ -26,7 +27,7 @@ class LPM311HistoryFragment : Fragment(){
     companion object {
         val currentSelect=MutableLiveData<LPM311Data>()
     }
-
+    private lateinit var topAdapter: PoctorTopAdapter
     private val binding get() = _binding!!
     var currentIndex = 0
     lateinit var navController: NavController
@@ -43,6 +44,25 @@ class LPM311HistoryFragment : Fragment(){
 
         leftAdapter=LPM311HistoryAdapter(requireContext())
 
+        topAdapter = PoctorTopAdapter(requireContext())
+
+
+        topAdapter.click=object :PoctorTopAdapter.Click{
+            override fun clickItem(position: Int) {
+                Log.e("gaf",position.toString())
+
+            }
+        }
+
+        binding.topView.layoutManager =
+            object : LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false) {
+
+
+                override fun canScrollHorizontally(): Boolean {
+                    return false
+                }
+            }
+        binding.topView.adapter = topAdapter
 
 
         binding.leftView.layoutManager = object :  LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false) {
