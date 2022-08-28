@@ -33,6 +33,8 @@ class LPM311HistoryFragment : Fragment(),NetCmd.OnDownloadListener{
 
     val dataList=MutableLiveData<List<LPM311Data>>()
 
+    val updateItem=MutableLiveData<Int>()
+
     private lateinit var topAdapter: PoctorTopAdapter
     private val binding get() = _binding!!
     var currentIndex = 0
@@ -84,7 +86,7 @@ class LPM311HistoryFragment : Fragment(),NetCmd.OnDownloadListener{
                     startActivity(Intent(requireActivity(), LPM311HistoryDetailActivity::class.java))
                 }else {
                     dataScope.launch {
-                        NetCmd.getFile(NetCmd.getFileUrl(item.name),item.name,this@LPM311HistoryFragment,item.size)
+                        NetCmd.getFile(NetCmd.getFileUrl(item.name),item.name,this@LPM311HistoryFragment,item.size,position)
                     }
                 }
 
@@ -129,6 +131,10 @@ class LPM311HistoryFragment : Fragment(),NetCmd.OnDownloadListener{
             }
         }
 
+        updateItem.observe(viewLifecycleOwner){
+            leftAdapter.notifyItemChanged(it)
+        }
+
         return root
     }
 
@@ -141,8 +147,8 @@ class LPM311HistoryFragment : Fragment(),NetCmd.OnDownloadListener{
 
     }
 
-    override fun onDownloadSuccess(filePath: String?) {
-
+    override fun onDownloadSuccess(index:Int) {
+        updateItem.postValue(index)
     }
 
     override fun onDownloadSuccessBytes(byteArray: ByteArray?) {

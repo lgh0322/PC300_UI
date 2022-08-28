@@ -48,37 +48,7 @@ class LPM311DashboardFragment : Fragment() {
         }
 
         binding.getImg.setOnClickListener {
-            dataScope.launch {
-                NetCmd.getFile(url,"ga.jpg",object: NetCmd.OnDownloadListener{
-                    override fun onDownloadStart() {
 
-                    }
-
-                    override fun onDownloadSuccess(filePath: String?) {
-                        val gg= File( PathUtil.getPathX("ga.jpg")).readBytes()
-                        gg.let {
-                           MainScope().launch {
-                                val a= BitmapFactory.decodeStream(ByteArrayInputStream(it))
-                                binding.img.setImageBitmap(a)
-                            }
-                        }
-                    }
-
-                    override fun onDownloadSuccessBytes(byteArray: ByteArray?) {
-
-                    }
-
-                    override fun onDownloading(progress: Int) {
-                        Log.e("gaga",progress.toString())
-                    }
-
-                    override fun onDownloadFailed() {
-
-                    }
-
-                })
-
-            }
         }
 
 

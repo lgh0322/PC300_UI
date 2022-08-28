@@ -29,7 +29,7 @@ object NetCmd {
          * 下载成功
          * @param filePath 文件下载的路径
          */
-        fun onDownloadSuccess(filePath: String?)
+        fun onDownloadSuccess(index: Int)
 
         fun onDownloadSuccessBytes(byteArray: ByteArray?)
 
@@ -45,7 +45,7 @@ object NetCmd {
     }
 
 
-    fun getFile(url: String, fileName: String, listener: OnDownloadListener?, total:Int=0) {
+    fun getFile(url: String, fileName: String, listener: OnDownloadListener?, total:Int=0,index:Int=0) {
         val absoluteFilePath: String =PathUtil.getPathX(fileName);
         val file = File(absoluteFilePath)
         val request: Request = Request.Builder().url(url).tag("appUpdate").build()
@@ -73,7 +73,7 @@ object NetCmd {
                             listener?.onDownloading(progress)
                         }
                         fileOutputStream.flush()
-                        listener?.onDownloadSuccess(absoluteFilePath)
+                        listener?.onDownloadSuccess(index)
                     } catch (e: IOException) {
                         listener?.onDownloadFailed()
                     } finally {
