@@ -24,22 +24,13 @@ abstract class LPM311AppDatabase : RoomDatabase() {
 
         var lastSaveTime=0L;
 
-        fun saveLPM(chol:Double,trig:Double,hdl:Double,ldl:Double,cholhdl:Double,time:Long){
+        fun saveLPM(name:String,len:Int,time:Long){
             dataScope.launch {
-                val tsMother = System.currentTimeMillis()
-                if(tsMother- lastSaveTime <3000){
-                    return@launch
-                }
-                lastSaveTime =tsMother;
-                val ts = DateStringUtil.timeConvertEnglish(tsMother)
+                val ts = DateStringUtil.timeConvertEnglish(time)
                 val data= LPM311Data();
                 data.date=time;
                 data.dateString=DateStringUtil.timeConvertEnglish(time);
-                data.chol=chol
-                data.trig=trig
-                data.hdl=hdl
-                data.ldl=ldl
-                data.cholhdl=cholhdl
+                data.name=name
                 lpmDb.lpmDao().insert(data)
             }
         }

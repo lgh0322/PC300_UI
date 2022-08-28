@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "0ee0f3e691f9ae37cdc40f0cbf247e91",
+    "identityHash": "14b12f75155fd88f56ce00a61d00ab60",
     "entities": [
       {
         "tableName": "LPM311Data",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` INTEGER NOT NULL, `dateString` TEXT NOT NULL, `id` TEXT NOT NULL, `chol` REAL NOT NULL, `trig` REAL NOT NULL, `hdl` REAL NOT NULL, `ldl` REAL NOT NULL, `cholhdl` REAL NOT NULL, `note` TEXT NOT NULL, PRIMARY KEY(`date`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` INTEGER NOT NULL, `dateString` TEXT NOT NULL, `name` TEXT NOT NULL, `note` TEXT NOT NULL, PRIMARY KEY(`date`))",
         "fields": [
           {
             "fieldPath": "date",
@@ -21,39 +21,9 @@
             "notNull": true
           },
           {
-            "fieldPath": "id",
-            "columnName": "id",
+            "fieldPath": "name",
+            "columnName": "name",
             "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "chol",
-            "columnName": "chol",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "trig",
-            "columnName": "trig",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "hdl",
-            "columnName": "hdl",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "ldl",
-            "columnName": "ldl",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "cholhdl",
-            "columnName": "cholhdl",
-            "affinity": "REAL",
             "notNull": true
           },
           {
@@ -76,7 +46,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0ee0f3e691f9ae37cdc40f0cbf247e91')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '14b12f75155fd88f56ce00a61d00ab60')"
     ]
   }
 }

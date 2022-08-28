@@ -44,8 +44,6 @@ class LPM311HistoryAdapter(var context: Context) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item=mData[position]
-        holder.chol.text=item.chol.toString()
-        holder.trig.text=item.trig.toString()
         holder.time.text=item.dateString
     }
 
@@ -56,8 +54,7 @@ class LPM311HistoryAdapter(var context: Context) :
 
     inner class ViewHolder internal constructor(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
-        val chol: TextView =itemView.findViewById(R.id.chol)
-        val trig: TextView =itemView.findViewById(R.id.trig)
+
         val time:TextView=itemView.findViewById(R.id.time)
         init {
 

@@ -14,9 +14,6 @@ interface LPM311Dao {
 
 
 
-    @Query("SELECT * FROM LPM311Data WHERE date IN (:userIds)")
-    fun loadAllByIds(userIds: IntArray): List<LPM311Data>
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(vararg item: LPM311Data)
 
@@ -29,8 +26,6 @@ interface LPM311Dao {
     fun deleteByDate(myDate: Long)
 
 
-
-
     @Query("UPDATE LPM311Data SET note=:myNote WHERE date = :date")
     fun updateNote(myNote: String, date: Long)
 
@@ -41,10 +36,6 @@ interface LPM311Dao {
 
     @Query("SELECT * FROM LPM311Data WHERE date = :date")
     fun loadByDate(date: Long): LPM311Data
-
-
-    @Query("UPDATE LPM311Data SET id=:id WHERE dateString = :dateString")
-    fun updateId(id: String, dateString: String)
 
 
 

@@ -32,6 +32,9 @@ class LPM311HistoryFragment : Fragment(){
     companion object {
         val currentSelect=MutableLiveData<LPM311Data>()
     }
+
+    val dataList=MutableLiveData<List<LPM311Data>>()
+
     private lateinit var topAdapter: PoctorTopAdapter
     private val binding get() = _binding!!
     var currentIndex = 0
@@ -70,7 +73,7 @@ class LPM311HistoryFragment : Fragment(){
 
         binding.leftView.layoutManager = object :  LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false) {
             override fun canScrollVertically(): Boolean {
-                return false
+                return true
             }
         }
         binding.leftView.adapter =leftAdapter
@@ -81,13 +84,10 @@ class LPM311HistoryFragment : Fragment(){
             }
         }
 
-        MainApplication.dataScope.launch {
-            val a=LPM311AppDatabase.lpmDb.lpmDao().getAllR()
-            Log.e("faa",a.size.toString())
-            withContext(Dispatchers.Main){
-                leftAdapter.addAll(a)
-            }
 
+
+        dataList.observe(viewLifecycleOwner){
+            leftAdapter.addAll(it)
         }
 
         binding.refresh.setOnRefreshListener {
@@ -102,7 +102,10 @@ class LPM311HistoryFragment : Fragment(){
                         val name=b.getString("name")
                         val size=b.getInt("size")
                         Log.e("gaga",name+"   "+size)
+                        LPM311AppDatabase.saveLPM(name,size,System.currentTimeMillis());
+                        delay(20);
                     }
+                    dataList.postValue(LPM311AppDatabase.lpmDb.lpmDao().getAllR())
 
                 }catch (e:Exception){
 

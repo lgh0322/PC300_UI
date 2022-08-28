@@ -32,78 +32,7 @@
             android:fontFamily="@font/pingfang_sc_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-        <TextView
-            android:id="@+id/chol"
-            android:text="35.5"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textSize="24sp"
-            android:gravity="center"
-            android:textColor="#1C2431"
-            android:layout_marginTop="28dp"
-            android:layout_marginStart="16dp"
-            android:fontFamily="@font/sf_pro_rounded_bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:text="mmol/L"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/chol"
-            android:textSize="12sp"
-            android:textColor="#6B7280"
-            android:layout_marginTop="46dp"
-            android:layout_marginStart="4dp"
-            android:fontFamily="@font/pingfang_sc_bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:text="CHOL"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/chol"
-            android:textSize="12sp"
-            android:textColor="#6B7280"
-            android:layout_marginTop="72dp"
-            android:layout_marginStart="4dp"
-            android:fontFamily="@font/pingfang_sc_bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
 
-
-        <TextView
-            android:id="@+id/trig"
-            android:text="1.72"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textSize="24sp"
-            android:gravity="center"
-            android:textColor="#1C2431"
-            android:layout_marginTop="28dp"
-            android:layout_marginStart="168dp"
-            android:fontFamily="@font/sf_pro_rounded_bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:text="mmol/L"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/trig"
-            android:textSize="12sp"
-            android:textColor="#6B7280"
-            android:layout_marginTop="46dp"
-            android:layout_marginStart="4dp"
-            android:fontFamily="@font/pingfang_sc_bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:text="TRIG"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/trig"
-            android:textSize="12sp"
-            android:textColor="#6B7280"
-            android:layout_marginTop="72dp"
-            android:layout_marginStart="4dp"
-            android:fontFamily="@font/pingfang_sc_bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

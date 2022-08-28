@@ -24,11 +24,7 @@ class LPM311HistoryDetailActivity : AppCompatActivity() {
 
         LPM311HistoryFragment.currentSelect.observe(this){
             binding.time.text=it.dateString
-            binding.chol.text=it.chol.toString()
-            binding.hdl.text=it.hdl.toString()
-            binding.ldl.text=it.ldl.toString()
-            binding.cholHdl.text=it.cholhdl.toString()
-            binding.trig.text=it.trig.toString()
+
 
             LPM311AppDatabase.dataScope.launch {
                 val note= LPM311AppDatabase.lpmDb.lpmDao().getNote(it.date)
