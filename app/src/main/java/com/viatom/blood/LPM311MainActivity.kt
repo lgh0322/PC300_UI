@@ -30,30 +30,11 @@ class LPM311MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
 
-        bleInit()
-
 
 
 
     }
 
 
-    private fun bleInit() {
-        BleServiceHelper.BleServiceHelper.startScan(Bluetooth.MODEL_LPM311, false)
-        LepuBleLog.setDebug(true)
-        BleServiceHelper.BleServiceHelper.setInterfaces(Bluetooth.MODEL_LPM311, true);
-        LiveEventBus.get<Bluetooth>(EventMsgConst.Discovery.EventDeviceFound).observe(this) { res ->
-
-                BleServiceHelper.BleServiceHelper.stopScan();
-                BleServiceHelper.BleServiceHelper.connect(
-                    MainApplication.application,
-                    Bluetooth.MODEL_LPM311,
-                    res.device,
-                    true,
-                    LpWorkManager.toConnectUpdater
-                )
-
-        }
-    }
 
 }
