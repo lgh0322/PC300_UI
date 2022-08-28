@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.lepu.blepro.event.InterfaceEvent
@@ -54,10 +55,9 @@ class LPM311HistoryAdapter(var context: Context) :
 
     inner class ViewHolder internal constructor(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
-
+        val img:ImageView=itemView.findViewById(R.id.img)
         val time:TextView=itemView.findViewById(R.id.time)
         init {
-
             itemView.setOnClickListener {
                 click?.clickItem(layoutPosition)
             }
