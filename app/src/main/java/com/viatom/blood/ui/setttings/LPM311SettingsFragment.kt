@@ -12,8 +12,7 @@ class LPM311SettingsFragment : Fragment() {
 
     private var _binding: Lpm311FragmentSettingsBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+
     private val binding get() = _binding!!
 
     override fun onCreateView(
