@@ -2,16 +2,16 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "69a0d680696b8bb882f4913309087c40",
+    "identityHash": "5a2667293666bd3f8ba8283d05b813fc",
     "entities": [
       {
         "tableName": "LPM311Data",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` INTEGER NOT NULL, `dateString` TEXT NOT NULL, `name` TEXT NOT NULL, `size` INTEGER NOT NULL, `note` TEXT NOT NULL, PRIMARY KEY(`date`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`name` TEXT NOT NULL, `dateString` TEXT NOT NULL, `date` INTEGER NOT NULL, `size` INTEGER NOT NULL, `note` TEXT NOT NULL, PRIMARY KEY(`name`))",
         "fields": [
           {
-            "fieldPath": "date",
-            "columnName": "date",
-            "affinity": "INTEGER",
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
             "notNull": true
           },
           {
@@ -21,9 +21,9 @@
             "notNull": true
           },
           {
-            "fieldPath": "name",
-            "columnName": "name",
-            "affinity": "TEXT",
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "INTEGER",
             "notNull": true
           },
           {
@@ -41,7 +41,7 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "date"
+            "name"
           ],
           "autoGenerate": false
         },
@@ -52,7 +52,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '69a0d680696b8bb882f4913309087c40')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5a2667293666bd3f8ba8283d05b813fc')"
     ]
   }
 }

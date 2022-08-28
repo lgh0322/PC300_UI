@@ -14,7 +14,7 @@ interface LPM311Dao {
 
 
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(vararg item: LPM311Data)
 
 
