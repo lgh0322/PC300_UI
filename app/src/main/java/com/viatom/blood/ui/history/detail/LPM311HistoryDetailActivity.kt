@@ -24,8 +24,6 @@ class LPM311HistoryDetailActivity : AppCompatActivity() {
 
         LPM311HistoryFragment.currentSelect.observe(this){
             binding.time.text=it.dateString
-
-
             LPM311AppDatabase.dataScope.launch {
                 val note= LPM311AppDatabase.lpmDb.lpmDao().getNote(it.date)
                 withContext(Dispatchers.Main){
