@@ -41,9 +41,7 @@ class LPM311MainActivity : AppCompatActivity() {
     private fun getWifiRouteIPAddress(context: Context): String {
         val wifi_service = context.getSystemService(Context.WIFI_SERVICE) as WifiManager
         val dhcpInfo = wifi_service.dhcpInfo
-
         val routeIp: String = Formatter.formatIpAddress(dhcpInfo.gateway)
-
         return routeIp
     }
 }
