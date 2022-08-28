@@ -39,7 +39,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:screenOrientation="landscape" android:name="com.viatom.blood.ui.history.detail.LPM311HistoryDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
+        <activity android:screenOrientation="landscape" android:name="com.viatom.blood.ui.history.detail.LPM311HistoryDetailActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar3"/>
         <activity android:name="com.viatom.blood.LPM311AboutActivity"   android:theme="@style/DuoekAppTheme.Light.NoActionBar2"/>
     </application>
 

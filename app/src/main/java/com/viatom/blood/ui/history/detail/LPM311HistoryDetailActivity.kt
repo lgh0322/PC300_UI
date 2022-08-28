@@ -2,12 +2,15 @@ package com.viatom.blood.ui.history.detail
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.viatom.blood.databinding.ActivityLpm311HistoryDetailBinding
 import com.viatom.blood.room.LPM311AppDatabase
 import com.viatom.blood.ui.history.LPM311HistoryFragment
+import com.viatom.blood.utils.PathUtil
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.File
 
 class LPM311HistoryDetailActivity : AppCompatActivity() {
 
@@ -23,21 +26,15 @@ class LPM311HistoryDetailActivity : AppCompatActivity() {
         }
 
         LPM311HistoryFragment.currentSelect.observe(this){
-            binding.time.text=it.dateString
-            LPM311AppDatabase.dataScope.launch {
-                val note= LPM311AppDatabase.lpmDb.lpmDao().getNote(it.date)
-                withContext(Dispatchers.Main){
-                    binding.note.setText(note)
-                }
-            }
+            val file= File(PathUtil.getPathX(it.name))
+            Glide.with(this)
+                .load(file)
+                .into(binding.img)
         }
     }
 
     override fun onBackPressed() {
-        val item=LPM311HistoryFragment.currentSelect.value
-        if(item!=null){
-            LPM311AppDatabase.updateNote(item.date,binding.note.text.toString())
-        }
+
         super.onBackPressed()
     }
 }
