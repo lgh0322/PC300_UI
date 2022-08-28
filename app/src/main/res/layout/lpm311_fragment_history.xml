@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="History"
+        android:text="历史"
         android:fontFamily="@font/pingfang_sc_bold"
         android:layout_marginTop="54dp"
         android:textColor="@color/white"
@@ -31,7 +31,7 @@
         android:textSize="20sp"
         android:textColor="#4B5563"
         android:fontFamily="@font/pingfang_sc_bold"
-        android:text="Blood Lipids"
+        android:text="图片"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 

@@ -38,8 +38,6 @@ class LPM311HistoryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val LPM311HistoryViewModel =
-            ViewModelProvider(this).get(LPM311HistoryViewModel::class.java)
 
         _binding = Lpm311FragmentHistoryBinding.inflate(inflater, container, false)
         val root: View = binding.root

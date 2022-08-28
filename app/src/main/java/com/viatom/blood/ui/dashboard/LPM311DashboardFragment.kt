@@ -115,19 +115,9 @@ class LPM311DashboardFragment : Fragment(),BleChangeObserver {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val LPM311DashboardViewModel =
-            ViewModelProvider(this).get(LPM311DashboardViewModel::class.java)
 
         _binding = Lpm311FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        val textView: TextView = binding.textHome
-        LPM311DashboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-
-        LPM311DashboardViewModel.changeText("Divice is offline")
-
 
 
         dataAdapter= LPMRealTimeDataAdapter(requireContext())

@@ -21,8 +21,6 @@ class LPM311SettingsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val LPM311SettingsViewModel =
-            ViewModelProvider(this).get(LPM311SettingsViewModel::class.java)
 
         _binding = Lpm311FragmentSettingsBinding.inflate(inflater, container, false)
         val root: View = binding.root

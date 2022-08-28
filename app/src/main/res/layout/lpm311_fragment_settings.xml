@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Settings"
+        android:text="设置"
         android:fontFamily="@font/pingfang_sc_bold"
         android:layout_marginTop="54dp"
         android:textColor="@color/white"
