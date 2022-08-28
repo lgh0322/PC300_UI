@@ -12,7 +12,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.viatom.blood.BleServer.dataScope
 import com.viatom.blood.MainApplication
+import com.viatom.blood.NetCmd
 import com.viatom.blood.ui.history.detail.LPM311HistoryDetailActivity
 import com.viatom.blood.databinding.Lpm311FragmentHistoryBinding
 import com.viatom.blood.room.LPM311AppDatabase
@@ -20,6 +22,9 @@ import com.viatom.blood.room.LPM311Data
 import com.viatom.blood.ui.history.adapter.LPM311HistoryAdapter
 import com.viatom.blood.ui.history.adapter.PoctorTopAdapter
 import kotlinx.coroutines.*
+import org.json.JSONArray
+import org.json.JSONObject
+import java.lang.Exception
 
 class LPM311HistoryFragment : Fragment(){
 
@@ -56,8 +61,6 @@ class LPM311HistoryFragment : Fragment(){
 
         binding.topView.layoutManager =
             object : LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false) {
-
-
                 override fun canScrollHorizontally(): Boolean {
                     return false
                 }
@@ -76,7 +79,6 @@ class LPM311HistoryFragment : Fragment(){
                 currentSelect.postValue(leftAdapter.mData[position])
                 startActivity(Intent(requireActivity(), LPM311HistoryDetailActivity::class.java))
             }
-
         }
 
         MainApplication.dataScope.launch {
@@ -89,9 +91,27 @@ class LPM311HistoryFragment : Fragment(){
         }
 
         binding.refresh.setOnRefreshListener {
-            MainScope().launch {
-                delay(1000)
-                binding.refresh.isRefreshing=false
+            dataScope.launch {
+
+                val data=NetCmd.getInfo();
+                try {
+                    val a=JSONArray(String(data!!))
+                    val len=a.length()
+                    for(k in 0 until len){
+                        val b=a.getJSONObject(k)
+                        val name=b.getString("name")
+                        val size=b.getInt("size")
+                        Log.e("gaga",name+"   "+size)
+                    }
+
+                }catch (e:Exception){
+
+                }
+                withContext(Dispatchers.Main){
+                    delay(1000)
+                    binding.refresh.isRefreshing=false
+                }
+
             }
         }
 

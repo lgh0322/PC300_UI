@@ -31,6 +31,7 @@ import com.lepu.blepro.event.InterfaceEvent
 import com.lepu.blepro.observer.BleChangeObserver
 import com.viatom.blood.BleServer.dataScope
 import com.viatom.blood.NetCmd
+import com.viatom.blood.NetCmd.url
 import com.viatom.blood.net.SimpleHttpServer
 import com.viatom.blood.room.LPM311AppDatabase
 import com.viatom.blood.utils.DateStringUtil
@@ -52,32 +53,6 @@ class LPM311DashboardFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var dataAdapter: LPMRealTimeDataAdapter
 
-    val client = OkHttpClient();
-    val url ="http://192.168.6.114"
-    @Throws(IOException::class)
-    fun uploadInfo(): ByteArray? {
-
-        val request: Request = Request.Builder().url(url).build()
-        client.newCall(request)
-            .execute()
-            .use { response ->
-                {
-                    if(response.code==200){
-                        var inputStream :InputStream?=null;
-                        try {
-                            inputStream= response.body!!.byteStream()
-                        }catch (e:Exception){
-
-                        }finally {
-                            inputStream?.close()
-                        }
-                    }
-                }
-
-
-            }
-        return null
-    }
 
 
 

@@ -1,5 +1,6 @@
 package com.viatom.blood
 
+import android.util.Log
 import com.viatom.blood.utils.PathUtil
 import okhttp3.Call
 import okhttp3.OkHttpClient
@@ -9,6 +10,7 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.InputStream
+import java.lang.Exception
 
 object NetCmd {
 
@@ -84,4 +86,23 @@ object NetCmd {
 
         )
     }
+
+
+
+
+    val url ="http://192.168.6.114"
+    @Throws(IOException::class)
+    fun getInfo(): ByteArray? {
+        val request: Request = Request.Builder().url(url).build()
+        client.newCall(request)
+            .execute()
+            .use { response ->
+                response.body?.bytes()?.let {
+                    Log.e("newMember", it.size.toString())
+                    return it
+                }
+            }
+        return null
+    }
+
 }
