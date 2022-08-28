@@ -25,7 +25,7 @@ class PoctorTopAdapter(var context: Context) :
     private val mData: MutableList<String> = ArrayList()
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
 
-    val name = listOf<String>("Blood Glucose", "Ketone Bodies", "Uric Acid", "GLU", "ECG")
+    val name = listOf<String>("接收机", "本地")
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = mInflater.inflate(R.layout.item_poctor_top, parent, false)
@@ -52,7 +52,7 @@ class PoctorTopAdapter(var context: Context) :
 
 
     override fun getItemCount(): Int {
-        return 3
+        return 2
     }
 
     inner class ViewHolder internal constructor(itemView: View) :
