@@ -105,8 +105,10 @@ class LPM311HistoryFragment : Fragment(),NetCmd.OnDownloadListener{
         binding.refresh.setOnRefreshListener {
             dataScope.launch {
 
-                val data= NetCmd.getInfo();
+
+
                 try {
+                    val data= NetCmd.getInfo();
                     val a=JSONArray(String(data!!))
                     val len=a.length()
                     for(k in 0 until len){

@@ -65,6 +65,7 @@ class LPM311HistoryAdapter(var context: Context) :
 
             holder.status.visibility=View.GONE
         }else{
+            holder.img.visibility=View.INVISIBLE
             holder.status.text="未下载"
             holder.status.visibility=View.VISIBLE
         }
