@@ -34,6 +34,7 @@
         <TextView
             android:fontFamily="@font/pingfang_sc_bold"
             android:id="@+id/text_home"
+            android:text="设备未连接"
             android:textColor="#FF2727"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
