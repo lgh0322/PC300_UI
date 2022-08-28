@@ -62,6 +62,11 @@ class LPM311HistoryAdapter(var context: Context) :
                 .load(file)
                 .apply(requestOptions)
                 .into(holder.img)
+
+            holder.status.visibility=View.GONE
+        }else{
+            holder.status.text="未下载"
+            holder.status.visibility=View.VISIBLE
         }
     }
 
@@ -74,6 +79,7 @@ class LPM311HistoryAdapter(var context: Context) :
         RecyclerView.ViewHolder(itemView) {
         val img:ImageView=itemView.findViewById(R.id.img)
         val time:TextView=itemView.findViewById(R.id.time)
+        val status:TextView=itemView.findViewById(R.id.status)
         init {
             itemView.setOnClickListener {
                 click?.clickItem(layoutPosition)
