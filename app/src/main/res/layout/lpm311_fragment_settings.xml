@@ -30,7 +30,7 @@
         android:gravity="top|center_horizontal"
         android:layout_height="match_parent">
         <TextView
-            android:text="LPM311 8921"
+            android:text="esp32 uwb terminal"
             android:fontFamily="@font/pingfang_sc_bold"
             android:layout_marginTop="8dp"
             android:textColor="#6B7280"
@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
-            android:text="GENERAL"
+            android:text="通用"
             android:fontFamily="@font/pingfang_sc_bold"
             android:layout_marginTop="9dp"
             android:textColor="#9CA3AF"
@@ -59,7 +59,7 @@
                 android:fontFamily="@font/pingfang_sc_bold"
                 android:textSize="14sp"
                 android:layout_marginStart="16dp"
-                android:text="Select Device"
+                android:text="选择设备"
                 android:gravity="center"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_width="wrap_content"
@@ -91,7 +91,7 @@
                 android:fontFamily="@font/pingfang_sc_bold"
                 android:textSize="14sp"
                 android:layout_marginStart="16dp"
-                android:text="About"
+                android:text="关于"
                 android:gravity="center"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_width="wrap_content"
@@ -118,7 +118,7 @@
                 android:fontFamily="@font/pingfang_sc_bold"
                 android:textSize="14sp"
                 android:layout_marginStart="16dp"
-                android:text="Feedback"
+                android:text="意见反馈"
                 android:gravity="center"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_width="wrap_content"
