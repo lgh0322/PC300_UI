@@ -52,6 +52,8 @@ class LPM311HistoryAdapter(var context: Context) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item=mData[position]
         holder.time.text=item.dateString
+        holder.status.setTag(position)
+
 
         LPM311HistoryFragment.currentSelect.postValue(item)
         val file= File(PathUtil.getPathX(item.name))
@@ -82,6 +84,7 @@ class LPM311HistoryAdapter(var context: Context) :
         val time:TextView=itemView.findViewById(R.id.time)
         val status:TextView=itemView.findViewById(R.id.status)
         init {
+            itemView.setTag(this)
             itemView.setOnClickListener {
                 click?.clickItem(layoutPosition)
             }

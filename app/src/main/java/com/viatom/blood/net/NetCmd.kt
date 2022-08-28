@@ -36,7 +36,7 @@ object NetCmd {
         /**
          * @param progress 下载进度
          */
-        fun onDownloading(progress: Int)
+        fun onDownloading(index:Int,progress: Int)
 
         /**
          * 下载失败
@@ -70,7 +70,7 @@ object NetCmd {
                             sum += len.toLong()
                             val progress = (sum * 100.0f / total ).toInt()
                             Log.e("fuck","aaaa   ${sum}    ${total}")
-                            listener?.onDownloading(progress)
+                            listener?.onDownloading(index,progress)
                         }
                         fileOutputStream.flush()
                         listener?.onDownloadSuccess(index)

@@ -83,6 +83,7 @@ class LPM311HistoryFragment : Fragment(),NetCmd.OnDownloadListener{
                 currentSelect.postValue(item)
                 val file= File(PathUtil.getPathX(item.name))
                 if(file.exists()){
+
                     startActivity(Intent(requireActivity(), LPM311HistoryDetailActivity::class.java))
                 }else {
                     dataScope.launch {
@@ -138,6 +139,27 @@ class LPM311HistoryFragment : Fragment(),NetCmd.OnDownloadListener{
         return root
     }
 
+
+    fun getThing(position:Int,progress: Int){
+        val layoutManager=binding.leftView.layoutManager
+        val size=layoutManager!!.childCount
+        Log.e("fuck",size.toString())
+        for(k in 0 until size){
+            val view=layoutManager.getChildAt(k)
+            val vh=view!!.getTag() as LPM311HistoryAdapter.ViewHolder;
+            if(vh.status.getTag()!=null){
+                if(vh.status.getTag()==position){
+                    vh.status.text= "${progress}%"
+                }
+
+            }
+        }
+    }
+
+
+
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -155,8 +177,12 @@ class LPM311HistoryFragment : Fragment(),NetCmd.OnDownloadListener{
 
     }
 
-    override fun onDownloading(progress: Int) {
+    override fun onDownloading(index:Int,progress: Int) {
         Log.e("gaga",progress.toString())
+        MainScope().launch {
+            getThing(index,progress)
+        }
+
     }
 
     override fun onDownloadFailed() {
