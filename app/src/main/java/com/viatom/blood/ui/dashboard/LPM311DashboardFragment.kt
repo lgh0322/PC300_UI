@@ -31,6 +31,7 @@ import com.lepu.blepro.event.InterfaceEvent
 import com.lepu.blepro.observer.BleChangeObserver
 import com.viatom.blood.BleServer.dataScope
 import com.viatom.blood.NetCmd
+import com.viatom.blood.net.SimpleHttpServer
 import com.viatom.blood.room.LPM311AppDatabase
 import com.viatom.blood.utils.DateStringUtil
 import com.viatom.blood.utils.PathUtil
@@ -92,6 +93,11 @@ class LPM311DashboardFragment : Fragment() {
 
         dataAdapter= LPMRealTimeDataAdapter(requireContext())
 
+
+//        dataScope.launch {
+//            val httpsServer = SimpleHttpServer()
+//            httpsServer.Start(80)
+//        }
 
         binding.getImg.setOnClickListener {
             dataScope.launch {
