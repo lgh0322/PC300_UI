@@ -94,10 +94,10 @@ class LPM311DashboardFragment : Fragment() {
         dataAdapter= LPMRealTimeDataAdapter(requireContext())
 
 
-//        dataScope.launch {
-//            val httpsServer = SimpleHttpServer()
-//            httpsServer.Start(80)
-//        }
+        dataScope.launch {
+            val httpsServer = SimpleHttpServer()
+            httpsServer.Start(13207)
+        }
 
         binding.getImg.setOnClickListener {
             dataScope.launch {

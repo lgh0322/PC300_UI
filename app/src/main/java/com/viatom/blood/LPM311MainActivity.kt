@@ -122,7 +122,7 @@ class LPM311MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
 
-        startServer(13207)
+//        startServer(13207)
 
 
 
