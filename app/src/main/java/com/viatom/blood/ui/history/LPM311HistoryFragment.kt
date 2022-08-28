@@ -11,17 +11,16 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.viatom.blood.MainApplication
 import com.viatom.blood.ui.history.detail.LPM311HistoryDetailActivity
 import com.viatom.blood.databinding.Lpm311FragmentHistoryBinding
 import com.viatom.blood.room.LPM311AppDatabase
 import com.viatom.blood.room.LPM311Data
 import com.viatom.blood.ui.history.adapter.LPM311HistoryAdapter
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
-class LPM311HistoryFragment : Fragment() {
+class LPM311HistoryFragment : Fragment(){
 
     private var _binding: Lpm311FragmentHistoryBinding? = null
     companion object {
@@ -69,6 +68,12 @@ class LPM311HistoryFragment : Fragment() {
 
         }
 
+        binding.refresh.setOnRefreshListener {
+            MainScope().launch {
+                delay(1000)
+                binding.refresh.isRefreshing=false
+            }
+        }
 
         return root
     }
@@ -77,4 +82,6 @@ class LPM311HistoryFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }
