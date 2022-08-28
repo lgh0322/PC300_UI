@@ -7,9 +7,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.lepu.blepro.event.InterfaceEvent
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.viatom.blood.R
 import com.viatom.blood.room.LPM311Data
+import com.viatom.blood.ui.history.LPM311HistoryFragment
+import com.viatom.blood.utils.PathUtil
+import java.io.File
 
 
 class LPM311HistoryAdapter(var context: Context) :
@@ -46,6 +52,17 @@ class LPM311HistoryAdapter(var context: Context) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item=mData[position]
         holder.time.text=item.dateString
+
+        LPM311HistoryFragment.currentSelect.postValue(item)
+        val file= File(PathUtil.getPathX(item.name))
+        if(file.exists()){
+            var requestOptions = RequestOptions()
+            requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(16))
+            Glide.with(context)
+                .load(file)
+                .apply(requestOptions)
+                .into(holder.img)
+        }
     }
 
 
