@@ -1,4 +1,4 @@
-package com.viatom.blood
+package com.viatom.blood.net
 
 import android.util.Log
 import com.viatom.blood.utils.PathUtil
@@ -10,7 +10,6 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.InputStream
-import java.lang.Exception
 
 object NetCmd {
 
@@ -42,7 +41,7 @@ object NetCmd {
     }
 
 
-    fun getFile(url: String, fileName: String, listener: OnDownloadListener?) {
+    fun getFile(url: String, fileName: String, listener: OnDownloadListener?, total:Int=0) {
         val absoluteFilePath: String =PathUtil.getPathX(fileName);
         val file = File(absoluteFilePath)
         val request: Request = Request.Builder().url(url).tag("appUpdate").build()
@@ -56,7 +55,7 @@ object NetCmd {
                     var fileOutputStream: FileOutputStream? = null
                     var inputStream: InputStream? = null
                     try {
-                        val total = response.body!!.contentLength()
+
                         var sum: Long = 0
                         inputStream = response.body!!.byteStream()
                         fileOutputStream = FileOutputStream(file)

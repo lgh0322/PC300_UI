@@ -8,13 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.viatom.blood.BleServer.dataScope
-import com.viatom.blood.MainApplication
-import com.viatom.blood.NetCmd
+import com.viatom.blood.net.NetCmd
 import com.viatom.blood.ui.history.detail.LPM311HistoryDetailActivity
 import com.viatom.blood.databinding.Lpm311FragmentHistoryBinding
 import com.viatom.blood.room.LPM311AppDatabase
@@ -23,7 +20,6 @@ import com.viatom.blood.ui.history.adapter.LPM311HistoryAdapter
 import com.viatom.blood.ui.history.adapter.PoctorTopAdapter
 import kotlinx.coroutines.*
 import org.json.JSONArray
-import org.json.JSONObject
 import java.lang.Exception
 
 class LPM311HistoryFragment : Fragment(){
@@ -96,7 +92,7 @@ class LPM311HistoryFragment : Fragment(){
         binding.refresh.setOnRefreshListener {
             dataScope.launch {
 
-                val data=NetCmd.getInfo();
+                val data= NetCmd.getInfo();
                 try {
                     val a=JSONArray(String(data!!))
                     val len=a.length()
