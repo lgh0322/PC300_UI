@@ -84,6 +84,9 @@ class LPM311HistoryFragment : Fragment(){
             }
         }
 
+        dataScope.launch {
+            dataList.postValue(LPM311AppDatabase.lpmDb.lpmDao().getAllR())
+        }
 
 
         dataList.observe(viewLifecycleOwner){
