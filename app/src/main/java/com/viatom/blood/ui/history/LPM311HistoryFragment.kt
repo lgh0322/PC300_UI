@@ -18,11 +18,13 @@ import com.viatom.blood.room.LPM311AppDatabase
 import com.viatom.blood.room.LPM311Data
 import com.viatom.blood.ui.history.adapter.LPM311HistoryAdapter
 import com.viatom.blood.ui.history.adapter.PoctorTopAdapter
+import com.viatom.blood.utils.PathUtil
 import kotlinx.coroutines.*
 import org.json.JSONArray
+import java.io.File
 import java.lang.Exception
 
-class LPM311HistoryFragment : Fragment(){
+class LPM311HistoryFragment : Fragment(),NetCmd.OnDownloadListener{
 
     private var _binding: Lpm311FragmentHistoryBinding? = null
     companion object {
@@ -75,8 +77,17 @@ class LPM311HistoryFragment : Fragment(){
         binding.leftView.adapter =leftAdapter
         leftAdapter.click=object:LPM311HistoryAdapter.Click{
             override fun clickItem(position: Int) {
-                currentSelect.postValue(leftAdapter.mData[position])
-                startActivity(Intent(requireActivity(), LPM311HistoryDetailActivity::class.java))
+                val item=leftAdapter.mData[position]
+                currentSelect.postValue(item)
+                val file= File(PathUtil.getPathX(item.name))
+                if(file.exists()){
+                    startActivity(Intent(requireActivity(), LPM311HistoryDetailActivity::class.java))
+                }else {
+                    dataScope.launch {
+                        NetCmd.getFile(NetCmd.getFileUrl(item.name),item.name,this@LPM311HistoryFragment,item.size)
+                    }
+                }
+
             }
         }
 
@@ -124,6 +135,26 @@ class LPM311HistoryFragment : Fragment(){
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onDownloadStart() {
+
+    }
+
+    override fun onDownloadSuccess(filePath: String?) {
+
+    }
+
+    override fun onDownloadSuccessBytes(byteArray: ByteArray?) {
+
+    }
+
+    override fun onDownloading(progress: Int) {
+        Log.e("gaga",progress.toString())
+    }
+
+    override fun onDownloadFailed() {
+
     }
 
 

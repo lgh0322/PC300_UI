@@ -31,6 +31,7 @@ abstract class LPM311AppDatabase : RoomDatabase() {
                 data.date=time;
                 data.dateString=DateStringUtil.timeConvertEnglish(time);
                 data.name=name
+                data.size=len
                 lpmDb.lpmDao().insert(data)
             }
         }

@@ -14,6 +14,10 @@ import java.io.InputStream
 object NetCmd {
 
     val client = OkHttpClient();
+    var url ="http://192.168.6.114"
+    fun getFileUrl(name:String):String{
+        return url+"/"+name;
+    }
 
     interface OnDownloadListener {
         /**
@@ -64,7 +68,8 @@ object NetCmd {
                         while (inputStream.read(buffer).also { len = it } != -1) {
                             fileOutputStream.write(buffer, 0, len)
                             sum += len.toLong()
-                            val progress = (sum * 1.0f / total * 100).toInt()
+                            val progress = (sum * 100.0f / total ).toInt()
+                            Log.e("fuck","aaaa   ${sum}    ${total}")
                             listener?.onDownloading(progress)
                         }
                         fileOutputStream.flush()
@@ -89,7 +94,7 @@ object NetCmd {
 
 
 
-    val url ="http://192.168.6.114"
+
     @Throws(IOException::class)
     fun getInfo(): ByteArray? {
         val request: Request = Request.Builder().url(url).build()

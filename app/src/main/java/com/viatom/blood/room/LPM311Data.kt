@@ -9,5 +9,6 @@ data class LPM311Data(
     @PrimaryKey var date: Long = 0L,
     @ColumnInfo(name = "dateString") var dateString: String = "",
     @ColumnInfo(name = "name") var name: String = "",
+    @ColumnInfo(name = "size") var size:Int=1,
     @ColumnInfo(name = "note") var note: String = "",
     )
